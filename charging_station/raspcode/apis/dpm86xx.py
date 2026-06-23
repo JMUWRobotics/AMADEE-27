@@ -403,7 +403,7 @@ class DPM86XX:
         sep = "="
         if sep in response:
             _, _, tail = response.partition(sep)
-            return tail.rstrip(",").strip()
+            return tail.rstrip('.').rstrip(",").strip()
         raise DPM86XXError(
             f"Cannot extract value from Simple-protocol response: {response!r}"
         )
@@ -1392,21 +1392,13 @@ def display_device_list(devices: List[DPM86XXDevice]) -> None:
     hdr_fns   = [bold] * len(_HDR)
     print(_data_row(hdr_cells, hdr_fns))
     print(_hsep("├", "┼", "┤"))
-
-    mode_fn_lookup = {
-        None: dim,
-        RegulationMode.CV: green,
-        RegulationMode.CC: yel,
-        RegulationMode.OFF: dim,
-    }
     
     # Data rows
     for dev in devices:
         s = dev.state
         stat_raw, stat_fn = _status_cell(dev)
 
-        mode_str = s.regulation_mode.name if s.regulation_mode is not None else None
-        mode_fn = mode_fn_lookup.get(s.regulation_mode, dim)
+        mode_str, mode_fn = _color_mode_lookup.get(s.regulation_mode, ("---", dim))
         
         cells_raw = [
             _rpad(str(dev.address), C_ADDR),
