@@ -9,8 +9,16 @@ Supports both communication protocols documented in the official protocol sheet:
 Author  : generated from JT-DPM86XX_Communication-protocol_2025-07-22.pdf
 Requires: pyserial  (`pip install pyserial`)
 
-Quick-start example
--------------------
+Key classes
+-----------
+  DPM86XXConfig    – connection parameters (port, baud rate, address, protocol, …)
+  DPM86XXState     – typed dataclass snapshot of every readable register value
+  DPM86XX          – low-level serial API; read_all() returns DPM86XXState
+  DPM86XXDevice    – high-level device object: manages connection, caches state,
+                     probes connectivity, and renders its own status panel
+
+Quick-start – single device
+----------------------------
     from dpm86xx import DPM86XX, DPM86XXConfig, BaudRate, Protocol
 
     cfg = DPM86XXConfig(port="/dev/ttyUSB0", baud_rate=BaudRate.B9600, address=1)
@@ -19,6 +27,21 @@ Quick-start example
         psu.set_current(1.500)
         psu.set_output(True)
         psu.display_status()        # pretty-print everything to the console
+
+Quick-start – device objects with state caching
+------------------------------------------------
+    from dpm86xx import DPM86XXDevice, DPM86XXConfig, display_device_list
+
+    devices = [
+        DPM86XXDevice(DPM86XXConfig(port="/dev/ttyUSB0", address=1), name="Bench PSU"),
+        DPM86XXDevice(DPM86XXConfig(port="/dev/ttyUSB0", address=2), name="HV Supply"),
+    ]
+
+    for d in devices:
+        d.update_state()        # reads all registers, caches in d.state
+
+    display_device_list(devices) # compact multi-device summary table
+    devices[0].display_state()   # full panel for one device
 """
 
 from __future__ import annotations
@@ -26,9 +49,9 @@ from __future__ import annotations
 import os
 import struct
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import IntEnum
-from typing import Optional
+from typing import List, Optional, Callable
 
 import serial
 
@@ -99,6 +122,9 @@ class DPM86XXConfig:
     write_delay :
         Seconds to wait after writing before reading the response.
         Needed because the DPM86XX is a slow embedded system.
+    stale_time :
+        Seconds after which cached state is considered stale.  Used by
+        :meth:`DPM86XXDevice.is_stale`.
     """
     port             : str      = "COM1"
     baud_rate        : BaudRate = BaudRate.B9600
@@ -106,6 +132,107 @@ class DPM86XXConfig:
     protocol         : Protocol = Protocol.SIMPLE
     timeout          : float    = 1.0
     write_delay      : float    = 0.05
+    stale_time       : float    = 5.0
+
+
+# ---------------------------------------------------------------------------
+# Device state dataclass
+# ---------------------------------------------------------------------------
+
+class RegulationMode(IntEnum):
+    """Internal representation of the CCCV register (0x1000)."""
+    OFF = 0
+    CV  = 1
+    CC  = 2
+    
+    @classmethod
+    def fromInt(cls, value: int) -> Optional[RegulationMode]:
+        """Return the RegulationMode corresponding to an integer value."""
+        for mode in cls:
+            if mode.value == value:
+                return mode
+        return None
+
+@dataclass
+class DPM86XXState:
+    """
+    Typed snapshot of every readable register value on one DPM86XX unit.
+
+    All fields default to ``None``.  They are populated by
+    :meth:`DPM86XX.read_all` or :meth:`DPM86XXDevice.update_state`.
+    Fields that are unavailable for the active protocol (e.g.
+    ``max_voltage`` under MODBUS RTU) remain ``None`` after a successful
+    read.
+
+    Attributes
+    ----------
+    voltage_set :
+        Programmed voltage setpoint [V].
+    current_set :
+        Programmed current (limit) setpoint [A].
+    output_enabled :
+        ``True`` when the output is switched ON.
+    voltage_measured :
+        Actual measured output voltage [V].
+    current_measured :
+        Actual measured output current [A].
+    power_measured :
+        Derived output power voltage × current [W].  Not a register on
+        the device; computed from the two measured values.
+    regulation_mode :
+        Active regulation mode: ``RegulationMode.OFF``, ``RegulationMode.CV`` or ``RegulationMode.CC``.
+    temperature :
+        Device internal temperature [°C].
+    max_voltage :
+        Factory-rated model maximum voltage [V].
+        Populated only when using the Simple protocol.
+    max_current :
+        Factory-rated model maximum current [A].
+        Populated only when using the Simple protocol.
+    timestamp :
+        ``time.time()`` value recorded at the end of the last successful
+        :meth:`DPM86XX.read_all` call.  ``None`` means the state has
+        never been populated.
+    """
+    # ── Setpoints ──────────────────────────────────────────────────────────
+    voltage_set:      Optional[float] = None   # [V]   programmed setpoint
+    current_set:      Optional[float] = None   # [A]   programmed setpoint
+    # ── Output switch ──────────────────────────────────────────────────────
+    output_enabled:   Optional[bool]  = None   # True = ON
+    # ── Measured values ────────────────────────────────────────────────────
+    voltage_measured: Optional[float] = None   # [V]   actual output voltage
+    current_measured: Optional[float] = None   # [A]   actual output current
+    power_measured:   Optional[float] = None   # [W]   derived (V × I)
+    # ── Status registers ───────────────────────────────────────────────────
+    regulation_mode:  Optional[RegulationMode] = None   # OFF | CV | CC
+    temperature:      Optional[int] = None     # [°C]  internal sensor
+    # ── Model info (Simple protocol only) ──────────────────────────────────
+    max_voltage:      Optional[float] = None   # [V]   hardware maximum
+    max_current:      Optional[float] = None   # [A]   hardware maximum
+    # ── Metadata ───────────────────────────────────────────────────────────
+    timestamp:        Optional[float] = None   # time.time() at last update
+
+    # ── Convenience accessors ──────────────────────────────────────────────
+
+    def is_valid(self) -> bool:
+        """Return ``True`` if this state has been populated at least once."""
+        return self.timestamp is not None
+
+    def age(self) -> Optional[float]:
+        """
+        Seconds elapsed since the last successful update.
+
+        Returns ``None`` if the state has never been populated.
+        """
+        return None if self.timestamp is None else time.time() - self.timestamp
+
+    def is_stale(self, max_age_seconds: float = 5.0) -> bool:
+        """
+        Return ``True`` when the cached values are older than *max_age_seconds*
+        or have never been fetched.
+        """
+        a = self.age()
+        return a is None or a > max_age_seconds
 
 
 # ---------------------------------------------------------------------------
@@ -167,12 +294,6 @@ def _crc16_verify(frame: bytes) -> None:
 # ---------------------------------------------------------------------------
 # Main API class
 # ---------------------------------------------------------------------------
-
-class RegulationMode(IntEnum):
-    """Internal representation of the CCCV register (0x1000)."""
-    OFF = 0
-    CV  = 1
-    CC  = 2
 
 class DPM86XX:
     """
@@ -523,25 +644,26 @@ class DPM86XX:
             # MODBUS CCCV register 0x1000: 0 = no output, 1 = CV, 2 = CC
             raw = self._modbus_read_regs(0x1000, 1)[0]
             
-            for mode in RegulationMode:
-                if mode.value == raw:
-                    return mode
+            resp = RegulationMode.fromInt(raw)
+            if resp is not None:
+                return resp
+            
             raise DPM86XXError(f"Unknown regulation mode value {raw} in register 0x1000")
 
-    def read_temperature(self) -> float:
+    def read_temperature(self) -> int:
         """
         (r33 / reg 0x1003) Read the device's internal temperature sensor.
 
         Returns
         -------
-        float – temperature in °C, resolution 1 °C
+        int – temperature in °C, resolution 1 °C
         """
         if self.config.protocol == Protocol.SIMPLE:
             # Protocol example shows empty operand: :01r33=,
             resp = self._simple_send("r", 33, "")
-            return float(self._simple_extract(resp))
+            return int(self._simple_extract(resp))
         else:
-            return float(self._modbus_read_regs(0x1003, 1)[0])
+            return int(self._modbus_read_regs(0x1003, 1)[0])
 
     # ==================================================================
     # ─── PUBLIC WRITE API ──────────────────────────────────────────────
@@ -758,73 +880,65 @@ class DPM86XX:
     # ─── READ-ALL + CONSOLE VISUALISATION ─────────────────────────────
     # ==================================================================
 
-    def read_all(self) -> dict:
+    def read_all(self) -> DPM86XXState:
         """
-        Read every available parameter in one pass and return a flat dictionary.
+        Read every available parameter in one pass and return a :class:`DPM86XXState`.
 
-        When the MODBUS RTU protocol is active, several read operations are
-        batched into multi-register reads to reduce round-trips.
+        When the MODBUS RTU protocol is active, registers are batched into two
+        multi-register reads to minimize round-trips:
+
+        * Batch 1 – regs 0x0000–0x0002: voltage setpoint, current setpoint,
+          output switch state.
+        * Batch 2 – regs 0x1000–0x1003: regulation mode, measured voltage,
+          measured current, temperature.
 
         Returns
         -------
-        dict with keys:
-
-        ================  =========  ============================================
-        Key               Type       Description
-        ================  =========  ============================================
-        voltage_set       float      Programmed voltage setpoint [V]
-        current_set       float      Programmed current setpoint [A]
-        output_enabled    bool       True if output is switched ON
-        voltage_measured  float      Measured output voltage [V]
-        current_measured  float      Measured output current [A]
-        power_measured    float      Derived output power (V×I) [W]
-        regulation_mode   str        ``"CV"``, ``"CC"``, or ``"OFF"``
-        temperature       float      Device temperature [°C]
-        max_voltage       float|None Model maximum voltage [V] (Simple only)
-        max_current       float|None Model maximum current [A] (Simple only)
-        ================  =========  ============================================
+        DPM86XXState
+            Fully populated state snapshot.  :attr:`DPM86XXState.timestamp`
+            is set to the current wall-clock time.
         """
-        data: dict = {}
+        s = DPM86XXState()
 
         if self.config.protocol == Protocol.MODBUS_RTU:
-            # ── Batch read 1: setpoints + output switch (regs 0x0000–0x0002, 3 words)
+            # ── Batch 1: setpoints + output switch (regs 0x0000–0x0002)
             regs_set = self._modbus_read_regs(0x0000, 3)
-            data["voltage_set"]     = regs_set[0] / 100.0
-            data["current_set"]     = regs_set[1] / 1000.0
-            data["output_enabled"]  = bool(regs_set[2])
+            s.voltage_set    = regs_set[0] / 100.0
+            s.current_set    = regs_set[1] / 1000.0
+            s.output_enabled = bool(regs_set[2])
 
-            # ── Batch read 2: measured values (regs 0x1000–0x1003, 4 words)
+            # ── Batch 2: measured values + status (regs 0x1000–0x1003)
             regs_meas = self._modbus_read_regs(0x1000, 4)
-            raw_mode  = regs_meas[0]   # CCCV: 0=off, 1=CV, 2=CC
-            data["voltage_measured"] = regs_meas[1] / 100.0
-            data["current_measured"] = regs_meas[2] / 1000.0
-            data["temperature"]      = float(regs_meas[3])
-            data["regulation_mode"]  = {0: "OFF", 1: "CV", 2: "CC"}.get(raw_mode, f"?({raw_mode})")
-            data["max_voltage"]      = None
-            data["max_current"]      = None
+            raw_mode  = regs_meas[0]            # CCCV: 0 = no output, 1 = CV, 2 = CC
+            s.voltage_measured = regs_meas[1] / 100.0
+            s.current_measured = regs_meas[2] / 1000.0
+            s.temperature      = float(regs_meas[3])
+            s.regulation_mode  = RegulationMode.fromInt(raw_mode)
+            # max_voltage / max_current not available via MODBUS; remain None
 
-        else:   # Simple protocol – one read per register
+        else:   # Simple protocol – one request per register
             try:
-                data["max_voltage"] = self.read_max_voltage()
+                s.max_voltage = self.read_max_voltage()
             except DPM86XXError:
-                data["max_voltage"] = None
+                pass
             try:
-                data["max_current"] = self.read_max_current()
+                s.max_current = self.read_max_current()
             except DPM86XXError:
-                data["max_current"] = None
+                pass
 
-            data["voltage_set"]      = self.read_voltage_setting()
-            data["current_set"]      = self.read_current_setting()
-            data["output_enabled"]   = self.read_output_enabled()
-            data["voltage_measured"] = self.read_output_voltage()
-            data["current_measured"] = self.read_output_current()
-            data["regulation_mode"]  = self.read_regulation_mode()
-            data["temperature"]      = self.read_temperature()
+            s.voltage_set      = self.read_voltage_setting()
+            s.current_set      = self.read_current_setting()
+            s.output_enabled   = self.read_output_enabled()
+            s.voltage_measured = self.read_output_voltage()
+            s.current_measured = self.read_output_current()
+            s.regulation_mode  = self.read_regulation_mode()
+            s.temperature      = self.read_temperature()
 
-        data["power_measured"] = round(
-            data["voltage_measured"] * data["current_measured"], 4
-        )
-        return data
+        if s.voltage_measured is not None and s.current_measured is not None:
+            s.power_measured = round(s.voltage_measured * s.current_measured, 4)
+
+        s.timestamp = time.time()
+        return s
 
     def display_status(self) -> None:
         """
@@ -833,8 +947,7 @@ class DPM86XX:
         Calls :meth:`read_all` internally.  ANSI colour codes are used when the
         terminal appears to support them; plain ASCII box-drawing is used otherwise.
         """
-        data   = self.read_all()
-        _render_status_panel(data, self.config)
+        _render_status_panel(self.read_all(), self.config)
 
 
 # ---------------------------------------------------------------------------
@@ -847,89 +960,502 @@ def _ansi_supported() -> bool:
         return os.environ.get("TERM") is not None or "WT_SESSION" in os.environ
     return hasattr(os, "get_terminal_size") and os.isatty(1)
 
+global USE_ANSI_COLORING
+USE_ANSI_COLORING = _ansi_supported()
 
 # ANSI colour shortcuts
 _RST  = "\033[0m"
 _BOLD = "\033[1m"
+_STRK = "\033[9m"
 _GRN  = "\033[32m"
 _RED  = "\033[31m"
 _YEL  = "\033[33m"
 _CYN  = "\033[36m"
 _DIM  = "\033[2m"
 
+def green(t):  return color(t, _GRN)
+def red(t):    return color(t, _RED)
+def yel(t):    return color(t, _YEL)
+def cyn(t):    return color(t, _CYN)
+def dim(t):    return color(t, _DIM)
+def bold(t):   return color(t, _BOLD)
+def strike(t): return color(t, _STRK)
 
-def _colour(text: str, code: str, use_colour: bool) -> str:
-    return f"{code}{text}{_RST}" if use_colour else text
+def color(text: str, code: str) -> str:
+    global USE_ANSI_COLORING
+    return f"{code}{text}{_RST}" if USE_ANSI_COLORING else text
 
 
-def _render_status_panel(data: dict, cfg: DPM86XXConfig) -> None:
-    """Print a formatted status panel for the given data dictionary."""
-    use_col  = _ansi_supported()
-    proto    = "Simple" if cfg.protocol == Protocol.SIMPLE else "MODBUS RTU"
-    W        = 52          # inner box width
-    LINE     = "─" * W
+def _fv(val: Optional[float], decimals: int = 2, unit: str = "V") -> str:
+    """Format an optional float with unit; returns ``'---'`` for ``None``."""
+    return f"{val:.{decimals}f} {unit}" if val is not None else "---"
 
-    # Colour helpers
-    def bold(t):  return _colour(t, _BOLD, use_col)
-    def green(t): return _colour(t, _GRN,  use_col)
-    def red(t):   return _colour(t, _RED,  use_col)
-    def yel(t):   return _colour(t, _YEL,  use_col)
-    def cyn(t):   return _colour(t, _CYN,  use_col)
-    def dim(t):   return _colour(t, _DIM,  use_col)
 
-    def row(label: str, value_str: str, val_colour_fn=None) -> str:
-        """Format a label/value pair inside a box row (pure ASCII widths)."""
-        label_col = 30
-        value_col = W - label_col - 1
-        coloured  = val_colour_fn(value_str) if val_colour_fn else value_str
-        padding   = value_col - len(value_str)   # use raw length for alignment
-        return f"│ {label:<{label_col}}{' ' * max(0, padding)}{coloured} │"
+_color_mode_lookup: dict[Optional[RegulationMode], tuple[str, Callable[[str], str]]] = {
+    None: ("---", dim),
+    RegulationMode.CV: ("CV", green),
+    RegulationMode.CC: ("CC", yel),
+    RegulationMode.OFF: ("OFF", dim),
+}
+_color_output_lookup: dict[Optional[bool], tuple[str, Callable[[str], str]]] = {
+    True:  ("ON", green),
+    False: ("OFF", red),
+    None:  ("---", dim),
+}
 
-    def sep(char="─"):
-        return f"├{char * W}┤"
 
-    # ── Output state & regulation mode decorations ──────────────────────
-    if data["output_enabled"]:
-        out_str   = "ON"
-        out_fn    = green
-    else:
-        out_str   = "OFF"
-        out_fn    = red
+# ---------------------------------------------------------------------------
+# DPM86XXDevice – high-level device object
+# ---------------------------------------------------------------------------
 
-    mode = data["regulation_mode"]
-    mode_fn = yel if mode == "CC" else (green if mode == "CV" else dim)
+class DPM86XXDevice:
+    """
+    High-level object representing one physical JT-DPM86XX power supply.
 
-    # ── Title bar ────────────────────────────────────────────────────────
-    title = f"  JT-DPM86XX  ·  {proto}  ·  Address {cfg.address}"
+    Unlike :class:`DPM86XX` (which is a raw serial API), ``DPM86XXDevice``
+    adds:
+
+    * A human-readable **name** label.
+    * A persistent **state cache** (:attr:`state`) of type
+      :class:`DPM86XXState` that survives port open/close cycles.
+    * :meth:`update_state` – reads all registers and updates the cache.
+    * :meth:`is_connected` – probes the device without side-effects.
+    * :meth:`display_state` – renders the *cached* state panel; no I/O.
+
+    The class is a context manager and delegates all write/read primitives
+    to the wrapped :class:`DPM86XX` instance via :attr:`api`.
+
+    Typical usage::
+
+        device = DPM86XXDevice(cfg, name="Bench PSU")
+        with device:
+            device.update_state()
+            device.display_state()
+
+    Or without a context manager (auto open/close per operation)::
+
+        device = DPM86XXDevice(cfg, name="Bench PSU")
+        state  = device.update_state()   # opens, reads, closes automatically
+        device.display_state()           # uses cached state – no I/O
+    """
+    config: DPM86XXConfig
+    name  : str
+    state : DPM86XXState
+    api   : DPM86XX
+    errors: list[DPM86XXError]
+
+    def __init__(self, config: DPM86XXConfig, name: str = ""):
+        """
+        Parameters
+        ----------
+        config :
+            Connection configuration.  :attr:`DPM86XXConfig.address`
+            is the primary identifier for this device on the bus.
+        name :
+            Human-readable label (e.g. ``"Bench PSU"``).  Defaults to
+            ``"PSU@addr<N>"`` when omitted.
+        """
+        self.config = config
+        self.name   = name.strip() or f"PSU@addr{config.address:02d}"
+        self.state  = DPM86XXState()
+        self.api    = DPM86XX(config)
+        self.errors = []
+
+    # ── Identity ───────────────────────────────────────────────────────────
+
+    @property
+    def address(self) -> int:
+        """Slave address as configured in :attr:`config`."""
+        return self.config.address
+
+    def __repr__(self) -> str:
+        conn = "open" if self.api.is_open else "closed"
+        return (
+            f"<DPM86XXDevice name={self.name!r} addr={self.address} "
+            f"port={self.config.port!r} {conn}>"
+        )
+
+    # ── Connection management ──────────────────────────────────────────────
+
+    def open(self) -> "DPM86XXDevice":
+        """
+        Open the serial port.
+
+        Returns *self* for one-liner chaining::
+
+            device.open().update_state()
+        """
+        self.api.open()
+        return self
+
+    def close(self) -> None:
+        """Close the serial port."""
+        self.api.close()
+
+    def __enter__(self) -> "DPM86XXDevice":
+        return self.open()
+
+    def __exit__(self, *_) -> None:
+        self.close()
+
+    @property
+    def is_open(self) -> bool:
+        """``True`` when the underlying serial port is currently open."""
+        return self.api.is_open
+
+    # ── Connection probe ───────────────────────────────────────────────────
+
+    def is_connected(self) -> bool:
+        """
+        Probe the device and return ``True`` if it responds.
+
+        A lightweight read of the voltage setpoint register is used as the
+        probe (available on both protocols).
+
+        If the serial port is **already open**, the check runs on the existing
+        connection.  Otherwise the port is opened and closed automatically for
+        the duration of the probe, leaving the connection state unchanged.
+
+        Returns
+        -------
+        bool
+            ``True``  – device responded within :attr:`DPM86XXConfig.timeout`.
+            ``False`` – no response, serial error, or port could not be opened.
+        """
+        was_open = self.api.is_open
+        try:
+            if not was_open:
+                self.api.open()
+            self.api.read_voltage_setting()
+            return True
+        except (DPM86XXError, serial.SerialException, OSError):
+            return False
+        finally:
+            if not was_open:
+                try:
+                    self.api.close()
+                except Exception:
+                    pass
+
+    # ── State management ───────────────────────────────────────────────────
+
+    def update_state(self) -> DPM86XXState:
+        """
+        Read all available registers and update :attr:`state`.
+
+        If the serial port is already open the existing connection is used.
+        Otherwise the port is opened before reading and closed afterwards,
+        leaving the connection state unchanged.
+
+        Returns
+        -------
+        DPM86XXState
+            The freshly populated state (also stored in :attr:`state`).
+
+        Raises
+        ------
+        DPM86XXError
+            If communication fails (e.g. no response, CRC error).
+        serial.SerialException
+            If the serial port cannot be opened.
+        """
+        was_open = self.api.is_open
+        try:
+            if not was_open:
+                self.api.open()
+            self.state = self.api.read_all()
+            return self.state
+        finally:
+            if not was_open:
+                self.api.close()
+
+    # ── Error tracking ─────────────────────────────────────────────────────
+    
+    def has_errors(self) -> bool:
+        """Return True if any errors have been recorded in :attr:`errors`."""
+        return len(self.errors) > 0
+    
+    def clear_errors(self) -> None:
+        """Clear the :attr:`errors` list."""
+        self.errors.clear()
+
+    # ── Console output ──────────────────────────────────────────────────────
+
+    def display_state(self) -> None:
+        """
+        Print a full-detail status panel of the **cached** :attr:`state`.
+
+        This method does **not** communicate with the device.  Call
+        :meth:`update_state` first if you need fresh values.
+        """
+        _render_status_panel(self.state, self.config, device_name=self.name)
+
+
+# ---------------------------------------------------------------------------
+# display_device_list – compact multi-device summary table
+# ---------------------------------------------------------------------------
+
+def _render_status_panel(
+    state: DPM86XXState,
+    cfg: DPM86XXConfig,
+    device_name: str = "",
+    W: int = 52
+) -> None:
+    """
+    Print a formatted full-detail status panel for one device.
+
+    Parameters
+    ----------
+    state :
+        State snapshot to render.  ``None`` fields are shown as ``---``.
+    cfg :
+        Connection configuration (used for header information only).
+    device_name :
+        Optional human-readable device label shown in the title bar.
+    W :
+        Inner width of the box (excluding the vertical borders).  Default 52.
+    """
+    proto = "Simple" if cfg.protocol == Protocol.SIMPLE else "MODBUS RTU"
+    LINE  = "─" * W
+    SEP   = f"├{LINE}┤"
+
+    def row(label: str, value_str: str, col_fn=None) -> str:
+        """One labelled data row; *value_str* is measured for alignment."""
+        label_col = 25
+        value_col = W - label_col - 2
+        colored   = col_fn(value_str) if col_fn else value_str
+        padding   = value_col - len(value_str)
+        return f"│ {label:<{label_col}s}{' ' * max(0, padding)}{colored} │"
+
+    # ── Output state & regulation mode decorations ────────────────────────
+    out_str, out_fn = _color_output_lookup.get(state.output_enabled, ("---", dim))
+    mode_str, mode_fn = _color_mode_lookup.get(state.regulation_mode, ("---", dim))
+
+    # ── Title bar ─────────────────────────────────────────────────────────
+    name_part = f"{device_name}  ·  " if device_name else ""
+    title     = f"  {name_part}JT-DPM86XX  ·  {proto}  ·  Addr {cfg.address}"
     print()
     print(f"╭{LINE}╮")
-    print(f"│{bold(title):^{W}}│" if not use_col else f"│{_BOLD}{title:^{W}}{_RST}│")
-    print(f"├{LINE}┤")
+    print(f"│{_BOLD if USE_ANSI_COLORING else ''}{title:^{W}}{_RST if USE_ANSI_COLORING else ''}│")
+    print(SEP)
 
-    # ── Model limits (Simple protocol only) ─────────────────────────────
-    if data["max_voltage"] is not None or data["max_current"] is not None:
-        if data["max_voltage"] is not None:
-            print(row("Model maximum voltage", f"{data['max_voltage']:.2f} V", cyn))
-        if data["max_current"] is not None:
-            print(row("Model maximum current", f"{data['max_current']:.3f} A", cyn))
-        print(sep())
+    # ── Last-update timestamp ─────────────────────────────────────────────
+    if state.timestamp is not None:
+        import datetime
+        ts_str = datetime.datetime.fromtimestamp(state.timestamp).strftime("%H:%M:%S")
+        age    = state.age()
+        age_str = f"{age:.1f} s ago" if age is not None else ""
+        print(row("State captured at", f"{ts_str}  ({age_str})", dim))
+        print(SEP)
 
-    # ── Setpoints ────────────────────────────────────────────────────────
-    print(row("Voltage setpoint",       f"{data['voltage_set']:.2f} V"))
-    print(row("Current setpoint",       f"{data['current_set']:.3f} A"))
-    print(sep())
+    # ── Model limits (Simple protocol only) ───────────────────────────────
+    if state.max_voltage is not None or state.max_current is not None:
+        if state.max_voltage is not None:
+            print(row("Model maximum voltage", _fv(state.max_voltage, 2, "V"), cyn))
+        if state.max_current is not None:
+            print(row("Model maximum current", _fv(state.max_current, 3, "A"), cyn))
+        print(SEP)
 
-    # ── Measured values ──────────────────────────────────────────────────
-    print(row("Measured voltage",       f"{data['voltage_measured']:.2f} V"))
-    print(row("Measured current",       f"{data['current_measured']:.3f} A"))
-    print(row("Measured power (V×I)",   f"{data['power_measured']:.4f} W"))
-    print(sep())
+    # ── Setpoints ─────────────────────────────────────────────────────────
+    print(row("Voltage setpoint",     _fv(state.voltage_set,  2, "V")))
+    print(row("Current setpoint",     _fv(state.current_set,  3, "A")))
+    print(SEP)
 
-    # ── Status ───────────────────────────────────────────────────────────
-    print(row("Output state",           out_str,  out_fn))
-    print(row("Regulation mode",        mode,     mode_fn))
-    print(row("Device temperature",     f"{data['temperature']:.0f} °C"))
+    # ── Measured values ───────────────────────────────────────────────────
+    print(row("Measured voltage",     _fv(state.voltage_measured, 2, "V")))
+    print(row("Measured current",     _fv(state.current_measured, 3, "A")))
+    print(row("Measured power (V×I)", _fv(state.power_measured,   4, "W")))
+    print(SEP)
+
+    # ── Status ────────────────────────────────────────────────────────────
+    print(row("Output state",         out_str,                      out_fn))
+    print(row("Regulation mode",      mode_str,                    mode_fn))
+    print(row("Device temperature",   _fv(state.temperature, 0, "°C")))
     print(f"╰{LINE}╯")
+    print()
+
+
+def display_device_list(devices: List[DPM86XXDevice]) -> None:
+    """
+    Print a compact summary table of multiple :class:`DPM86XXDevice` objects.
+
+    Uses the **cached** :attr:`DPM86XXDevice.state` of each device — no serial
+    communication is performed.  Call :meth:`DPM86XXDevice.update_state` on
+    each device beforehand to ensure fresh values are shown.
+
+    The *Status* column indicates the freshness of each device's cached state:
+
+    * ``● LIVE   `` – data is less than th devices stale time old.
+    * ``○ STALE  `` – data is older than the devices stale time but was fetched at least once.
+    * ``✗ NO DATA`` – :meth:`update_state` has never been called for this device.
+    * ``✗ ERROR  `` – iff errors have accumulated.
+    * ``✗ DISCONN`` – the device was unreachable when :meth:`update_state` was called.
+
+    Parameters
+    ----------
+    devices :
+        List of :class:`DPM86XXDevice` instances to display.  An empty list
+        prints a short notice and returns immediately.
+    """
+    if not devices:
+        print("(device list is empty)")
+        return
+
+    # ── Column inner-widths (content only, no padding) ───────────────────
+    # Each cell is rendered as  │<sp>content<sp>  for visual clarity.
+    C_ADDR   = 2    # " 1" … "99"
+    C_NAME   = 18   # truncated device name
+    C_STAT   = 9    # "● LIVE  " / "○ STALE " / "✗ NO DATA" / "✗ ERROR  " / "✗ DISCONN"
+    C_VSET   = 7    # "12.34 V"
+    C_ISET   = 8    # " 1.500 A"
+    C_VOUT   = 7    # "12.31 V"
+    C_IOUT   = 8    # " 0.748 A"
+    C_MODE   = 4    # "CV" / "CC" / "--"
+    C_OUT    = 3    # " ON" / "OFF"
+    C_TEMP   = 4    # "35°C" / " ---"
+
+    # Build widths list and header labels in lock-step
+    _COL_W = [C_ADDR, C_NAME, C_STAT, C_VSET, C_ISET, C_VOUT, C_IOUT, C_MODE, C_OUT, C_TEMP]
+    _HDR   = ["Adr",  "Name",  "Status",  "V_set", " I_set", "V_out", " I_out", "Mode", "Out", "Temp"]
+
+    # Total table width: 2 outside borders + columns (incl. internal spaces) + column spacers
+    _TW = 1 + sum(1 + w + 1 for w in _COL_W) + (len(_COL_W) - 1) + 1
+    
+    # ── Cell formatter helpers ────────────────────────────────────────────
+    def _pad(s: str, w: int) -> str:
+        """Left-pad *s* to width *w* using raw len (no ANSI in *s*)."""
+        return s[:w].ljust(w)
+
+    def _rpad(s: str, w: int) -> str:
+        return s[:w].rjust(w)
+
+    def _fmt_v(v: Optional[float]) -> str:
+        return f"{v:2.2f} V" if v is not None else "--.-- V"
+
+    def _fmt_a(v: Optional[float]) -> str:
+        return f"{v:2.3f} A" if v is not None else "--.--- A"
+
+    def _fmt_mode(v: Optional[str]) -> str:
+        if v is None:  return "--"
+        return f"{v:<2}"[:3]
+
+    def _fmt_out(v: Optional[bool]) -> str:
+        if v is None:   return "---"
+        return " ON" if v else "OFF"
+
+    def _fmt_temp(v: Optional[int]) -> str:
+        return f"{v:2d}°C" if v is not None else "--°C"
+
+    def _status_cell(dev: DPM86XXDevice) -> tuple[str, object]:
+        """Return (raw_text, colour_fn) for the status column."""
+        s = dev.state
+        if not dev.is_connected():
+            return ("✗ DISCONN", red)
+        if dev.has_errors():
+            return ("✗ ERROR  ", red)
+        if not s.is_valid():
+            return ("✗ NO DATA", dim)
+        if s.is_stale(dev.config.stale_time):
+            return ("○ STALE ", yel)
+        return ("● LIVE  ", green)
+
+    # ── Separator row builder ─────────────────────────────────────────────
+    def _hsep(left="├", mid="┼", right="┤") -> str:
+        parts = [f"{'─' * (w + 2)}" for w in _COL_W]
+        return left + mid.join(parts) + right
+
+    # ── Single data row builder ───────────────────────────────────────────
+    def _data_row(cells_raw: list, colour_fns: list) -> str:
+        """
+        Build one │-delimited row.  *cells_raw* are plain strings (used for
+        width measurement); *colour_fns* are applied for display.
+        """
+        parts = []
+        for raw, fn, w in zip(cells_raw, colour_fns, _COL_W):
+            displayed = fn(raw) if fn else raw
+            # Padding is computed from raw length, applied after coloring
+            pad = " " * max(0, w - len(raw))
+            parts.append(f" {displayed}{pad} ")
+        return "│" + "│".join(parts) + "│"
+
+    # ── Print the table ───────────────────────────────────────────────────
+    proto_label = "Simple" if devices[0].config.protocol == Protocol.SIMPLE else "MODBUS RTU"
+    title = f" JT-DPM86XX Device List  ·  {len(devices)} device{'s' if len(devices) != 1 else ''}  ·  {proto_label} "
+
+    print()
+    print("╭" + "─" * (_TW - 2) + "╮")
+    print("│" + bold(title.center(_TW - 2)) + "│")
+    print(_hsep("├", "┬", "┤"))
+
+    # Header row
+    hdr_cells = [_rpad(h, w) for h, w in zip(_HDR, _COL_W)]
+    hdr_fns   = [bold] * len(_HDR)
+    print(_data_row(hdr_cells, hdr_fns))
+    print(_hsep("├", "┼", "┤"))
+
+    mode_fn_lookup = {
+        None: dim,
+        RegulationMode.CV: green,
+        RegulationMode.CC: yel,
+        RegulationMode.OFF: dim,
+    }
+    
+    # Data rows
+    for dev in devices:
+        s = dev.state
+        stat_raw, stat_fn = _status_cell(dev)
+
+        mode_str = s.regulation_mode.name if s.regulation_mode is not None else None
+        mode_fn = mode_fn_lookup.get(s.regulation_mode, dim)
+        
+        cells_raw = [
+            _rpad(str(dev.address), C_ADDR),
+            _pad(dev.name,          C_NAME),
+            _pad(stat_raw,          C_STAT),
+            _fmt_v(s.voltage_set)        .rjust(C_VSET),
+            _fmt_a(s.current_set)        .rjust(C_ISET),
+            _fmt_v(s.voltage_measured)   .rjust(C_VOUT),
+            _fmt_a(s.current_measured)   .rjust(C_IOUT),
+            _fmt_mode(mode_str)          .center(C_MODE),
+            _fmt_out(s.output_enabled)   .rjust(C_OUT),
+            _fmt_temp(s.temperature)     .rjust(C_TEMP),
+        ]
+
+        # Output-ON/OFF gets its own colour; regulation mode too
+        out_fn  = (green if s.output_enabled is True
+                   else (red if s.output_enabled is False else dim))
+
+        colour_fns = [
+            None,      # addr – no colour
+            None,      # name
+            stat_fn,   # status
+            None,      # V_set
+            None,      # I_set
+            None,      # V_out
+            None,      # I_out
+            mode_fn,   # mode
+            out_fn,    # out
+            None,      # temp
+        ]
+        
+        if not dev.is_connected():
+            dim_red = lambda t: red(dim(strike(t)))
+            colour_fns = [
+                None,       # addr – no colour
+                None,       # name
+                stat_fn,    # status
+                dim_red,    # V_set
+                dim_red,    # I_set
+                dim_red,    # V_out
+                dim_red,    # I_out
+                dim_red,    # mode
+                dim_red,    # out
+                dim_red,    # temp
+            ]
+
+        print(_data_row(cells_raw, colour_fns))
+
+    print(_hsep("╰", "┴", "╯"))
     print()
 
 
@@ -937,21 +1463,37 @@ def _render_status_panel(data: dict, cfg: DPM86XXConfig) -> None:
 # Convenience: stand-alone live monitor
 # ---------------------------------------------------------------------------
 
-def live_monitor(config: DPM86XXConfig, interval: float = 1.0, iterations: int = 0) -> None:
+def live_monitor(
+    config: DPM86XXConfig,
+    interval: float = 1.0,
+    iterations: int = 0,
+    name: str = "",
+) -> None:
     """
-    Open a connection and repeatedly call :meth:`DPM86XX.display_status`.
+    Repeatedly poll a device and print its full status panel.
+
+    Internally creates a :class:`DPM86XXDevice`, keeps the connection open
+    for the duration, and calls :meth:`~DPM86XXDevice.update_state` +
+    :meth:`~DPM86XXDevice.display_state` on each iteration.
 
     Parameters
     ----------
-    config     : connection configuration
-    interval   : seconds between refreshes
-    iterations : how many times to poll (0 = infinite, Ctrl-C to stop)
+    config :
+        Connection configuration.
+    interval :
+        Seconds between refreshes.
+    iterations :
+        How many polls to perform (``0`` = infinite; stop with Ctrl-C).
+    name :
+        Optional device label passed to :class:`DPM86XXDevice`.
     """
-    with DPM86XX(config) as psu:
+    device = DPM86XXDevice(config, name=name)
+    with device:
         count = 0
         try:
             while True:
-                psu.display_status()
+                device.update_state()
+                device.display_state()
                 count += 1
                 if iterations and count >= iterations:
                     break
@@ -965,39 +1507,100 @@ def live_monitor(config: DPM86XXConfig, interval: float = 1.0, iterations: int =
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    import sys
+    import datetime
 
     print("DPM86XX API – self-test / demo")
-    print("=" * 52)
+    print("=" * 60)
 
-    # ── CRC unit test ────────────────────────────────────────────────────
-    # Reference values from Section 6 of the protocol document:
-    #   Read regs 0x0000 & 0x0001 from slave 0x01 → frame 01 03 00 00 00 02 CRC
-    ref_payload = bytes([0x01, 0x03, 0x00, 0x00, 0x00, 0x02])
-    calc        = _crc16_modbus(ref_payload)
-    expected    = 0x0BC4   # C4 0B in little-endian → 0x0BC4
-    ok          = calc == expected
-    print(f"CRC-16 self-test:  calculated={calc:#06x}  expected={expected:#06x}  {'PASS ✓' if ok else 'FAIL ✗'}")
+    # ── CRC unit tests (reference values from protocol document §6) ───────
+    tests = [
+        # Read regs 0x0000–0x0001 from slave 0x01 → expected CRC 0x0BC4
+        (bytes([0x01, 0x03, 0x00, 0x00, 0x00, 0x02]), 0x0BC4, "0x03 read frame"),
+        # Write 24.00V to reg 0x0000 via 0x06 → expected CRC 0xB28F
+        (bytes([0x01, 0x06, 0x00, 0x00, 0x09, 0x60]), 0xB28F, "0x06 write frame"),
+    ]
+    all_pass = True
+    for payload, expected, label in tests:
+        calc = _crc16_modbus(payload)
+        ok   = calc == expected
+        all_pass = all_pass and ok
+        status = "PASS ✓" if ok else "FAIL ✗"
+        print(f"  CRC-16 [{label}]:  {calc:#06x} == {expected:#06x}  {status}")
 
-    # ── Verify CRC of the example set-voltage frame (Section 6) ─────────
-    # Host sets 24.00V: 01 06 00 00 09 60 → CRC should be 0xB28F (8F B2 LE)
-    ref2     = bytes([0x01, 0x06, 0x00, 0x00, 0x09, 0x60])
-    calc2    = _crc16_modbus(ref2)
-    expected2 = 0xB28F
-    ok2      = calc2 == expected2
-    print(f"CRC-16 self-test2: calculated={calc2:#06x}  expected={expected2:#06x}  {'PASS ✓' if ok2 else 'FAIL ✗'}")
-
+    # ── DPM86XXState smoke test ───────────────────────────────────────────
     print()
-    print("To use the API:")
-    print("  from dpm86xx import DPM86XX, DPM86XXConfig, BaudRate, Protocol, SaveSlot")
+    s = DPM86XXState()
+    assert not s.is_valid(),  "fresh state should be invalid"
+    assert s.age()  is None,  "fresh state age should be None"
+    assert s.is_stale(),      "fresh state should be stale"
+    s.timestamp = time.time() - 3.0
+    assert s.is_valid(),           "state with timestamp should be valid"
+    assert not s.is_stale(5.0),    "3s old state should not be stale (max=5s)"
+    assert s.is_stale(2.0),        "3s old state should be stale (max=2s)"
+    print("  DPM86XXState logic:  PASS ✓")
+
+    # ── Render a mock status panel ────────────────────────────────────────
+    mock = DPM86XXState(
+        voltage_set      = 12.34,
+        current_set      =  1.500,
+        output_enabled   = True,
+        voltage_measured = 12.31,
+        current_measured =  0.748,
+        power_measured   =  9.208,
+        regulation_mode  = RegulationMode.CV,
+        temperature      = 35,
+        max_voltage      = 60.0,
+        max_current      =  5.0,
+        timestamp        = time.time(),
+    )
+    cfg_mock = DPM86XXConfig(
+        port="COM1", baud_rate=BaudRate.B9600, address=1, protocol=Protocol.SIMPLE
+    )
     print()
+    _render_status_panel(mock, cfg_mock, device_name="Bench PSU")
+
+    # ── Render a mock device list ─────────────────────────────────────────
+    dev1 = DPM86XXDevice(
+        DPM86XXConfig(port="COM1", address=1, protocol=Protocol.SIMPLE), "Bench PSU"
+    )
+    dev1.state = mock
+
+    dev2 = DPM86XXDevice(
+        DPM86XXConfig(port="COM1", address=2, protocol=Protocol.SIMPLE), "HV Supply"
+    )
+    dev2.state = DPM86XXState(
+        voltage_set=48.0, 
+        current_set=3.0,
+        output_enabled=True,
+        voltage_measured=47.92, 
+        current_measured=2.991,
+        power_measured=143.4,
+        regulation_mode=RegulationMode.CC,
+        temperature=42,
+        timestamp=time.time() - 8.0,   # stale
+    )
+
+    dev3 = DPM86XXDevice(
+        DPM86XXConfig(port="COM1", address=3, protocol=Protocol.SIMPLE), "Spare Unit"
+    )
+    # dev3.state deliberately left empty (never updated)
+
+    display_device_list([dev1, dev2, dev3])
+
+    # ── Usage hints ──────────────────────────────────────────────────────
+    print("Quick-start snippets:")
+    print()
+    print("  # Low-level API")
+    print("  from dpm86xx import DPM86XX, DPM86XXConfig, BaudRate")
     print("  cfg = DPM86XXConfig(port='/dev/ttyUSB0', baud_rate=BaudRate.B9600, address=1)")
     print("  with DPM86XX(cfg) as psu:")
-    print("      psu.set_voltage(12.0)")
-    print("      psu.set_current(2.0)")
-    print("      psu.set_output(True)")
+    print("      psu.set_voltage(12.0); psu.set_current(2.0); psu.set_output(True)")
     print("      psu.display_status()")
     print()
-    print("For live monitoring:")
-    print("  from dpm86xx import live_monitor, DPM86XXConfig")
-    print("  live_monitor(cfg, interval=2.0)")
+    print("  # Device objects with state caching")
+    print("  from dpm86xx import DPM86XXDevice, DPM86XXConfig, display_device_list")
+    print("  dev = DPM86XXDevice(cfg, name='Bench PSU')")
+    print("  dev.update_state()        # reads all registers")
+    print("  dev.display_state()       # full panel from cache")
+    print("  print(dev.is_connected()) # live connectivity probe")
+    print("  display_device_list([dev])")
