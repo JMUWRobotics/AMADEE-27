@@ -670,12 +670,12 @@
     <properties>
         <property name="author" show="1">Nico Schubert</property>
         <property name="path" show="1">./charging_station/QElectroTech/chargingStation.qet</property>
-        <property name="saveddate" show="1">7/21/26</property>
-        <property name="saveddate-eu" show="1">21-07-2026</property>
-        <property name="saveddate-us" show="1">2026-07-21</property>
+        <property name="saveddate" show="1">8/2/26</property>
+        <property name="saveddate-eu" show="1">02-08-2026</property>
+        <property name="saveddate-us" show="1">2026-08-02</property>
         <property name="savedfilename" show="1">chargingStation</property>
         <property name="savedfilepath" show="1">/home/nls/SHK_Arbeit/AMADEE-27/charging_station/QElectroTech/chargingStation.qet</property>
-        <property name="savedtime" show="1">12:42</property>
+        <property name="savedtime" show="1">19:39</property>
     </properties>
     <newdiagrams>
         <border cols="17" colsize="60" rows="8" displaycols="true" displayrows="true" rowsize="80"/>
@@ -690,7 +690,7 @@
         <conductors_autonums freeze_new_conductors="false" current_autonum="Wire">
             <conductor_autonum title="Wire" formula="-W%sequ_1">
                 <part type="string" value="-W" increase="1"/>
-                <part type="unit" value="94" increase="1"/>
+                <part type="unit" value="96" increase="1"/>
             </conductor_autonum>
             <conductor_autonum title="Name of the new numbering" formula="-W%sequ_1">
                 <part type="string" value="-W" increase="1"/>
@@ -1526,8 +1526,8 @@ T2</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X3C9</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix10:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X10:3C9</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -1535,7 +1535,7 @@ T2</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-1" y="-18" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{60fb4284-552b-4870-92d0-bbae195283f5}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X3C9</text>
+                        <text>-X10:3C9</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -1549,8 +1549,11 @@ T2</text>
                 </terminals>
                 <inputs/>
                 <elementInformations>
+                    <elementInformation name="auto_num_locked" show="1">false</elementInformation>
+                    <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
                     <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
                     <elementInformation name="label" show="1">-X3D13</elementInformation>
+                    <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
                     <element_type terminal_led="false" terminal_type="generic" terminal_function="generic"/>
@@ -1571,8 +1574,11 @@ T2</text>
                 </terminals>
                 <inputs/>
                 <elementInformations>
+                    <elementInformation name="auto_num_locked" show="1">false</elementInformation>
+                    <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
                     <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
                     <elementInformation name="label" show="1">-X3C13</elementInformation>
+                    <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
                     <element_type terminal_led="false" terminal_type="generic" terminal_function="generic"/>
@@ -1663,15 +1669,18 @@ T3</text>
                 </terminals>
                 <inputs/>
                 <elementInformations>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X3E10</elementInformation>
+                    <elementInformation name="auto_num_locked" show="1">false</elementInformation>
+                    <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix2:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X2:3E10</elementInformation>
+                    <elementInformation name="potential_isolating" show="1">false</elementInformation>
                 </elementInformations>
                 <properties>
                     <element_type terminal_led="false" terminal_type="generic" terminal_function="generic"/>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="1" y="-17.5" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{7bd5bc9e-dc98-47ae-8f93-5212d31f9cd3}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X3E10</text>
+                        <text>-X2:3E10</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -1687,8 +1696,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X3B9</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix10:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X10:3B9</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -1696,7 +1705,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-18" y="-1" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{cf1cee93-0248-42e0-80f1-7938f5beb5a9}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X3B9</text>
+                        <text>-X10:3B9</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -1740,6 +1749,9 @@ T3</text>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="37" y="10.5" rotation="180" font="Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{8e5a215a-95f4-419e-a78f-63bf857894f5}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
                         <text>4-C2</text>
                         <info_name>label</info_name>
+                    </dynamic_elmt_text>
+                    <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="17" y="31" rotation="180" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{decdc13f-d515-4bb4-92d8-a28bb0fd9ce9}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
+                        <text>MPPT-</text>
                     </dynamic_elmt_text>
                 </dynamic_texts>
                 <texts_groups/>
@@ -1821,15 +1833,18 @@ T3</text>
                 </terminals>
                 <inputs/>
                 <elementInformations>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X3E7</elementInformation>
+                    <elementInformation name="auto_num_locked" show="1">false</elementInformation>
+                    <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix1:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X1:3E7</elementInformation>
+                    <elementInformation name="potential_isolating" show="1">false</elementInformation>
                 </elementInformations>
                 <properties>
                     <element_type terminal_led="false" terminal_type="generic" terminal_function="generic"/>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-1" y="-18.5" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{80f18e09-d9a4-4893-b0c3-5c12d451546f}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X3E7</text>
+                        <text>-X1:3E7</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -1863,15 +1878,18 @@ T3</text>
                 </terminals>
                 <inputs/>
                 <elementInformations>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X3D14</elementInformation>
+                    <elementInformation name="auto_num_locked" show="1">false</elementInformation>
+                    <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix1:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X1:3E14</elementInformation>
+                    <elementInformation name="potential_isolating" show="1">false</elementInformation>
                 </elementInformations>
                 <properties>
                     <element_type terminal_led="false" terminal_type="generic" terminal_function="generic"/>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-1" y="-18.5" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{3df8ce72-e73c-488e-adce-2d831d6e7261}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X3E14</text>
+                        <text>-X1:3E14</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -1884,15 +1902,18 @@ T3</text>
                 </terminals>
                 <inputs/>
                 <elementInformations>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X3D15</elementInformation>
+                    <elementInformation name="auto_num_locked" show="1">false</elementInformation>
+                    <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix2:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X2:3E15</elementInformation>
+                    <elementInformation name="potential_isolating" show="1">false</elementInformation>
                 </elementInformations>
                 <properties>
                     <element_type terminal_led="false" terminal_type="generic" terminal_function="generic"/>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="0" y="-18.5" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{06943671-2098-45c0-85e5-673a69636b67}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X3E15</text>
+                        <text>-X2:3E15</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -1905,15 +1926,18 @@ T3</text>
                 </terminals>
                 <inputs/>
                 <elementInformations>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X3E9</elementInformation>
+                    <elementInformation name="auto_num_locked" show="1">false</elementInformation>
+                    <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix1:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X1:3E8</elementInformation>
+                    <elementInformation name="potential_isolating" show="1">false</elementInformation>
                 </elementInformations>
                 <properties>
                     <element_type terminal_led="false" terminal_type="generic" terminal_function="generic"/>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-1" y="-18.5" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{c05d33ff-4a79-4965-a1b8-1e94402d7569}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X3E8</text>
+                        <text>-X1:3E8</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -1981,7 +2005,7 @@ T3</text>
                 </terminals>
                 <inputs/>
                 <elementInformations>
-                    <elementInformation name="comment" show="1">20A 150VDC</elementInformation>
+                    <elementInformation name="comment" show="1">40A 150VDC</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
                     <elementInformation name="formula" show="1">-F2</elementInformation>
                     <elementInformation name="label" show="1">-F2</elementInformation>
@@ -1992,7 +2016,7 @@ T3</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="2" y="39" rotation="270" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{b0b810e3-e6e9-4d24-8a69-98adf83d7b0c}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>20A 150VDC</text>
+                        <text>40A 150VDC</text>
                         <info_name>comment</info_name>
                     </dynamic_elmt_text>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-17" y="25" rotation="270" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{9fa37c1e-ae60-41f9-abc9-c8f90d449ffd}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
@@ -2193,6 +2217,9 @@ T3</text>
                         <text>4-A2</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
+                    <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="17" y="27" rotation="180" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{0cefa575-f406-4177-9666-9ceb150bd95c}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
+                        <text>MPPT+</text>
+                    </dynamic_elmt_text>
                 </dynamic_texts>
                 <texts_groups/>
             </element>
@@ -2232,27 +2259,27 @@ T3</text>
                     <unit>61</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W35" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="switchfuses" bicolor="false" element1="{bc266000-04d7-4928-9e5b-b52d17fded52}" condsize="1" numsize="7" element2="{456765c3-0926-4d3f-b55f-7b0330354c8e}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{8e806539-80f0-4097-bb4e-82c2bed51442}" terminalname1="" terminal2="{adb64687-550f-47d2-ab4e-177c418c7b9c}" terminalname2="" element2_label="-X3C9" element1_label="-F1" userx="470" usery="220" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W35" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="switchfuses" bicolor="false" element1="{bc266000-04d7-4928-9e5b-b52d17fded52}" condsize="1" numsize="7" element2="{456765c3-0926-4d3f-b55f-7b0330354c8e}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{8e806539-80f0-4097-bb4e-82c2bed51442}" terminalname1="" terminal2="{adb64687-550f-47d2-ab4e-177c418c7b9c}" terminalname2="" element2_label="-X10:3C9" element1_label="-F1" userx="470" usery="220" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>35</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{456765c3-0926-4d3f-b55f-7b0330354c8e}" condsize="1" numsize="7" element2="{53ddcef4-2736-4b34-9789-b02b82fd9a54}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{8dc539cb-4c6a-46bd-a49d-061436c59049}" terminalname1="" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname2="" element2_label="-X3B9" element1_label="-X3C9" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{456765c3-0926-4d3f-b55f-7b0330354c8e}" condsize="1" numsize="7" element2="{53ddcef4-2736-4b34-9789-b02b82fd9a54}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{8dc539cb-4c6a-46bd-a49d-061436c59049}" terminalname1="" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname2="" element2_label="-X10:3B9" element1_label="-X10:3C9" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers>
                     <unit>36</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W33" conductor_color="" type="multi" element2_name="Contact power contactor" x="0" y="0" element2_linked="-Q4G7" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{53ddcef4-2736-4b34-9789-b02b82fd9a54}" condsize="1" element2="{adfd2d39-097c-4870-9ab8-7e10300430f4}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{bfb4e480-8683-4eaf-bbf2-6773fd484999}" terminalname2="" element2_label="" element1_label="-X3B9" userx="610" usery="150" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W33" conductor_color="" type="multi" element2_name="Contact power contactor" x="0" y="0" element2_linked="-Q4G7" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{53ddcef4-2736-4b34-9789-b02b82fd9a54}" condsize="1" element2="{adfd2d39-097c-4870-9ab8-7e10300430f4}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{bfb4e480-8683-4eaf-bbf2-6773fd484999}" terminalname2="" element2_label="" element1_label="-X10:3B9" userx="610" usery="150" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>33</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="" type="multi" element1_label="-X3E10" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Contact power contactor" bus="" num="-W32" function="" onetextperfolio="1" bicolor="false" terminal1="{21c4c9ff-544f-409e-b5c6-7e3d30cea240}" color2="#000000" terminal2="{6f5464f0-0b83-49c7-9579-d471655acf7a}" formula="-W%sequ_1" element1="{8d0293c9-f065-4344-b513-ac6ae5a58b72}" element2="{6e2762df-2bd3-4496-ad80-08a1cf6f116d}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="610" y="0" vertirotatetext="270" usery="330" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="-Q4G8" rotation="360" text_color="#000000" freezeLabel="false" element2_label="" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="" type="multi" element1_label="-X2:3E10" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Contact power contactor" bus="" num="-W32" function="" onetextperfolio="1" bicolor="false" terminal1="{21c4c9ff-544f-409e-b5c6-7e3d30cea240}" color2="#000000" terminal2="{6f5464f0-0b83-49c7-9579-d471655acf7a}" formula="-W%sequ_1" element1="{8d0293c9-f065-4344-b513-ac6ae5a58b72}" element2="{6e2762df-2bd3-4496-ad80-08a1cf6f116d}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="610" y="0" vertirotatetext="270" usery="330" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="-Q4G8" rotation="360" text_color="#000000" freezeLabel="false" element2_label="" conductor_color="">
                 <sequentialNumbers>
                     <unit>32</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W61" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{30cf4662-1ef2-4547-a53a-c7b5d338f41e}" condsize="1" numsize="7" element2="{4856b636-e1f1-41f5-90c0-d698916f3cca}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{ce25d169-cbfd-4df9-8f1a-b808b4167e9d}" terminalname1="" terminal2="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname2="" element2_label="-X3E7" element1_label="" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W61" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{30cf4662-1ef2-4547-a53a-c7b5d338f41e}" condsize="1" numsize="7" element2="{4856b636-e1f1-41f5-90c0-d698916f3cca}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{ce25d169-cbfd-4df9-8f1a-b808b4167e9d}" terminalname1="" terminal2="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname2="" element2_label="-X1:3E7" element1_label="" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>61</unit>
                 </sequentialNumbers>
@@ -2260,7 +2287,7 @@ T3</text>
             <conductor num="-W%sequ_1" conductor_color="" type="multi" element2_name="Battery one element" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{094afc47-00d5-4fb6-bd42-1f8c1cf61188}" condsize="1" numsize="7" element2="{cd02318d-50c5-4684-b643-877968d0da0f}" tension_protocol="0VDC" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{9717e1c4-91f6-4676-ac01-ff537e298383}" terminalname2="" element2_label="-C3D13" element1_label="-X3D13" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="-W34" conductor_color="" type="multi" element2_name="switchfuses" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{53ddcef4-2736-4b34-9789-b02b82fd9a54}" condsize="1" numsize="7" element2="{37f6a2ff-fa58-49f2-b5f1-a8a524595073}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{8e806539-80f0-4097-bb4e-82c2bed51442}" terminalname2="" element2_label="-F2" element1_label="-X3B9" userx="470" usery="160" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W34" conductor_color="" type="multi" element2_name="switchfuses" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{53ddcef4-2736-4b34-9789-b02b82fd9a54}" condsize="1" numsize="7" element2="{37f6a2ff-fa58-49f2-b5f1-a8a524595073}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{8e806539-80f0-4097-bb4e-82c2bed51442}" terminalname2="" element2_label="-F2" element1_label="-X10:3B9" userx="470" usery="160" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>34</unit>
                 </sequentialNumbers>
@@ -2314,6 +2341,11 @@ T3</text>
             <conductor condsize="1" color="#00ffff" cable="" displaytext="1" terminalname1="VE.Direct USB" terminalname2="1" type="multi" element1_label="-K1" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Going arrow" bus="" num="VE.Direct" function="" onetextperfolio="0" bicolor="false" terminal1="{0e5f0751-2115-4d56-8885-6cb84d07704e}" color2="#000000" terminal2="{975add6f-4ba5-44af-a4c0-e1f1c2024601}" formula="VE.Direct" element1="{8a5a8751-98f1-4a27-b7da-c8ec87419308}" element2="{bfe1e27b-50ba-475e-b7db-f9669360a92a}" element1_name="MPPT" conductor_section="" x="0" dash-size="2" userx="860" y="0" vertirotatetext="270" usery="210" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="" text_color="#000000" freezeLabel="false" element2_label="" conductor_color="">
                 <sequentialNumbers/>
             </conductor>
+            <conductor num="-W95" conductor_color="" type="multi" element2_name="MPPT" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{094afc47-00d5-4fb6-bd42-1f8c1cf61188}" condsize="1" numsize="7" element2="{8a5a8751-98f1-4a27-b7da-c8ec87419308}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{6fc7418e-f841-42e4-a859-44221f2979db}" terminalname2="BAT-" rotation="360" element2_label="-K1" element1_label="-X3D13" userx="770" usery="330" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+                <sequentialNumbers>
+                    <unit>95</unit>
+                </sequentialNumbers>
+            </conductor>
             <conductor num="-W12" conductor_color="" type="multi" element2_name="Going arrow" x="0" y="0" element2_linked="" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="One-phase alternating > Direct" bicolor="false" element1="{9eaa6dfd-39e8-4776-b8f8-998a5d01aee1}" condsize="1" element2="{b306ae27-1604-4ab8-a22c-289cd9d30c58}" numsize="7" tension_protocol="0VDC" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{92118d4e-09ef-4a23-83bc-e2f6b65e16ef}" terminalname1="" terminal2="{975add6f-4ba5-44af-a4c0-e1f1c2024601}" terminalname2="1" element2_label="" element1_label="-T3G7" userx="410" usery="590" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>12</unit>
@@ -2327,7 +2359,7 @@ T3</text>
             <conductor num="" conductor_color="" type="multi" element2_name="switchfuses" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{e5a97b9e-4fb5-4493-adb4-a25042b46bba}" condsize="1" numsize="7" element2="{37f6a2ff-fa58-49f2-b5f1-a8a524595073}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{ce25d169-cbfd-4df9-8f1a-b808b4167e9d}" terminalname1="" terminal2="{1fb55a5a-0f15-41f6-8025-ac5fa6b8c01b}" terminalname2="" element2_label="-F2" element1_label="" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="MPPT" bicolor="false" element1="{8a5a8751-98f1-4a27-b7da-c8ec87419308}" condsize="1" numsize="7" element2="{f08f0331-93f3-4392-a262-9ac529274d3d}" tension_protocol="0VDC" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{146852ae-183b-4950-aac1-711d44dd461e}" terminalname1="PV-" terminal2="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname2="" element2_label="-X3E14" element1_label="-K1" userx="810" usery="280" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="MPPT" bicolor="false" element1="{8a5a8751-98f1-4a27-b7da-c8ec87419308}" condsize="1" numsize="7" element2="{f08f0331-93f3-4392-a262-9ac529274d3d}" tension_protocol="0VDC" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{146852ae-183b-4950-aac1-711d44dd461e}" terminalname1="PV-" terminal2="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname2="" element2_label="-X1:3E14" element1_label="-K1" userx="810" usery="280" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
             <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="1" type="multi" element1_label="-T3G7" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Going arrow" bus="" num="-W11" function="" onetextperfolio="1" bicolor="false" terminal1="{f7ba1365-9210-4cdc-aee8-c5cf3d29f1e9}" color2="#000000" terminal2="{975add6f-4ba5-44af-a4c0-e1f1c2024601}" formula="-W%sequ_1" element1="{9eaa6dfd-39e8-4776-b8f8-998a5d01aee1}" element2="{c0c53a5d-7db9-48f8-993a-b5cab5fe93b9}" element1_name="One-phase alternating > Direct" conductor_section="" x="0" dash-size="2" userx="410" y="0" vertirotatetext="270" usery="560" numsize="7" tension_protocol="48VDC 30A" horizontal-alignment="AlignBottom" element2_linked="" rotation="360" text_color="#000000" freezeLabel="false" element2_label="" conductor_color="">
@@ -2340,7 +2372,7 @@ T3</text>
                     <hundredFolio></hundredFolio>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W2" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="MPPT" bicolor="false" element1="{8a5a8751-98f1-4a27-b7da-c8ec87419308}" condsize="1" numsize="7" element2="{1c49012b-672c-4aaa-b7a5-792c7b21475a}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{44d122fc-09c5-494d-a138-6cefd8d0ff09}" terminalname1="PV+" terminal2="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname2="" element2_label="-X3E15" element1_label="-K1" userx="870" usery="280" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W2" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="MPPT" bicolor="false" element1="{8a5a8751-98f1-4a27-b7da-c8ec87419308}" condsize="1" numsize="7" element2="{1c49012b-672c-4aaa-b7a5-792c7b21475a}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{44d122fc-09c5-494d-a138-6cefd8d0ff09}" terminalname1="PV+" terminal2="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname2="" element2_label="-X2:3E15" element1_label="-K1" userx="870" usery="280" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <segment orientation="vertical" length="32.5"/>
                 <segment orientation="vertical" length="38.5"/>
                 <segment orientation="horizontal" length="50"/>
@@ -2368,7 +2400,7 @@ T3</text>
             <conductor num="" conductor_color="" type="multi" element2_name="switchfuses" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{77544788-612a-468a-92bd-2f181a91427a}" condsize="1" numsize="7" element2="{bc266000-04d7-4928-9e5b-b52d17fded52}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{ce25d169-cbfd-4df9-8f1a-b808b4167e9d}" terminalname1="" terminal2="{1fb55a5a-0f15-41f6-8025-ac5fa6b8c01b}" terminalname2="" element2_label="-F1" element1_label="" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{036007e6-af8c-4343-869a-31ca511cd8bc}" condsize="1" numsize="7" element2="{562aa76a-d655-452c-8dfd-11abac9600d1}" tension_protocol="0VDC" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname1="" terminal2="{ce25d169-cbfd-4df9-8f1a-b808b4167e9d}" terminalname2="" element2_label="" element1_label="-X3E8" userx="540" usery="310" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{036007e6-af8c-4343-869a-31ca511cd8bc}" condsize="1" numsize="7" element2="{562aa76a-d655-452c-8dfd-11abac9600d1}" tension_protocol="0VDC" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname1="" terminal2="{ce25d169-cbfd-4df9-8f1a-b808b4167e9d}" terminalname2="" element2_label="" element1_label="-X1:3E8" userx="540" usery="310" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
             <conductor num="-W8" conductor_color="" type="multi" element2_name="Outlet 3 poles" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="One-phase alternating > Direct" bicolor="false" element1="{9eaa6dfd-39e8-4776-b8f8-998a5d01aee1}" condsize="1" numsize="7" element2="{989af392-bf11-4103-915f-db7dc754940a}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{4efdd02e-da6c-4121-a055-b7918ea9e5bb}" terminalname1="" terminal2="{bc31bdbc-5454-48c5-b913-48b69c7be3f4}" terminalname2="" element2_label="-X3F7" element1_label="-T3G7" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
@@ -2390,9 +2422,6 @@ T3</text>
                     <hundred></hundred>
                     <hundredFolio></hundredFolio>
                 </sequentialNumbers>
-            </conductor>
-            <conductor num="-W%sequ_1" conductor_color="" type="multi" element2_name="MPPT" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{094afc47-00d5-4fb6-bd42-1f8c1cf61188}" condsize="1" numsize="7" element2="{8a5a8751-98f1-4a27-b7da-c8ec87419308}" tension_protocol="0VDC" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{6fc7418e-f841-42e4-a859-44221f2979db}" terminalname2="BAT-" rotation="360" element2_label="-K1" element1_label="-X3D13" userx="770" usery="330" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
-                <sequentialNumbers/>
             </conductor>
         </conductors>
         <inputs>
@@ -2426,8 +2455,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4G12</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix8:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X8:4H8</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2435,7 +2464,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-1" y="-19" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{9133225b-fd51-49a2-a147-c044874da304}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4H8</text>
+                        <text>-X8:4H8</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2451,8 +2480,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4G12</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix8:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X8:4H9</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2460,7 +2489,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-1" y="-19" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{ab8e3ab6-2335-4a78-b525-2dfc59c01108}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4H9</text>
+                        <text>-X8:4H9</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2475,8 +2504,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4B11</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix4:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X4:4B12</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2484,7 +2513,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="23" y="-18" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{8334e216-e96b-46de-b401-bbec02a38cf1}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4B12</text>
+                        <text>-X4:4B12</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2524,8 +2553,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4B7</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix3:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X3:4B7</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2533,7 +2562,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-27" y="15" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{e8c51bfc-5732-4e3a-a781-818d98417dbb}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4B7</text>
+                        <text>-X3:4B7</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2567,8 +2596,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4H6</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix8:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X8:4H6</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2576,7 +2605,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="1" y="12" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{a5744b61-9625-4b39-8b30-731128c16263}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4H6</text>
+                        <text>-X8:4H6</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2592,8 +2621,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4F7</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix7:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X7:4G7</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2601,7 +2630,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-33" y="-9" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{699fc3e7-b0f6-413b-97d4-48075add4b7c}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4G7</text>
+                        <text>-X7:4G7</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2664,8 +2693,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4E10</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix6:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X6:4E9</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2673,7 +2702,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-27" y="16.5" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{9b7ade31-095f-4e50-becc-a4113ae76cf5}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4E9</text>
+                        <text>-X6:4E9</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2688,8 +2717,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4B6</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix3:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X3:4B6</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2697,7 +2726,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-27" y="14.5" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{83432585-e4ff-4165-a541-5cf994f70acd}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4B6</text>
+                        <text>-X3:4B6</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2712,8 +2741,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4G8</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix7:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X7:4G8</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2721,7 +2750,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="21" y="-16" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{2120d2de-746f-4f12-9ce3-7febab6a5a9f}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4G8</text>
+                        <text>-X7:4G8</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2737,8 +2766,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4B8</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix4:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X4:4B9</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2746,7 +2775,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-23" y="15" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{78df3829-4068-409e-b65b-15f273331d3d}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4B9</text>
+                        <text>-X4:4B9</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2779,8 +2808,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4G11</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix8:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X8:4H7</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2788,7 +2817,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-1" y="-19" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{1303129c-315e-420a-aaee-c7939e451496}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4H7</text>
+                        <text>-X8:4H7</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2870,7 +2899,7 @@ T3</text>
                         <text>3-G8</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
-                    <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-11" y="-28" rotation="0" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{7feb2e6c-4f9e-4839-ba17-87079d82e29a}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
+                    <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-13" y="-27" rotation="0" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{7feb2e6c-4f9e-4839-ba17-87079d82e29a}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
                         <text>Vext+</text>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2889,7 +2918,7 @@ T3</text>
                         <text>3-H8</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
-                    <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-9" y="-20" rotation="0" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{421db1d9-3684-434b-9cc9-8f8a2e78daf3}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
+                    <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-13" y="-24" rotation="0" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{421db1d9-3684-434b-9cc9-8f8a2e78daf3}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
                         <text>Vext-</text>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -2954,8 +2983,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4E7</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix5:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X5:4E7</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -2963,7 +2992,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-35" y="-9" rotation="0" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{3ff63a84-3c7f-4ea3-a8ef-1554c99cddbb}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4E7</text>
+                        <text>-X5:4E7</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -3142,8 +3171,8 @@ T1</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X4E9</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix6:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X6:4E12</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -3151,7 +3180,7 @@ T1</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-4" y="-17" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{d5473d81-b2cc-40f5-9e2c-2e04ad082858}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X4E12</text>
+                        <text>-X6:4E12</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -3159,57 +3188,57 @@ T1</text>
             </element>
         </elements>
         <conductors>
-            <conductor num="-W49" conductor_color="" type="multi" element2_name="Push-button" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{f34ffca0-9d47-4281-8c90-1dd212172b74}" condsize="1" numsize="7" element2="{ed08e5bf-8df2-4fae-9207-54c9fbb0ec63}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{1db4e4bd-ec1e-4fdb-84cb-2d7d0b7cac74}" terminalname2="" rotation="360" element2_label="-S4B7" element1_label="-X4B7" userx="400" usery="130" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W49" conductor_color="" type="multi" element2_name="Push-button" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{f34ffca0-9d47-4281-8c90-1dd212172b74}" condsize="1" numsize="7" element2="{ed08e5bf-8df2-4fae-9207-54c9fbb0ec63}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{1db4e4bd-ec1e-4fdb-84cb-2d7d0b7cac74}" terminalname2="" rotation="360" element2_label="-S4B7" element1_label="-X3:4B7" userx="400" usery="130" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>49</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="A2" terminalname2="" type="multi" element1_linked="" element1_label="-Q4G8" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Terminal block" bus="" num="-W69" function="" onetextperfolio="0" bicolor="false" terminal1="{c5376fd7-bdf1-4c10-985a-0d7d5f52c8f9}" color2="#000000" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" formula="-W%sequ_1" element1="{caf894e3-26c7-4846-91fa-58516209e8d0}" element2="{e3485a0b-2890-4989-911b-300fa16cda19}" element1_name="Coil" conductor_section="" x="0" dash-size="2" userx="490" y="0" vertirotatetext="270" usery="590" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" rotation="360" text_color="#000000" freezeLabel="false" element2_label="-X4H8" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="A2" terminalname2="" type="multi" element1_linked="" element1_label="-Q4G8" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Terminal block" bus="" num="-W69" function="" onetextperfolio="0" bicolor="false" terminal1="{c5376fd7-bdf1-4c10-985a-0d7d5f52c8f9}" color2="#000000" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" formula="-W%sequ_1" element1="{caf894e3-26c7-4846-91fa-58516209e8d0}" element2="{e3485a0b-2890-4989-911b-300fa16cda19}" element1_name="Coil" conductor_section="" x="0" dash-size="2" userx="490" y="0" vertirotatetext="270" usery="590" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" rotation="360" text_color="#000000" freezeLabel="false" element2_label="-X8:4H8" conductor_color="">
                 <sequentialNumbers>
                     <unit>69</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W67" conductor_color="" type="multi" element2_name="Switch 3 positions including neutral" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{4c8749fd-d5b0-491f-a317-f70af9b29af5}" condsize="1" numsize="7" element2="{97b7c454-dcbc-4ab6-a468-a137e48e4682}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{adb64687-550f-47d2-ab4e-177c418c7b9c}" terminalname1="" terminal2="{684bd52f-9e40-408f-b86a-6738038d5010}" terminalname2="" rotation="360" element2_label="-S4C4" element1_label="-X4H6" userx="280" usery="260" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W67" conductor_color="" type="multi" element2_name="Switch 3 positions including neutral" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{4c8749fd-d5b0-491f-a317-f70af9b29af5}" condsize="1" numsize="7" element2="{97b7c454-dcbc-4ab6-a468-a137e48e4682}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{adb64687-550f-47d2-ab4e-177c418c7b9c}" terminalname1="" terminal2="{684bd52f-9e40-408f-b86a-6738038d5010}" terminalname2="" rotation="360" element2_label="-S4C4" element1_label="-X8:4H6" userx="280" usery="260" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>67</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W40" conductor_color="" type="multi" element2_name="Diode" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{be3fe6a3-dbcd-481b-8001-da91243e716b}" condsize="1" numsize="7" element2="{3fe3a71c-c50c-4201-b96d-c42e34e9db8d}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{40077d9a-942a-4a3a-a58a-5e1381cc2efa}" terminalname2="K" element2_label="-V4E8" element1_label="-X4E7" userx="410" usery="360" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W40" conductor_color="" type="multi" element2_name="Diode" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{be3fe6a3-dbcd-481b-8001-da91243e716b}" condsize="1" numsize="7" element2="{3fe3a71c-c50c-4201-b96d-c42e34e9db8d}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{40077d9a-942a-4a3a-a58a-5e1381cc2efa}" terminalname2="K" element2_label="-V4E8" element1_label="-X5:4E7" userx="410" usery="360" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>40</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{7bcd9555-8e9f-4e7a-8d16-353303986be8}" condsize="1" numsize="7" element2="{e3485a0b-2890-4989-911b-300fa16cda19}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X4H8" element1_label="-X4H9" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{7bcd9555-8e9f-4e7a-8d16-353303986be8}" condsize="1" numsize="7" element2="{e3485a0b-2890-4989-911b-300fa16cda19}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X8:4H8" element1_label="-X8:4H9" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers>
                     <unit>65</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W50" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Fuse 1p" bicolor="false" element1="{cde8e7cf-00d6-4e2c-b5c2-8253b000afec}" condsize="1" numsize="7" element2="{f34ffca0-9d47-4281-8c90-1dd212172b74}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{67931c05-57c6-40dd-8607-3e2bb47feaa8}" terminalname1="1" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" element2_label="-X4B7" element1_label="-F4B8" userx="410" usery="110" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W50" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Fuse 1p" bicolor="false" element1="{cde8e7cf-00d6-4e2c-b5c2-8253b000afec}" condsize="1" numsize="7" element2="{f34ffca0-9d47-4281-8c90-1dd212172b74}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{67931c05-57c6-40dd-8607-3e2bb47feaa8}" terminalname1="1" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" element2_label="-X3:4B7" element1_label="-F4B8" userx="410" usery="110" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>50</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="1" terminalname2="" type="multi" element1_linked="" element1_label="" horizrotatetext="0" vertical-alignment="AlignRight" style="line-style: dashed;" element2_name="Terminal block" bus="" num="48VDC" function="" onetextperfolio="0" bicolor="false" terminal1="{975add6f-4ba5-44af-a4c0-e1f1c2024601}" color2="#000000" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" formula="48VDC" element1="{33d0f387-60f5-4526-a3e0-a975000acfb1}" element2="{ed6b0f93-f89f-413c-b6a3-8d30635f12d4}" element1_name="Going arrow" conductor_section="" x="0" dash-size="2" userx="760" y="0" vertirotatetext="270" usery="340" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" text_color="#000000" freezeLabel="false" element2_label="-X4E12" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="1" terminalname2="" type="multi" element1_linked="" element1_label="" horizrotatetext="0" vertical-alignment="AlignRight" style="line-style: dashed;" element2_name="Terminal block" bus="" num="48VDC" function="" onetextperfolio="0" bicolor="false" terminal1="{975add6f-4ba5-44af-a4c0-e1f1c2024601}" color2="#000000" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" formula="48VDC" element1="{33d0f387-60f5-4526-a3e0-a975000acfb1}" element2="{ed6b0f93-f89f-413c-b6a3-8d30635f12d4}" element1_name="Going arrow" conductor_section="" x="0" dash-size="2" userx="760" y="0" vertirotatetext="270" usery="340" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" text_color="#000000" freezeLabel="false" element2_label="-X6:4E12" conductor_color="">
                 <sequentialNumbers>
                     <unit>58</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="A1" type="multi" element1_label="-X4G8" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Coil" bus="" num="-W46" function="" onetextperfolio="0" bicolor="false" terminal1="{adb64687-550f-47d2-ab4e-177c418c7b9c}" color2="#000000" terminal2="{8d0fa333-2d98-4a75-8a4e-21c81cce7ec3}" formula="-W%sequ_1" element1="{a8945840-6cda-4374-8fd9-89c4950745ba}" element2="{caf894e3-26c7-4846-91fa-58516209e8d0}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="490" y="0" vertirotatetext="270" usery="520" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="" rotation="360" text_color="#000000" freezeLabel="false" element2_label="-Q4G8" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="A1" type="multi" element1_label="-X7:4G8" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Coil" bus="" num="-W46" function="" onetextperfolio="0" bicolor="false" terminal1="{adb64687-550f-47d2-ab4e-177c418c7b9c}" color2="#000000" terminal2="{8d0fa333-2d98-4a75-8a4e-21c81cce7ec3}" formula="-W%sequ_1" element1="{a8945840-6cda-4374-8fd9-89c4950745ba}" element2="{caf894e3-26c7-4846-91fa-58516209e8d0}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="490" y="0" vertirotatetext="270" usery="520" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="" rotation="360" text_color="#000000" freezeLabel="false" element2_label="-Q4G8" conductor_color="">
                 <sequentialNumbers>
                     <unit>46</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="A1" type="multi" element1_label="-X4G7" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Coil" bus="" num="-W45" function="" onetextperfolio="0" bicolor="false" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" color2="#000000" terminal2="{8d0fa333-2d98-4a75-8a4e-21c81cce7ec3}" formula="-W%sequ_1" element1="{55b842a4-f923-4199-94c7-7623ff67a0c2}" element2="{8a48e16a-ad3c-489a-9267-96a47c56e12e}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="400" y="0" vertirotatetext="270" usery="520" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="" rotation="360" text_color="#000000" freezeLabel="false" element2_label="-Q4G7" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="A1" type="multi" element1_label="-X7:4G7" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Coil" bus="" num="-W45" function="" onetextperfolio="0" bicolor="false" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" color2="#000000" terminal2="{8d0fa333-2d98-4a75-8a4e-21c81cce7ec3}" formula="-W%sequ_1" element1="{55b842a4-f923-4199-94c7-7623ff67a0c2}" element2="{8a48e16a-ad3c-489a-9267-96a47c56e12e}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="400" y="0" vertirotatetext="270" usery="520" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="" rotation="360" text_color="#000000" freezeLabel="false" element2_label="-Q4G7" conductor_color="">
                 <sequentialNumbers>
                     <unit>45</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{e3485a0b-2890-4989-911b-300fa16cda19}" condsize="1" numsize="7" element2="{16e697c5-fe99-46c4-8b65-325c23df4596}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X4H7" element1_label="-X4H8" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{e3485a0b-2890-4989-911b-300fa16cda19}" condsize="1" numsize="7" element2="{16e697c5-fe99-46c4-8b65-325c23df4596}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X8:4H7" element1_label="-X8:4H8" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers>
                     <unit>64</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W51" conductor_color="" type="multi" element2_name="Fuse 1p" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{e9dc6106-b7ef-474e-857d-8fa2c0ba63c0}" condsize="1" numsize="7" element2="{cde8e7cf-00d6-4e2c-b5c2-8253b000afec}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{05fdba7b-6122-47ce-9e68-fe7ebc9c3df3}" terminalname2="2" element2_label="-F4B8" element1_label="-X4B9" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W51" conductor_color="" type="multi" element2_name="Fuse 1p" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{e9dc6106-b7ef-474e-857d-8fa2c0ba63c0}" condsize="1" numsize="7" element2="{cde8e7cf-00d6-4e2c-b5c2-8253b000afec}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{05fdba7b-6122-47ce-9e68-fe7ebc9c3df3}" terminalname2="2" element2_label="-F4B8" element1_label="-X4:4B9" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>51</unit>
                 </sequentialNumbers>
@@ -3219,40 +3248,37 @@ T1</text>
                     <unit>42</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="" type="multi" element1_label="-X4E12" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Contact power contactor" bus="" num="-W57" function="" onetextperfolio="0" bicolor="false" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" color2="#000000" terminal2="{6f5464f0-0b83-49c7-9579-d471655acf7a}" formula="-W%sequ_1" element1="{ed6b0f93-f89f-413c-b6a3-8d30635f12d4}" element2="{93b4f239-2f06-4a4a-ab5f-2fab02026d99}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="710" y="0" vertirotatetext="270" usery="330" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="-Q4G7" rotation="360" text_color="#000000" freezeLabel="false" element2_label="" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="" type="multi" element1_label="-X6:4E12" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Contact power contactor" bus="" num="-W57" function="" onetextperfolio="0" bicolor="false" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" color2="#000000" terminal2="{6f5464f0-0b83-49c7-9579-d471655acf7a}" formula="-W%sequ_1" element1="{ed6b0f93-f89f-413c-b6a3-8d30635f12d4}" element2="{93b4f239-2f06-4a4a-ab5f-2fab02026d99}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="710" y="0" vertirotatetext="270" usery="330" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="-Q4G7" rotation="360" text_color="#000000" freezeLabel="false" element2_label="" conductor_color="">
                 <sequentialNumbers>
                     <unit>57</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W%sequ_1" conductor_color="" type="multi" element2_name="Converter, general symbol" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{7bcd9555-8e9f-4e7a-8d16-353303986be8}" condsize="1" numsize="7" element2="{450472aa-848f-4f2a-a738-4c71e8564078}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{099f9d26-3805-4627-865f-b9b4210d7a51}" terminalname2="Plant" element2_label="-K4B9" element1_label="-X4H9" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
-                <sequentialNumbers/>
-            </conductor>
-            <conductor num="-W39" conductor_color="" type="multi" element2_name="Emergency stop (LATCH)" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{be3fe6a3-dbcd-481b-8001-da91243e716b}" condsize="1" numsize="7" element2="{ecc5cbc5-13cb-40ad-b712-b92d530a3079}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{39dfc980-b962-4f84-a17c-93680f3f7c88}" terminalname2="" rotation="360" element2_label="-S4E7" element1_label="-X4E7" userx="410" usery="370" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W39" conductor_color="" type="multi" element2_name="Emergency stop (LATCH)" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{be3fe6a3-dbcd-481b-8001-da91243e716b}" condsize="1" numsize="7" element2="{ecc5cbc5-13cb-40ad-b712-b92d530a3079}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{39dfc980-b962-4f84-a17c-93680f3f7c88}" terminalname2="" rotation="360" element2_label="-S4E7" element1_label="-X5:4E7" userx="410" usery="370" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>39</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W43" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Push-button (NC)" bicolor="false" element1="{ccffaef9-eb63-4fe2-b23c-f210d4c0d0f6}" condsize="1" numsize="7" element2="{55b842a4-f923-4199-94c7-7623ff67a0c2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{4c0c6043-370f-468d-8e45-82fc84ad3bb7}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" rotation="360" element2_label="-X4G7" element1_label="-S4F7" userx="410" usery="490" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W43" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Push-button (NC)" bicolor="false" element1="{ccffaef9-eb63-4fe2-b23c-f210d4c0d0f6}" condsize="1" numsize="7" element2="{55b842a4-f923-4199-94c7-7623ff67a0c2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{4c0c6043-370f-468d-8e45-82fc84ad3bb7}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" rotation="360" element2_label="-X7:4G7" element1_label="-S4F7" userx="410" usery="490" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>43</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{16e697c5-fe99-46c4-8b65-325c23df4596}" condsize="1" numsize="7" element2="{4c8749fd-d5b0-491f-a317-f70af9b29af5}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{8dc539cb-4c6a-46bd-a49d-061436c59049}" terminalname2="" element2_label="-X4H6" element1_label="-X4H7" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{16e697c5-fe99-46c4-8b65-325c23df4596}" condsize="1" numsize="7" element2="{4c8749fd-d5b0-491f-a317-f70af9b29af5}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{8dc539cb-4c6a-46bd-a49d-061436c59049}" terminalname2="" element2_label="-X8:4H6" element1_label="-X8:4H7" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers>
                     <unit>63</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="A2" terminalname2="" type="multi" element1_linked="" element1_label="-Q4G7" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Terminal block" bus="" num="-W68" function="" onetextperfolio="0" bicolor="false" terminal1="{c5376fd7-bdf1-4c10-985a-0d7d5f52c8f9}" color2="#000000" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" formula="-W%sequ_1" element1="{8a48e16a-ad3c-489a-9267-96a47c56e12e}" element2="{16e697c5-fe99-46c4-8b65-325c23df4596}" element1_name="Coil" conductor_section="" x="0" dash-size="2" userx="400" y="0" vertirotatetext="270" usery="590" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" rotation="360" text_color="#000000" freezeLabel="false" element2_label="-X4H7" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="A2" terminalname2="" type="multi" element1_linked="" element1_label="-Q4G7" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Terminal block" bus="" num="-W68" function="" onetextperfolio="0" bicolor="false" terminal1="{c5376fd7-bdf1-4c10-985a-0d7d5f52c8f9}" color2="#000000" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" formula="-W%sequ_1" element1="{8a48e16a-ad3c-489a-9267-96a47c56e12e}" element2="{16e697c5-fe99-46c4-8b65-325c23df4596}" element1_name="Coil" conductor_section="" x="0" dash-size="2" userx="400" y="0" vertirotatetext="270" usery="590" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" rotation="360" text_color="#000000" freezeLabel="false" element2_label="-X8:4H7" conductor_color="">
                 <sequentialNumbers>
                     <unit>68</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="1" terminalname2="" type="multi" element1_linked="" element1_label="" horizrotatetext="0" vertical-alignment="AlignRight" style="line-style: dashed;" element2_name="Terminal block" bus="" num="0VDC" function="" onetextperfolio="0" bicolor="false" terminal1="{975add6f-4ba5-44af-a4c0-e1f1c2024601}" color2="#000000" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" formula="0VDC" element1="{9b9c0354-e482-401b-a9f9-c81a8efbd9a1}" element2="{7bcd9555-8e9f-4e7a-8d16-353303986be8}" element1_name="Going arrow" conductor_section="" x="0" dash-size="2" userx="760" y="0" vertirotatetext="270" usery="590" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" text_color="#000000" freezeLabel="false" element2_label="-X4H9" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="1" terminalname2="" type="multi" element1_linked="" element1_label="" horizrotatetext="0" vertical-alignment="AlignRight" style="line-style: dashed;" element2_name="Terminal block" bus="" num="0VDC" function="" onetextperfolio="0" bicolor="false" terminal1="{975add6f-4ba5-44af-a4c0-e1f1c2024601}" color2="#000000" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" formula="0VDC" element1="{9b9c0354-e482-401b-a9f9-c81a8efbd9a1}" element2="{7bcd9555-8e9f-4e7a-8d16-353303986be8}" element1_name="Going arrow" conductor_section="" x="0" dash-size="2" userx="660" y="0" vertirotatetext="270" usery="590" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" text_color="#000000" freezeLabel="false" element2_label="-X8:4H9" conductor_color="">
                 <sequentialNumbers>
                     <unit>66</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="" type="multi" element1_label="-X4B12" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Contact power contactor" bus="" num="-W52" function="" onetextperfolio="0" bicolor="false" terminal1="{adb64687-550f-47d2-ab4e-177c418c7b9c}" color2="#000000" terminal2="{bfb4e480-8683-4eaf-bbf2-6773fd484999}" formula="-W%sequ_1" element1="{141eef6f-d7ad-426c-b655-8190b7d5c90b}" element2="{a6d0702b-f932-4a98-9568-7f119a55fea4}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="710" y="0" vertirotatetext="270" usery="120" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="-Q4G8" rotation="360" text_color="#000000" freezeLabel="false" element2_label="" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="" type="multi" element1_label="-X4:4B12" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Contact power contactor" bus="" num="-W52" function="" onetextperfolio="0" bicolor="false" terminal1="{adb64687-550f-47d2-ab4e-177c418c7b9c}" color2="#000000" terminal2="{bfb4e480-8683-4eaf-bbf2-6773fd484999}" formula="-W%sequ_1" element1="{141eef6f-d7ad-426c-b655-8190b7d5c90b}" element2="{a6d0702b-f932-4a98-9568-7f119a55fea4}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="710" y="0" vertirotatetext="270" usery="120" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="-Q4G8" rotation="360" text_color="#000000" freezeLabel="false" element2_label="" conductor_color="">
                 <sequentialNumbers>
                     <unit>52</unit>
                 </sequentialNumbers>
@@ -3297,30 +3323,23 @@ T1</text>
                     <hundredFolio></hundredFolio>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W13" conductor_color="" type="multi" element2_name="Switch 3 positions including neutral" x="0" element1_linked="" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Coming arrow" bicolor="false" element1="{66479562-ac0d-466c-9f6f-34000f25fa36}" condsize="1" element2="{97b7c454-dcbc-4ab6-a468-a137e48e4682}" numsize="7" tension_protocol="0VDC" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{d7fd0bec-9f05-4651-a50b-29d7ffabeb41}" terminalname1="1" terminal2="{f72242fb-337e-4c2b-9fcd-1d43a1c3a6ae}" terminalname2="" element2_label="-S4C4" element1_label="" userx="120" usery="240" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
-                <sequentialNumbers>
-                    <unit>13</unit>
-                    <unitFolio></unitFolio>
-                    <ten></ten>
-                    <tenFolio></tenFolio>
-                    <hundred></hundred>
-                    <hundredFolio></hundredFolio>
-                </sequentialNumbers>
+            <conductor num="-W%sequ_1" conductor_color="" type="multi" element2_name="Switch 3 positions including neutral" x="0" element1_linked="" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Coming arrow" bicolor="false" element1="{66479562-ac0d-466c-9f6f-34000f25fa36}" condsize="1" element2="{97b7c454-dcbc-4ab6-a468-a137e48e4682}" numsize="7" tension_protocol="0VDC" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{d7fd0bec-9f05-4651-a50b-29d7ffabeb41}" terminalname1="1" terminal2="{f72242fb-337e-4c2b-9fcd-1d43a1c3a6ae}" terminalname2="" element2_label="-S4C4" element1_label="" userx="120" usery="240" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+                <sequentialNumbers/>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{a8945840-6cda-4374-8fd9-89c4950745ba}" condsize="1" numsize="7" element2="{55b842a4-f923-4199-94c7-7623ff67a0c2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{8dc539cb-4c6a-46bd-a49d-061436c59049}" terminalname1="" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname2="" element2_label="-X4G7" element1_label="-X4G8" userx="430" style="line-style: dashed;" usery="500" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{a8945840-6cda-4374-8fd9-89c4950745ba}" condsize="1" numsize="7" element2="{55b842a4-f923-4199-94c7-7623ff67a0c2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{8dc539cb-4c6a-46bd-a49d-061436c59049}" terminalname1="" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname2="" element2_label="-X7:4G7" element1_label="-X7:4G8" userx="430" style="line-style: dashed;" usery="500" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers>
                     <unit>44</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{f34ffca0-9d47-4281-8c90-1dd212172b74}" condsize="1" numsize="7" element2="{21483267-377f-4ca1-928e-3692b78abb9e}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname2="" element2_label="-X4B6" element1_label="-X4B7" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{f34ffca0-9d47-4281-8c90-1dd212172b74}" condsize="1" numsize="7" element2="{21483267-377f-4ca1-928e-3692b78abb9e}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname2="" element2_label="-X3:4B6" element1_label="-X3:4B7" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="-W54" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Converter, general symbol" bicolor="false" element1="{450472aa-848f-4f2a-a738-4c71e8564078}" condsize="1" numsize="7" element2="{e9dc6106-b7ef-474e-857d-8fa2c0ba63c0}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{731a06e9-a2df-4bc0-b441-45d063a07c43}" terminalname1="Solar" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname2="" rotation="360" element2_label="-X4B9" element1_label="-K4B9" userx="550" usery="120" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W54" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Converter, general symbol" bicolor="false" element1="{450472aa-848f-4f2a-a738-4c71e8564078}" condsize="1" numsize="7" element2="{e9dc6106-b7ef-474e-857d-8fa2c0ba63c0}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{731a06e9-a2df-4bc0-b441-45d063a07c43}" terminalname1="Solar" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname2="" rotation="360" element2_label="-X4:4B9" element1_label="-K4B9" userx="550" usery="120" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>54</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W25" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Push-button" bicolor="false" element1="{ed08e5bf-8df2-4fae-9207-54c9fbb0ec63}" condsize="1" numsize="7" element2="{be3fe6a3-dbcd-481b-8001-da91243e716b}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{2c393aa3-238f-446c-bc5d-022946342bb8}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" rotation="360" element2_label="-X4E7" element1_label="-S4B7" userx="400" usery="210" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W25" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Push-button" bicolor="false" element1="{ed08e5bf-8df2-4fae-9207-54c9fbb0ec63}" condsize="1" numsize="7" element2="{be3fe6a3-dbcd-481b-8001-da91243e716b}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{2c393aa3-238f-446c-bc5d-022946342bb8}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" rotation="360" element2_label="-X5:4E7" element1_label="-S4B7" userx="400" usery="210" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>25</unit>
                     <unitFolio></unitFolio>
@@ -3335,7 +3354,7 @@ T1</text>
                     <unit>38</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W17" conductor_color="" type="multi" element2_name="Switch 3 positions including neutral" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{21483267-377f-4ca1-928e-3692b78abb9e}" condsize="1" numsize="7" element2="{5455b1f7-05ac-4e90-871f-cae3bd05eedf}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{f8fe52fd-f1a1-4091-8de0-1df5a341dacc}" terminalname1="" terminal2="{684bd52f-9e40-408f-b86a-6738038d5010}" terminalname2="" element2_label="" element1_label="-X4B6" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W17" conductor_color="" type="multi" element2_name="Switch 3 positions including neutral" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{21483267-377f-4ca1-928e-3692b78abb9e}" condsize="1" numsize="7" element2="{5455b1f7-05ac-4e90-871f-cae3bd05eedf}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{f8fe52fd-f1a1-4091-8de0-1df5a341dacc}" terminalname1="" terminal2="{684bd52f-9e40-408f-b86a-6738038d5010}" terminalname2="" element2_label="" element1_label="-X3:4B6" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>17</unit>
                     <unitFolio></unitFolio>
@@ -3345,19 +3364,24 @@ T1</text>
                     <hundredFolio></hundredFolio>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W59" conductor_color="" type="multi" element2_name="Diode" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{eb92dce1-e0db-4f02-be09-c741f98d780e}" condsize="1" numsize="7" element2="{3fe3a71c-c50c-4201-b96d-c42e34e9db8d}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{f8fe52fd-f1a1-4091-8de0-1df5a341dacc}" terminalname1="" terminal2="{9f48f539-d614-4c11-99be-7be9df4956d6}" terminalname2="A" element2_label="-V4E8" element1_label="-X4E9" userx="480" usery="360" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W59" conductor_color="" type="multi" element2_name="Diode" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{eb92dce1-e0db-4f02-be09-c741f98d780e}" condsize="1" numsize="7" element2="{3fe3a71c-c50c-4201-b96d-c42e34e9db8d}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{f8fe52fd-f1a1-4091-8de0-1df5a341dacc}" terminalname1="" terminal2="{9f48f539-d614-4c11-99be-7be9df4956d6}" terminalname2="A" element2_label="-V4E8" element1_label="-X6:4E9" userx="480" usery="360" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>59</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{eb92dce1-e0db-4f02-be09-c741f98d780e}" condsize="1" numsize="7" element2="{ed6b0f93-f89f-413c-b6a3-8d30635f12d4}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" element2_label="-X4E12" element1_label="-X4E9" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{eb92dce1-e0db-4f02-be09-c741f98d780e}" condsize="1" numsize="7" element2="{ed6b0f93-f89f-413c-b6a3-8d30635f12d4}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" element2_label="-X6:4E12" element1_label="-X6:4E9" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers>
                     <unit>60</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{e9dc6106-b7ef-474e-857d-8fa2c0ba63c0}" condsize="1" numsize="7" element2="{141eef6f-d7ad-426c-b655-8190b7d5c90b}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{8dc539cb-4c6a-46bd-a49d-061436c59049}" terminalname2="" element2_label="-X4B12" element1_label="-X4B9" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{e9dc6106-b7ef-474e-857d-8fa2c0ba63c0}" condsize="1" numsize="7" element2="{141eef6f-d7ad-426c-b655-8190b7d5c90b}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{8dc539cb-4c6a-46bd-a49d-061436c59049}" terminalname2="" element2_label="-X4:4B12" element1_label="-X4:4B9" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers>
                     <unit>53</unit>
+                </sequentialNumbers>
+            </conductor>
+            <conductor num="-W94" conductor_color="" type="multi" element2_name="Converter, general symbol" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{7bcd9555-8e9f-4e7a-8d16-353303986be8}" condsize="1" numsize="7" element2="{450472aa-848f-4f2a-a738-4c71e8564078}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{099f9d26-3805-4627-865f-b9b4210d7a51}" terminalname2="Plant" element2_label="-K4B9" element1_label="-X8:4H9" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+                <sequentialNumbers>
+                    <unit>94</unit>
                 </sequentialNumbers>
             </conductor>
         </conductors>
@@ -3385,8 +3409,8 @@ T1</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X5A13</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix6:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X6:5A13</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -3394,7 +3418,7 @@ T1</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-21" y="16" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{4df89052-531f-4b55-84e8-c338c3e4eda3}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X5A13</text>
+                        <text>-X6:5A13</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -3424,8 +3448,8 @@ T1</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X5H3</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix8:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X8:5H3</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -3433,7 +3457,7 @@ T1</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-3" y="-15" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{111e3297-867f-4b9c-9f80-18edf55fc8c4}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X5H3</text>
+                        <text>-X8:5H3</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -3572,16 +3596,16 @@ T1</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X5B13</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix6:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X6:5A15</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
                     <element_type terminal_led="false" terminal_type="generic" terminal_function="generic"/>
                 </properties>
                 <dynamic_texts>
-                    <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-27" y="17" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{09fb00cd-1b03-4a54-910f-214e5179c323}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X5A15</text>
+                    <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-22" y="22" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{09fb00cd-1b03-4a54-910f-214e5179c323}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
+                        <text>-X6:5A15</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -3623,8 +3647,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X5H12</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix8:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X8:5H13</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -3632,7 +3656,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-1" y="-18" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{78c8fb68-c99a-4f9d-a747-b9f504ed23ce}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X5H13</text>
+                        <text>-X8:5H13</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -3648,8 +3672,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X5A3</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix6:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X6:5A3</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -3657,7 +3681,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-25" y="16" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{acb879a2-1391-42e3-902d-6e2a10d86ccf}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X5A3</text>
+                        <text>-X6:5A3</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -3905,52 +3929,52 @@ T3</text>
                     <unit>76</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="1" terminalname2="" type="multi" element1_linked="" element1_label="" horizrotatetext="0" vertical-alignment="AlignRight" style="line-style: dashed;" element2_name="Terminal block" bus="" num="48VDC" function="" onetextperfolio="0" bicolor="false" terminal1="{d7fd0bec-9f05-4651-a50b-29d7ffabeb41}" color2="#000000" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" formula="48VDC" element1="{4635f207-a1d6-46a9-baf1-e36fc6a89320}" element2="{70898aaa-64b1-4562-8080-ba7e2b7bc52a}" element1_name="Coming arrow" conductor_section="" x="0" dash-size="2" userx="100" y="0" vertirotatetext="270" usery="40" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" text_color="#000000" freezeLabel="false" element2_label="-X5A3" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="1" terminalname2="" type="multi" element1_linked="" element1_label="" horizrotatetext="0" vertical-alignment="AlignRight" style="line-style: dashed;" element2_name="Terminal block" bus="" num="48VDC" function="" onetextperfolio="0" bicolor="false" terminal1="{d7fd0bec-9f05-4651-a50b-29d7ffabeb41}" color2="#000000" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" formula="48VDC" element1="{4635f207-a1d6-46a9-baf1-e36fc6a89320}" element2="{70898aaa-64b1-4562-8080-ba7e2b7bc52a}" element1_name="Coming arrow" conductor_section="" x="0" dash-size="2" userx="100" y="0" vertirotatetext="270" usery="40" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" text_color="#000000" freezeLabel="false" element2_label="-X6:5A3" conductor_color="">
                 <sequentialNumbers>
                     <unit>58</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{af3c8e1b-3e08-4551-bdd4-78579c717fb1}" condsize="1" numsize="7" element2="{70898aaa-64b1-4562-8080-ba7e2b7bc52a}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" element2_label="-X5A3" element1_label="-X5A13" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{af3c8e1b-3e08-4551-bdd4-78579c717fb1}" condsize="1" numsize="7" element2="{70898aaa-64b1-4562-8080-ba7e2b7bc52a}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" element2_label="-X6:5A3" element1_label="-X6:5A13" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers>
                     <unit>82</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="0VDC" conductor_color="" type="multi" element2_name="Going arrow" x="0" y="0" element2_linked="" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{2d6dd663-fac1-427d-a391-43f0d59e01d7}" condsize="1" element2="{bec21636-7af7-4b68-a84a-d71d50fbaed7}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{975add6f-4ba5-44af-a4c0-e1f1c2024601}" terminalname2="1" element2_label="" element1_label="-X5H13" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="0VDC" cable="">
+            <conductor num="0VDC" conductor_color="" type="multi" element2_name="Going arrow" x="0" y="0" element2_linked="" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{2d6dd663-fac1-427d-a391-43f0d59e01d7}" condsize="1" element2="{bec21636-7af7-4b68-a84a-d71d50fbaed7}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{975add6f-4ba5-44af-a4c0-e1f1c2024601}" terminalname2="1" element2_label="" element1_label="-X8:5H13" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="0VDC" cable="">
                 <sequentialNumbers>
                     <unit>66</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="" type="multi" element1_label="-X5A15" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Contact power contactor" bus="" num="-W75" function="" onetextperfolio="1" bicolor="false" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" color2="#000000" terminal2="{bfb4e480-8683-4eaf-bbf2-6773fd484999}" formula="-W%sequ_1" element1="{ef09072d-8dc2-4e41-b153-23c8342fc21b}" element2="{a12387a3-1e41-4a48-9700-330998c31769}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="900" y="0" vertirotatetext="270" usery="90" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="-K5E13" rotation="360" text_color="#000000" freezeLabel="false" element2_label="" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="" terminalname2="" type="multi" element1_label="-X6:5A15" horizrotatetext="0" vertical-alignment="AlignRight" element2_name="Contact power contactor" bus="" num="-W75" function="" onetextperfolio="1" bicolor="false" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" color2="#000000" terminal2="{bfb4e480-8683-4eaf-bbf2-6773fd484999}" formula="-W%sequ_1" element1="{ef09072d-8dc2-4e41-b153-23c8342fc21b}" element2="{a12387a3-1e41-4a48-9700-330998c31769}" element1_name="Terminal block" conductor_section="" x="0" dash-size="2" userx="900" y="0" vertirotatetext="270" usery="80" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" element2_linked="-K5E13" rotation="360" text_color="#000000" freezeLabel="false" element2_label="" conductor_color="">
                 <sequentialNumbers>
                     <unit>75</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W74" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="DC/DC converter" bicolor="false" element1="{68ecd411-394f-43c5-8547-d108de09f7bf}" condsize="1" numsize="7" element2="{309f1084-d7a6-4c48-b798-ecb5e00fa7ca}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{a3de003a-9197-427a-97e3-c4e86999964d}" terminalname1="" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname2="" rotation="360" element2_label="-X5H3" element1_label="-T1" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W74" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="DC/DC converter" bicolor="false" element1="{68ecd411-394f-43c5-8547-d108de09f7bf}" condsize="1" numsize="7" element2="{309f1084-d7a6-4c48-b798-ecb5e00fa7ca}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{a3de003a-9197-427a-97e3-c4e86999964d}" terminalname1="" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname2="" rotation="360" element2_label="-X8:5H3" element1_label="-T1" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>74</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor condsize="1" cable="" displaytext="1" terminalname1="1" terminalname2="" type="multi" element1_linked="" element1_label="" horizrotatetext="0" vertical-alignment="AlignRight" style="line-style: dashed;" element2_name="Terminal block" bus="" num="0VDC" function="" onetextperfolio="0" bicolor="false" terminal1="{d7fd0bec-9f05-4651-a50b-29d7ffabeb41}" color2="#000000" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" formula="0VDC" element1="{5d7f518d-b10d-4ab1-a6be-8c8d807b3df7}" element2="{309f1084-d7a6-4c48-b798-ecb5e00fa7ca}" element1_name="Coming arrow" conductor_section="" x="0" dash-size="2" userx="100" y="0" vertirotatetext="270" usery="610" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" text_color="#000000" freezeLabel="false" element2_label="-X5H3" conductor_color="">
+            <conductor condsize="1" cable="" displaytext="1" terminalname1="1" terminalname2="" type="multi" element1_linked="" element1_label="" horizrotatetext="0" vertical-alignment="AlignRight" style="line-style: dashed;" element2_name="Terminal block" bus="" num="0VDC" function="" onetextperfolio="0" bicolor="false" terminal1="{d7fd0bec-9f05-4651-a50b-29d7ffabeb41}" color2="#000000" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" formula="0VDC" element1="{5d7f518d-b10d-4ab1-a6be-8c8d807b3df7}" element2="{309f1084-d7a6-4c48-b798-ecb5e00fa7ca}" element1_name="Coming arrow" conductor_section="" x="0" dash-size="2" userx="100" y="0" vertirotatetext="270" usery="610" numsize="7" tension_protocol="" horizontal-alignment="AlignBottom" text_color="#000000" freezeLabel="false" element2_label="-X8:5H3" conductor_color="">
                 <sequentialNumbers>
                     <unit>66</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{af3c8e1b-3e08-4551-bdd4-78579c717fb1}" condsize="1" numsize="7" element2="{ef09072d-8dc2-4e41-b153-23c8342fc21b}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X5A15" element1_label="-X5A13" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{af3c8e1b-3e08-4551-bdd4-78579c717fb1}" condsize="1" numsize="7" element2="{ef09072d-8dc2-4e41-b153-23c8342fc21b}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X6:5A15" element1_label="-X6:5A13" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers>
                     <unit>83</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="0VDC" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{309f1084-d7a6-4c48-b798-ecb5e00fa7ca}" condsize="1" numsize="7" element2="{2d6dd663-fac1-427d-a391-43f0d59e01d7}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" element2_label="-X5H13" element1_label="-X5H3" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="0VDC" cable="">
+            <conductor num="0VDC" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{309f1084-d7a6-4c48-b798-ecb5e00fa7ca}" condsize="1" numsize="7" element2="{2d6dd663-fac1-427d-a391-43f0d59e01d7}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" element2_label="-X8:5H13" element1_label="-X8:5H3" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="0VDC" cable="">
                 <sequentialNumbers>
                     <unit>66</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W73" conductor_color="" type="multi" element2_name="DC/DC converter" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{70898aaa-64b1-4562-8080-ba7e2b7bc52a}" condsize="1" numsize="7" element2="{68ecd411-394f-43c5-8547-d108de09f7bf}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{8b4f6b8a-5dd1-4f2a-b1e2-ceaf7caa13fb}" terminalname2="" rotation="360" element2_label="-T1" element1_label="-X5A3" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W73" conductor_color="" type="multi" element2_name="DC/DC converter" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{70898aaa-64b1-4562-8080-ba7e2b7bc52a}" condsize="1" numsize="7" element2="{68ecd411-394f-43c5-8547-d108de09f7bf}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{8b4f6b8a-5dd1-4f2a-b1e2-ceaf7caa13fb}" terminalname2="" rotation="360" element2_label="-T1" element1_label="-X6:5A3" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>73</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W84" conductor_color="" type="multi" element2_name="Coil" x="0" y="0" element2_linked="" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{2d6dd663-fac1-427d-a391-43f0d59e01d7}" condsize="1" element2="{737f5ff9-8aae-409d-8493-55efd212e85e}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{c5376fd7-bdf1-4c10-985a-0d7d5f52c8f9}" terminalname2="A2" element2_label="-K5E13" element1_label="-X5H13" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W84" conductor_color="" type="multi" element2_name="Coil" x="0" y="0" element2_linked="" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{2d6dd663-fac1-427d-a391-43f0d59e01d7}" condsize="1" element2="{737f5ff9-8aae-409d-8493-55efd212e85e}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{c5376fd7-bdf1-4c10-985a-0d7d5f52c8f9}" terminalname2="A2" element2_label="-K5E13" element1_label="-X8:5H13" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>84</unit>
                 </sequentialNumbers>
@@ -3963,7 +3987,7 @@ T3</text>
                     <unit>77</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W73" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{af3c8e1b-3e08-4551-bdd4-78579c717fb1}" condsize="1" numsize="7" element2="{50643ec9-b874-49ad-8e06-432b103166bf}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname2="" element2_label="-X5C13" element1_label="-X5A13" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W73" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{af3c8e1b-3e08-4551-bdd4-78579c717fb1}" condsize="1" numsize="7" element2="{50643ec9-b874-49ad-8e06-432b103166bf}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{3927e802-9996-40cd-ae26-f054f368d2fe}" terminalname2="" element2_label="-X5C13" element1_label="-X6:5A13" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>73</unit>
                 </sequentialNumbers>
@@ -4080,9 +4104,18 @@ T3</text>
             </conductor>
         </conductors>
         <inputs>
+            <input x="580" y="370" rotation="0" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Liberation Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Pi-Shield&lt;/p>&lt;/body>&lt;/html>"/>
             <input x="640" y="160" rotation="0" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Liberation Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Keep-Alive&lt;br />Watchdog&lt;/p>&lt;/body>&lt;/html>"/>
         </inputs>
         <shapes>
+            <shape type="Line" closed="0" z="0" is_movable="1" y1="550" y2="300" x1="510" x2="600">
+                <pen style="DashLine" widthF="1" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Line" closed="0" z="0" is_movable="1" y1="230" y2="200" x1="500" x2="600">
+                <pen style="DashLine" widthF="1" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
             <shape type="Line" closed="0" z="0" is_movable="1" y1="250" y2="250" x1="700" x2="760">
                 <pen style="DashLine" widthF="1" color="#000000"/>
                 <brush style="NoBrush" color="#000000"/>
@@ -4190,8 +4223,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X6B6</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix9:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X9:6B6</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -4199,7 +4232,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-27" y="15" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{77672eb7-e98a-4623-8b6d-58c858cc94bb}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X6B6</text>
+                        <text>-X9:6B6</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -4310,8 +4343,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X6E10</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix8:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X8:6E10</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -4319,7 +4352,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-3" y="-18" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{08a56c9e-0ec4-4f88-be23-8700b7c0b312}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X6E10</text>
+                        <text>-X8:6E10</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -4356,8 +4389,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X6E6</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix8:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X8:6E6</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -4365,7 +4398,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-3" y="-15" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{192585ff-e891-4956-ada9-d43d815bba47}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X6E6</text>
+                        <text>-X8:6E6</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -4444,8 +4477,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X6B2</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix9:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X9:6B2</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -4453,7 +4486,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-27" y="15" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{bdda262f-0512-4477-8469-98ffd0b2950c}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X6B2</text>
+                        <text>-X9:6B2</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -4469,8 +4502,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X6E2</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix8:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X8:6E2</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -4478,7 +4511,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-3" y="-15" rotation="90" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{13ecfc47-a500-4e47-b18f-cc220e76286a}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X6E2</text>
+                        <text>-X8:6E2</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -4494,8 +4527,8 @@ T3</text>
                 <elementInformations>
                     <elementInformation name="auto_num_locked" show="1">false</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
-                    <elementInformation name="formula" show="1">-%prefix%id%l%c</elementInformation>
-                    <elementInformation name="label" show="1">-X6B11</elementInformation>
+                    <elementInformation name="formula" show="1">-%prefix9:%id%l%c</elementInformation>
+                    <elementInformation name="label" show="1">-X9:6B10</elementInformation>
                     <elementInformation name="potential_isolating" show="1">true</elementInformation>
                 </elementInformations>
                 <properties>
@@ -4503,7 +4536,7 @@ T3</text>
                 </properties>
                 <dynamic_texts>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-27" y="17" rotation="270" font="Liberation Sans,6,-1,5,50,0,0,0,0,0,Regular" text_width="-1" uuid="{11aaaf80-0d0b-4ba8-8b54-07680a693f23}" keep_visual_rotation="false" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>-X6B10</text>
+                        <text>-X9:6B10</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                 </dynamic_texts>
@@ -4698,7 +4731,7 @@ T3</text>
             <conductor num="" conductor_color="" type="multi" element2_name="dpm8624 charge controller" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="charging-adapter" bicolor="false" element1="{a5c95304-45b9-4733-a191-89c1a640e315}" condsize="1" numsize="7" element2="{ee099f66-a378-4cd7-bab4-641039a3aa25}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{c2464dca-04f3-436a-b310-f5be0bf4c2f6}" terminalname1="Power-    " terminal2="{b6ef731d-f650-438a-ae10-68dfc3268ced}" terminalname2="out-" element2_label="-6D13" element1_label="" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="0VDC" conductor_color="" type="multi" element2_name="Coming arrow" x="0" y="0" element2_linked="" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{dc3648ed-2d9f-4a09-a5c0-b662981ae474}" condsize="1" element2="{cdc29ef1-d990-4685-a078-420c81098479}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{d7fd0bec-9f05-4651-a50b-29d7ffabeb41}" terminalname2="1" element2_label="" element1_label="-X6E2" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="0VDC" cable="">
+            <conductor num="0VDC" conductor_color="" type="multi" element2_name="Coming arrow" x="0" y="0" element2_linked="" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{dc3648ed-2d9f-4a09-a5c0-b662981ae474}" condsize="1" element2="{cdc29ef1-d990-4685-a078-420c81098479}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{d7fd0bec-9f05-4651-a50b-29d7ffabeb41}" terminalname2="1" element2_label="" element1_label="-X8:6E2" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="0VDC" cable="">
                 <sequentialNumbers>
                     <unit>66</unit>
                 </sequentialNumbers>
@@ -4727,12 +4760,12 @@ T3</text>
             <conductor num="" conductor_color="" type="multi" element2_name="dpm8624 charge controller" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Combine" bicolor="false" element1="{5949e9fc-d520-4403-8d9e-83def1662de2}" condsize="1" numsize="7" element2="{6e7d18fa-e98f-4dc8-a733-edf5b7b77b4a}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5b594843-4a1f-4c02-8c77-84bf01c45167}" terminalname1="2" terminal2="{4dc961d5-70ea-49de-bf65-c9c09643d65b}" terminalname2="A>" element2_label="-6D4" element1_label="-6F5" color="#0000ff" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="-W90" conductor_color="" type="multi" element2_name="dpm8624 charge controller" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{5a0eda4f-2f06-41ab-bc84-499807d54ef6}" condsize="1" numsize="7" element2="{613579ac-209f-4dae-8b77-fbd3754ebec2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{8f8d2865-9e5b-457c-8bc0-2583d157e2ce}" terminalname2="in+" rotation="360" element2_label="-6D8" element1_label="-X6B6" userx="370" usery="330" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W90" conductor_color="" type="multi" element2_name="dpm8624 charge controller" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{5a0eda4f-2f06-41ab-bc84-499807d54ef6}" condsize="1" numsize="7" element2="{613579ac-209f-4dae-8b77-fbd3754ebec2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{8f8d2865-9e5b-457c-8bc0-2583d157e2ce}" terminalname2="in+" rotation="360" element2_label="-6D8" element1_label="-X9:6B6" userx="370" usery="330" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>90</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W91" conductor_color="" type="multi" element2_name="dpm8624 charge controller" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{dd5af910-7adc-409b-ac83-e0360441bdc1}" condsize="1" numsize="7" element2="{613579ac-209f-4dae-8b77-fbd3754ebec2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{7d5cc2d6-804d-4746-ad96-5602c288753c}" terminalname2="in-" rotation="360" element2_label="-6D8" element1_label="-X6E6" userx="370" usery="360" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W91" conductor_color="" type="multi" element2_name="dpm8624 charge controller" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{dd5af910-7adc-409b-ac83-e0360441bdc1}" condsize="1" numsize="7" element2="{613579ac-209f-4dae-8b77-fbd3754ebec2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{7d5cc2d6-804d-4746-ad96-5602c288753c}" terminalname2="in-" rotation="360" element2_label="-6D8" element1_label="-X8:6E6" userx="370" usery="360" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>91</unit>
                 </sequentialNumbers>
@@ -4740,7 +4773,7 @@ T3</text>
             <conductor num="" conductor_color="" type="multi" element2_name="Combine" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Combine" bicolor="false" element1="{d000b7c0-2f5f-463b-913a-a3c45abfce01}" condsize="1" numsize="7" element2="{b118c3b3-4623-46e3-9139-9e4e411507a0}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{50eebfc5-ba94-4339-b95b-603f8340fbd0}" terminalname1="3" terminal2="{4884a3c5-d4f2-486c-8bb1-66bf33a72732}" terminalname2="1" element2_label="" element1_label="" color="#0000ff" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="-W86" conductor_color="" type="multi" element2_name="Coming arrow" x="0" y="0" element2_linked="" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{6e231f70-cb4c-4b40-a072-9787ebf2308b}" condsize="1" element2="{08cb53b5-75fb-47e5-ae21-f805bb09f203}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{d7fd0bec-9f05-4651-a50b-29d7ffabeb41}" terminalname2="1" element2_label="" element1_label="-X6B2" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W86" conductor_color="" type="multi" element2_name="Coming arrow" x="0" y="0" element2_linked="" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{6e231f70-cb4c-4b40-a072-9787ebf2308b}" condsize="1" element2="{08cb53b5-75fb-47e5-ae21-f805bb09f203}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{d7fd0bec-9f05-4651-a50b-29d7ffabeb41}" terminalname2="1" element2_label="" element1_label="-X9:6B2" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>86</unit>
                 </sequentialNumbers>
@@ -4751,7 +4784,7 @@ T3</text>
             <conductor num="" conductor_color="" type="multi" element2_name="dpm8624 charge controller" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="charging-adapter" bicolor="false" element1="{b5e4d248-fd82-4c8b-93ad-ced1bada8c05}" condsize="1" numsize="7" element2="{613579ac-209f-4dae-8b77-fbd3754ebec2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{c2464dca-04f3-436a-b310-f5be0bf4c2f6}" terminalname1="Power-    " terminal2="{b6ef731d-f650-438a-ae10-68dfc3268ced}" terminalname2="out-" element2_label="-6D8" element1_label="" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{01c7419e-eec3-4e8c-a6fd-92daa1fd6adb}" condsize="1" numsize="7" element2="{5a0eda4f-2f06-41ab-bc84-499807d54ef6}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" element2_label="-X6B6" element1_label="-X6B10" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{01c7419e-eec3-4e8c-a6fd-92daa1fd6adb}" condsize="1" numsize="7" element2="{5a0eda4f-2f06-41ab-bc84-499807d54ef6}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname1="" terminal2="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname2="" element2_label="-X9:6B6" element1_label="-X9:6B10" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers>
                     <unit>86</unit>
                 </sequentialNumbers>
@@ -4759,12 +4792,12 @@ T3</text>
             <conductor num="" conductor_color="" type="multi" element2_name="dpm8624 charge controller" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Combine" bicolor="false" element1="{d000b7c0-2f5f-463b-913a-a3c45abfce01}" condsize="1" numsize="7" element2="{613579ac-209f-4dae-8b77-fbd3754ebec2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5b594843-4a1f-4c02-8c77-84bf01c45167}" terminalname1="2" terminal2="{4dc961d5-70ea-49de-bf65-c9c09643d65b}" terminalname2="A>" element2_label="-6D8" element1_label="" color="#0000ff" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="0VDC" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{43034607-cebd-43dd-8d46-f581e5616e81}" condsize="1" numsize="7" element2="{dd5af910-7adc-409b-ac83-e0360441bdc1}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X6E6" element1_label="-X6E10" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="0VDC" cable="">
+            <conductor num="0VDC" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{43034607-cebd-43dd-8d46-f581e5616e81}" condsize="1" numsize="7" element2="{dd5af910-7adc-409b-ac83-e0360441bdc1}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X8:6E6" element1_label="-X8:6E10" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="0VDC" cable="">
                 <sequentialNumbers>
                     <unit>66</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W92" conductor_color="" type="multi" element2_name="DC/DC converter" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{01c7419e-eec3-4e8c-a6fd-92daa1fd6adb}" condsize="1" numsize="7" element2="{105445ca-007a-4397-b5d6-d97790ad7f44}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{8b4f6b8a-5dd1-4f2a-b1e2-ceaf7caa13fb}" terminalname2="" rotation="360" element2_label="T5" element1_label="-X6B10" userx="620" usery="320" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W92" conductor_color="" type="multi" element2_name="DC/DC converter" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{01c7419e-eec3-4e8c-a6fd-92daa1fd6adb}" condsize="1" numsize="7" element2="{105445ca-007a-4397-b5d6-d97790ad7f44}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{8b4f6b8a-5dd1-4f2a-b1e2-ceaf7caa13fb}" terminalname2="" rotation="360" element2_label="T5" element1_label="-X9:6B10" userx="620" usery="320" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>92</unit>
                 </sequentialNumbers>
@@ -4772,7 +4805,7 @@ T3</text>
             <conductor num="" conductor_color="" type="multi" element2_name="Combine" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Combine" bicolor="false" element1="{d000b7c0-2f5f-463b-913a-a3c45abfce01}" condsize="1" numsize="7" element2="{5949e9fc-d520-4403-8d9e-83def1662de2}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{4884a3c5-d4f2-486c-8bb1-66bf33a72732}" terminalname1="1" terminal2="{50eebfc5-ba94-4339-b95b-603f8340fbd0}" terminalname2="3" element2_label="-6F5" element1_label="" color="#0000ff" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="-W89" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="dpm8624 charge controller" bicolor="false" element1="{6e7d18fa-e98f-4dc8-a733-edf5b7b77b4a}" condsize="1" numsize="7" element2="{6e231f70-cb4c-4b40-a072-9787ebf2308b}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{8f8d2865-9e5b-457c-8bc0-2583d157e2ce}" terminalname1="in+" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname2="" rotation="360" element2_label="-X6B2" element1_label="-6D4" userx="130" usery="330" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W89" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="dpm8624 charge controller" bicolor="false" element1="{6e7d18fa-e98f-4dc8-a733-edf5b7b77b4a}" condsize="1" numsize="7" element2="{6e231f70-cb4c-4b40-a072-9787ebf2308b}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{8f8d2865-9e5b-457c-8bc0-2583d157e2ce}" terminalname1="in+" terminal2="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname2="" rotation="360" element2_label="-X9:6B2" element1_label="-6D4" userx="130" usery="330" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>89</unit>
                 </sequentialNumbers>
@@ -4795,7 +4828,7 @@ T3</text>
             <conductor num="DPM-USB" conductor_color="" type="multi" element2_name="Going arrow" x="0" y="0" element2_linked="" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#0055ff" horizrotatetext="0" element1_name="RS485 to USB Converter" bicolor="true" element1="{96cad54a-9414-4d3d-8e94-d2d05f8a9d49}" condsize="1" element2="{45941550-cae6-47dc-933a-6ebb5f5f7bfb}" numsize="7" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{e187a814-6e84-48e8-a76e-83ee67ade341}" terminalname1="USB" terminal2="{975add6f-4ba5-44af-a4c0-e1f1c2024601}" terminalname2="1" element2_label="" element1_label="" color="#dadada" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="DPM-USB" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="0VDC" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{dd5af910-7adc-409b-ac83-e0360441bdc1}" condsize="1" numsize="7" element2="{dc3648ed-2d9f-4a09-a5c0-b662981ae474}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X6E2" element1_label="-X6E6" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="0VDC" cable="">
+            <conductor num="0VDC" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{dd5af910-7adc-409b-ac83-e0360441bdc1}" condsize="1" numsize="7" element2="{dc3648ed-2d9f-4a09-a5c0-b662981ae474}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X8:6E2" element1_label="-X8:6E6" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="0VDC" cable="">
                 <sequentialNumbers>
                     <unit>66</unit>
                 </sequentialNumbers>
@@ -4803,15 +4836,15 @@ T3</text>
             <conductor num="" conductor_color="" type="multi" element2_name="Combine" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Combine" bicolor="false" element1="{bef8fb16-b57d-4839-a4c7-cd3fe9892653}" condsize="1" numsize="7" element2="{1ead832f-12db-4a96-8b90-0db17030456d}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{4884a3c5-d4f2-486c-8bb1-66bf33a72732}" terminalname1="1" terminal2="{50eebfc5-ba94-4339-b95b-603f8340fbd0}" terminalname2="3" element2_label="-6G9" element1_label="" color="#ffff00" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{6e231f70-cb4c-4b40-a072-9787ebf2308b}" condsize="1" numsize="7" element2="{5a0eda4f-2f06-41ab-bc84-499807d54ef6}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X6B6" element1_label="-X6B2" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
+            <conductor num="" conductor_color="" type="multi" element2_name="Terminal block" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{6e231f70-cb4c-4b40-a072-9787ebf2308b}" condsize="1" numsize="7" element2="{5a0eda4f-2f06-41ab-bc84-499807d54ef6}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{696dd65e-4b41-47d3-99a9-9b8bd2e4a66b}" terminalname1="" terminal2="{89220c95-4830-4b4e-9d6e-60f8de7f3cf6}" terminalname2="" element2_label="-X9:6B6" element1_label="-X9:6B2" style="line-style: dashed;" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="" cable="">
                 <sequentialNumbers/>
             </conductor>
-            <conductor num="-W88" conductor_color="" type="multi" element2_name="dpm8624 charge controller" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{dc3648ed-2d9f-4a09-a5c0-b662981ae474}" condsize="1" numsize="7" element2="{6e7d18fa-e98f-4dc8-a733-edf5b7b77b4a}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{7d5cc2d6-804d-4746-ad96-5602c288753c}" terminalname2="in-" rotation="360" element2_label="-6D4" element1_label="-X6E2" userx="130" usery="360" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W88" conductor_color="" type="multi" element2_name="dpm8624 charge controller" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{dc3648ed-2d9f-4a09-a5c0-b662981ae474}" condsize="1" numsize="7" element2="{6e7d18fa-e98f-4dc8-a733-edf5b7b77b4a}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{7d5cc2d6-804d-4746-ad96-5602c288753c}" terminalname2="in-" rotation="360" element2_label="-6D4" element1_label="-X8:6E2" userx="130" usery="360" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>88</unit>
                 </sequentialNumbers>
             </conductor>
-            <conductor num="-W93" conductor_color="" type="multi" element2_name="DC/DC converter" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{43034607-cebd-43dd-8d46-f581e5616e81}" condsize="1" numsize="7" element2="{105445ca-007a-4397-b5d6-d97790ad7f44}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{a3de003a-9197-427a-97e3-c4e86999964d}" terminalname2="" rotation="360" element2_label="T5" element1_label="-X6E10" userx="620" usery="360" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
+            <conductor num="-W93" conductor_color="" type="multi" element2_name="DC/DC converter" x="0" y="0" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" element1_name="Terminal block" bicolor="false" element1="{43034607-cebd-43dd-8d46-f581e5616e81}" condsize="1" numsize="7" element2="{105445ca-007a-4397-b5d6-d97790ad7f44}" tension_protocol="" dash-size="2" bus="" freezeLabel="false" conductor_section="" vertical-alignment="AlignRight" terminal1="{5c6a034e-20cb-4675-b877-273f3231a168}" terminalname1="" terminal2="{a3de003a-9197-427a-97e3-c4e86999964d}" terminalname2="" rotation="360" element2_label="T5" element1_label="-X8:6E10" userx="620" usery="360" function="" horizontal-alignment="AlignBottom" text_color="#000000" formula="-W%sequ_1" cable="">
                 <sequentialNumbers>
                     <unit>93</unit>
                 </sequentialNumbers>
