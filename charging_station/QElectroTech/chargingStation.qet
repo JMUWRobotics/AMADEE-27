@@ -670,12 +670,12 @@
     <properties>
         <property name="author" show="1">Nico Schubert</property>
         <property name="path" show="1">./charging_station/QElectroTech/chargingStation.qet</property>
-        <property name="saveddate" show="1">8/2/26</property>
-        <property name="saveddate-eu" show="1">02-08-2026</property>
-        <property name="saveddate-us" show="1">2026-08-02</property>
+        <property name="saveddate" show="1">8/6/26</property>
+        <property name="saveddate-eu" show="1">06-08-2026</property>
+        <property name="saveddate-us" show="1">2026-08-06</property>
         <property name="savedfilename" show="1">chargingStation</property>
         <property name="savedfilepath" show="1">/home/nls/SHK_Arbeit/AMADEE-27/charging_station/QElectroTech/chargingStation.qet</property>
-        <property name="savedtime" show="1">19:39</property>
+        <property name="savedtime" show="1">17:52</property>
     </properties>
     <newdiagrams>
         <border cols="17" colsize="60" rows="8" displaycols="true" displayrows="true" rowsize="80"/>
@@ -722,7 +722,7 @@
     <diagram colsize="60" indexrev="v1.00" displaycols="true" plant="" locmach="" title="Summary" rows="8" rowsize="80" height="660" filename="%{path}" order="1" date="20260721" author="" version="0.100.1-dev" freezeNewConductor="false" cols="17" titleblocktemplateCollection="embedded" displayAt="bottom" auto_page_num="Create an auto folio numbering" folio="%id/%total" displayrows="true" freezeNewElement="false" titleblocktemplate="jmu17_2">
         <defaultconductor num="_" conductor_color="" type="multi" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" bicolor="false" condsize="1" numsize="7" tension_protocol="" bus="" dash-size="2" conductor_section="" vertical-alignment="AlignRight" function="" horizontal-alignment="AlignBottom" text_color="#000000" cable="" formula=""/>
         <tables>
-            <graphics_table x="50" y="70" name="Folio Summary" uuid="{f0bcdab2-3a61-48a9-a528-59584cdd0ba8}" display_n_row="23" width="980" height="168">
+            <graphics_table x="50" y="70" name="" uuid="{c1f58131-ebea-4ae6-8d0e-e79313fc4ef6}" display_n_row="23" width="980" height="168">
                 <graphics_header>
                     <margins>5;5;10;5</margins>
                 </graphics_header>
@@ -2442,7 +2442,7 @@ T3</text>
             </shape>
         </shapes>
     </diagram>
-    <diagram colsize="60" indexrev="v2.00" displaycols="true" plant="" locmach="" title="Start, Stop, E-Stop" rows="8" rowsize="80" height="660" filename="%{path}" order="4" date="null" author="Nico Schubert" conductorAutonum="Wire" version="0.100.1-dev" freezeNewConductor="false" cols="17" titleblocktemplateCollection="embedded" displayAt="bottom" auto_page_num="Create an auto folio numbering" folio="%id/%total" displayrows="true" freezeNewElement="false" titleblocktemplate="jmu17_2">
+    <diagram colsize="60" indexrev="v2.00" displaycols="true" plant="" locmach="" title="Start, Stop, E-Stop" rows="8" rowsize="80" height="660" filename="%{path}" order="4" date="20260721" author="Nico Schubert" conductorAutonum="Wire" version="0.100.1-dev" freezeNewConductor="false" cols="17" titleblocktemplateCollection="embedded" displayAt="bottom" auto_page_num="Create an auto folio numbering" folio="%id/%total" displayrows="true" freezeNewElement="false" titleblocktemplate="jmu17_2">
         <defaultconductor num="_" conductor_color="" type="multi" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" bicolor="false" condsize="1" numsize="7" tension_protocol="" bus="" dash-size="2" conductor_section="" vertical-alignment="AlignRight" function="" horizontal-alignment="AlignBottom" text_color="#000000" cable="" formula=""/>
         <elements>
             <element type="embed://import/10_electric/10_allpole/130_terminals_terminal_strips/borne_21.elmt" x="490" y="610" z="10" freezeLabel="false" prefix="X" uuid="{e3485a0b-2890-4989-911b-300fa16cda19}" orientation="3">
@@ -4865,7 +4865,7 @@ T3</text>
             </shape>
         </shapes>
     </diagram>
-    <diagram colsize="60" indexrev="v1.00" displaycols="true" plant="" locmach="" title="Wiring Mirror of Schütz" rows="8" rowsize="80" height="660" filename="%{path}" order="7" date="null" author="Nico Schubert" version="0.100.1-dev" freezeNewConductor="false" cols="17" titleblocktemplateCollection="embedded" displayAt="bottom" auto_page_num="Create an auto folio numbering" folio="%id/%total" displayrows="true" freezeNewElement="false" titleblocktemplate="jmu17_2">
+    <diagram colsize="60" indexrev="v1.00" displaycols="true" plant="" locmach="" title="Wiring Mirror of Schütz" rows="8" rowsize="80" height="660" filename="%{path}" order="7" date="20260721" author="Nico Schubert" version="0.100.1-dev" freezeNewConductor="false" cols="17" titleblocktemplateCollection="embedded" displayAt="bottom" auto_page_num="Create an auto folio numbering" folio="%id/%total" displayrows="true" freezeNewElement="false" titleblocktemplate="jmu17_2">
         <defaultconductor num="" conductor_color="" type="multi" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" bicolor="false" condsize="1" numsize="7" tension_protocol="" bus="" dash-size="2" conductor_section="" vertical-alignment="AlignRight" function="" horizontal-alignment="AlignBottom" text_color="#000000" cable="" formula=""/>
         <elements>
             <element type="embed://import/10_electric/10_allpole/130_terminals_terminal_strips/borne_finale1.elmt" x="490" y="290" z="10" freezeLabel="false" prefix="X" uuid="{72acced8-c31f-4a77-9d0b-32ac141d44d2}" orientation="2">
