@@ -670,12 +670,12 @@
     <properties>
         <property name="author" show="1">Nico Schubert</property>
         <property name="path" show="1">./charging_station/QElectroTech/chargingStation.qet</property>
-        <property name="saveddate" show="1">8/6/26</property>
-        <property name="saveddate-eu" show="1">06-08-2026</property>
-        <property name="saveddate-us" show="1">2026-08-06</property>
+        <property name="saveddate" show="1">8/10/26</property>
+        <property name="saveddate-eu" show="1">10-08-2026</property>
+        <property name="saveddate-us" show="1">2026-08-10</property>
         <property name="savedfilename" show="1">chargingStation</property>
         <property name="savedfilepath" show="1">/home/nls/SHK_Arbeit/AMADEE-27/charging_station/QElectroTech/chargingStation.qet</property>
-        <property name="savedtime" show="1">17:52</property>
+        <property name="savedtime" show="1">14:41</property>
     </properties>
     <newdiagrams>
         <border cols="17" colsize="60" rows="8" displaycols="true" displayrows="true" rowsize="80"/>
@@ -722,7 +722,7 @@
     <diagram colsize="60" indexrev="v1.00" displaycols="true" plant="" locmach="" title="Summary" rows="8" rowsize="80" height="660" filename="%{path}" order="1" date="20260721" author="" version="0.100.1-dev" freezeNewConductor="false" cols="17" titleblocktemplateCollection="embedded" displayAt="bottom" auto_page_num="Create an auto folio numbering" folio="%id/%total" displayrows="true" freezeNewElement="false" titleblocktemplate="jmu17_2">
         <defaultconductor num="_" conductor_color="" type="multi" displaytext="1" vertirotatetext="270" onetextperfolio="0" color2="#000000" horizrotatetext="0" bicolor="false" condsize="1" numsize="7" tension_protocol="" bus="" dash-size="2" conductor_section="" vertical-alignment="AlignRight" function="" horizontal-alignment="AlignBottom" text_color="#000000" cable="" formula=""/>
         <tables>
-            <graphics_table x="50" y="70" name="" uuid="{c1f58131-ebea-4ae6-8d0e-e79313fc4ef6}" display_n_row="23" width="980" height="168">
+            <graphics_table x="50" y="70" name="" uuid="{8042fdb1-5d95-47d9-86b3-f2ec406c5677}" display_n_row="23" width="980" height="168">
                 <graphics_header>
                     <margins>5;5;10;5</margins>
                 </graphics_header>
@@ -1488,7 +1488,7 @@ holding: 1.7W => 35mA @48V</text>
             </shape>
         </shapes>
     </diagram>
-    <diagram colsize="60" indexrev="v2.00" displaycols="true" plant="" locmach="" title="PV-MPPT-Extern" rows="8" rowsize="80" height="660" filename="%{path}" order="3" date="20260703" author="Nico Schubert" conductorAutonum="Wire" version="0.100.1-dev" freezeNewConductor="false" cols="17" titleblocktemplateCollection="embedded" displayAt="bottom" auto_page_num="Create an auto folio numbering" folio="%id/%total" displayrows="true" freezeNewElement="false" titleblocktemplate="jmu17_2">
+    <diagram colsize="60" indexrev="v2.01" displaycols="true" plant="" locmach="" title="PV-MPPT-Extern" rows="8" rowsize="80" height="660" filename="%{path}" order="3" date="20260703" author="Nico Schubert" conductorAutonum="Wire" version="0.100.1-dev" freezeNewConductor="false" cols="17" titleblocktemplateCollection="embedded" displayAt="bottom" auto_page_num="Create an auto folio numbering" folio="%id/%total" displayrows="true" freezeNewElement="false" titleblocktemplate="jmu17_2">
         <defaultconductor num="_" conductor_color="" type="multi" displaytext="1" vertirotatetext="270" onetextperfolio="1" color2="#000000" horizrotatetext="0" bicolor="false" condsize="1" numsize="7" tension_protocol="" bus="" dash-size="2" conductor_section="" vertical-alignment="AlignRight" function="" horizontal-alignment="AlignBottom" text_color="#000000" cable="" formula=""/>
         <elements>
             <element type="embed://import/schuetz-power-pole.elmt" x="600" y="250" z="10" freezeLabel="false" prefix="" uuid="{61656cb7-3b95-4564-b245-bbd3112e174a}" orientation="0">
@@ -2005,7 +2005,7 @@ T3</text>
                 </terminals>
                 <inputs/>
                 <elementInformations>
-                    <elementInformation name="comment" show="1">40A 150VDC</elementInformation>
+                    <elementInformation name="comment" show="1">20A 150VDC</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
                     <elementInformation name="formula" show="1">-F2</elementInformation>
                     <elementInformation name="label" show="1">-F2</elementInformation>
@@ -2016,7 +2016,7 @@ T3</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="2" y="39" rotation="270" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{b0b810e3-e6e9-4d24-8a69-98adf83d7b0c}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>40A 150VDC</text>
+                        <text>20A 150VDC</text>
                         <info_name>comment</info_name>
                     </dynamic_elmt_text>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-17" y="25" rotation="270" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{9fa37c1e-ae60-41f9-abc9-c8f90d449ffd}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
@@ -2053,7 +2053,7 @@ T3</text>
                 </terminals>
                 <inputs/>
                 <elementInformations>
-                    <elementInformation name="comment" show="1">40A 150VDC</elementInformation>
+                    <elementInformation name="comment" show="1">20A 150VDC</elementInformation>
                     <elementInformation name="exclude_from_bom" show="1">false</elementInformation>
                     <elementInformation name="formula" show="1">-F1</elementInformation>
                     <elementInformation name="label" show="1">-F1</elementInformation>
@@ -2064,7 +2064,7 @@ T3</text>
                         <info_name>label</info_name>
                     </dynamic_elmt_text>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="0" y="36" rotation="270" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{b0b810e3-e6e9-4d24-8a69-98adf83d7b0c}" keep_visual_rotation="true" text_from="ElementInfo" Valignment="AlignTop">
-                        <text>40A 150VDC</text>
+                        <text>20A 150VDC</text>
                         <info_name>comment</info_name>
                     </dynamic_elmt_text>
                     <dynamic_elmt_text frame="false" Halignment="AlignLeft" x="-17" y="26" rotation="270" font="Liberation Sans,9,-1,0,50,0,0,0,0,0,Regular" text_width="-1" uuid="{9fa37c1e-ae60-41f9-abc9-c8f90d449ffd}" keep_visual_rotation="true" text_from="UserText" Valignment="AlignTop">
