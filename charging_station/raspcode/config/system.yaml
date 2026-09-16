@@ -1,0 +1,43 @@
+bus:
+  max_voltage: 60
+  max_current: 32
+  min_voltage: 48
+  min_current: 0
+
+dpm:
+  max_voltage: 60
+  max_current: 32
+  min_voltage: 48
+  min_current: 0
+
+dpm8624:
+  tty_port: /dev/ttyUSB0
+  baudrate: 9600    
+  protocol: simple
+  stale_time: 1
+  bucks:
+    -
+      address: 10
+      boosted: False
+    -
+      address: 11
+      boosted: False
+    -
+      address: 12
+      boosted: True
+      
+mppt:
+  device: smartsolar_150_35
+  tty_port: /dev/ttyUSB0
+  timeout: 60
+  PID_test:
+    typeTest: value
+    key: PID
+    value: 0xAO58
+
+
+  
+
+
+
+

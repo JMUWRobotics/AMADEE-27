@@ -1,0 +1,2 @@
+# Read energy information from the MPPT and the Charging need of the connected rovers and assign the energy accordingly.
+# This is done by the EnergyManager class, which is a singleton and runs in its own thread.

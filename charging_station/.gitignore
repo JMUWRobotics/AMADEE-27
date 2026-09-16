@@ -1,1 +1,10 @@
 **/tempCodeRunnerFile.py
+# Ignore virtual environment folder
+.venv/
+venv/
+
+# Ignore Python bytecode
+__pycache__/
+*.pyc
+
+settings.json
