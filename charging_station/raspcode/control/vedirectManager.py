@@ -22,18 +22,19 @@ def print_data_callback(packet):
 if __name__ == '__main__':
     with open(CONFIG_PATH, "r") as f:
         config = yaml.safe_load(f)
-    configure_logging(config.get("debug", False))
+
+    mppt_config = config["mppt"]
+
+    configure_logging(mppt_config.get("debug", False))
 
     conf = {
-        "serial_port": config.get("serial_port"),
-        "timeout": config.get("timeout")
+        "serial_port": mppt_config["tty_port"],
+        "timeout": mppt_config["timeout"]
     }
 
     ve = VedirectController(
         serial_conf=conf,
-        serial_test=config.get("PID_test"),
+        serial_test=mppt_config["serial_test"]
     )
-
-    breakpoint()
 
     ve.read_data_callback(print_data_callback)

@@ -30,10 +30,11 @@ mppt:
   device: smartsolar_150_35
   tty_port: /dev/ttyUSB0
   timeout: 60
-  PID_test:
-    typeTest: value
-    key: PID
-    value: 0xAO58
+  serial_test:
+    PID_test:
+      typeTest: value
+      key: PID
+      value: 0xAO58
 
 
   
