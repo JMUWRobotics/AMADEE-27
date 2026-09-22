@@ -66,10 +66,11 @@ if __name__ == "__main__":
         # display_device_list(DEVICES)
         
         for device in DEVICES:
-            try:
-                device.update_state()
-            except Exception as e:
-                print(f"Error updating device {device.name}: {e}")
-            device.display_state()
-        
+            with device.device.api as api:
+                try:
+                    api.update_state()
+                except Exception as e:
+                    print(f"Error updating device {device.name}: {e}")
+                api.display_state()
+            
         time.sleep(0.1)
