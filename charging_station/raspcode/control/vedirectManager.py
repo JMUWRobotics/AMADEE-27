@@ -93,17 +93,14 @@ class MpptState:
 # =============================================================================
 
 class VedirectManager:
-    def __init__(self, config_path: Path):
-        self.config_path = config_path
+    def __init__(self, config: dict) -> None:
+        self.config = config
 
         self.loop: Optional[asyncio.AbstractEventLoop] = None
         self.queue: asyncio.Queue[MpptState] = asyncio.Queue()
 
         logging.basicConfig()
         self.logger = logging.getLogger("vedirect")
-
-        with open(CONFIG_PATH, "r") as file:
-            self.config = yaml.safe_load(file)
 
         configure_logging(self.config.get("debug", False))
 
@@ -117,6 +114,7 @@ class VedirectManager:
             serial_conf=self.conf,
             serial_test=self.mppt_config["serial_test"],
         )
+        self.latest_state = None
 
     def _mppt_state_callback_function(self, packet: dict) -> None:
         """Callback for converting data from vedirect-pkg into a MpptState dataclass and storing into a queue."""
@@ -126,8 +124,8 @@ class VedirectManager:
                 voltage_panel=float(packet.get("VPV", 0.0))/1000.0,  # Convert mV to V
                 power_panel=float(packet.get("PPV", 0.0)),
                 current_bus=float(packet.get("I", 0.0))/1000.0,  # Convert mA to A
-                relay_state=bool(packet.get("Relay", False)),
-                off_reason=MpptOffReason(int(packet.get("OR", 0),16)), # Convert hex string to int
+                relay_state=True if packet.get("Relay") == "ON" else False,
+                off_reason=MpptOffReason(int(packet.get("OR", "0"),16)), # Convert hex string to int
                 yield_total=float(packet.get("H19", 0.0))/100.0, # Convert 0.01 kWh to kWh
                 yield_today=float(packet.get("H20", 0.0))/100.0 , # Convert 0.01 kWh to kWh
                 maximum_power_today=float(packet.get("H21", 0.0)),
@@ -165,25 +163,11 @@ class VedirectManager:
         """Interface for extern moduls."""
         return await self.queue.get()
 
-if __name__ == '__main__':
-    BASE_DIR = Path(__file__).resolve().parent.parent
-    CONFIG_PATH = BASE_DIR / "config" / "system.yaml"
-
-    async def external_main():
-        # 1. Instanziieren
-        mppt = VedirectManager(config_path=CONFIG_PATH)
-
-        # 2. MPPT im Hintergrund starten
-        asyncio.create_task(mppt.start())
-
-        # 3. Externe Verarbeitungs-Schleife (Beispiel für externes Lesen)
-        print("Warte auf MPPT-Daten...")
-        while True:
-            state = await mppt.get_state()
-            print(f"[EXTERN] Akku-Spannung: {state.voltage_bus:.2f}V | Solar-Leistung: {state.power_panel:.1f}W | Modus: {state.state_of_operation.name}")
-            mppt.queue.task_done()
-
-    try:
-        asyncio.run(external_main())
-    except KeyboardInterrupt:
-        print("\nBeendet.")
+    def get_latest_state(self) -> Optional[MpptState]:
+        """Non-blocking getter for the most recently received state."""
+        while not self.queue.empty():
+            try:
+                self.latest_state = self.queue.get_nowait()
+            except asyncio.QueueEmpty:
+                break
+        return self.latest_state

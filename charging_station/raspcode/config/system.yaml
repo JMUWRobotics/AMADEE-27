@@ -11,7 +11,7 @@ dpm:
   min_current: 0
 
 dpm8624:
-  tty_port: /dev/ttyUSB0
+  tty_port: /dev/ttyUSB1
   baudrate: 9600    
   protocol: simple
   stale_time: 1
@@ -22,13 +22,11 @@ dpm8624:
     -
       address: 11
       boosted: False
-    -
-      address: 12
-      boosted: True
+
       
 mppt:
   device: smartsolar_150_35
-  tty_port: /dev/ttyUSB0
+  tty_port: /dev/ttyUSB2
   timeout: 60
   serial_test:
     PID_test:
