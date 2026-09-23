@@ -63,14 +63,23 @@ if __name__ == "__main__":
     
     while True:
         print("\x1b[2J\x1b[H", end="")  # Clear screen and move cursor to home position]")
-        # display_device_list(DEVICES)
+        #display_device_list(DEVICES)#
+        device_list: List[DPM86XX_Device] 
+        device_list = [device.device for device in DEVICES]
         
         for device in DEVICES:
-            with device.device.api as api:
-                try:
-                    api.update_state()
-                except Exception as e:
-                    print(f"Error updating device {device.name}: {e}")
-                api.display_state()
+            device.device.update_state()
+            display_device_list(device_list)
+            #with device.device.api as api:
+                #print(f"Updating device {api.read_all()}...")
+                
+                #try:
+                #
+                #    #api.display_status()
+                #    #api.update_state()
+                #    
+                #except Exception as e:
+                #    print(f"Error updating device {device.name}: {e}")
+                #api.display_state()
             
-        time.sleep(0.1)
+        time.sleep(1)
