@@ -10,23 +10,31 @@ dpm:
   min_voltage: 48
   min_current: 0
 
-dpm8624:
-  tty_port: /dev/ttyUSB1
-  baudrate: 9600    
-  protocol: simple
-  stale_time: 1
-  bucks:
+adapter:
+  dpm_tty_port: /dev/ttyUSB1
+  dpm_baudrate: 9600
+  dpm_protocol: simple
+  dpm_stale_time: 1
+  mfrc_spi_bus: 1
+  mfrc_baudrate: 100000
+  mfrc_pin_rst: 32
+  devices:
     -
-      address: 10
-      boosted: False
+      dpm_address: 10
+      max_voltage: 60
+      mfrc_chip_select: 0
     -
-      address: 11
-      boosted: False
+      dpm_address: 11
+      dpm_boosted: 45
+      mfrc_chip_select: 1
+    -
+      dpm_address: 12
+      dpm_boosted: 45
+      mfrc_chip_select: 2
 
-      
 mppt:
   device: smartsolar_150_35
-  tty_port: /dev/ttyUSB2
+  tty_port: /dev/ttyUSB0
   timeout: 60
   serial_test:
     PID_test:

@@ -93,7 +93,7 @@ class MpptState:
 # =============================================================================
 
 class VedirectManager:
-    def __init__(self, config: dict) -> None:
+    def __init__(self, tty_port, timeout, serial_test) -> None:
         self.config = config
 
         self.loop: Optional[asyncio.AbstractEventLoop] = None
@@ -102,14 +102,11 @@ class VedirectManager:
         logging.basicConfig()
         self.logger = logging.getLogger("vedirect")
 
-        configure_logging(self.config.get("debug", False))
-
-        self.mppt_config = self.config["mppt"]
         self.conf = {
             "serial_port": self.mppt_config["tty_port"],
             "timeout": self.mppt_config["timeout"],
         }
-        self.logger.info("Configuration: %s", self.conf)
+
         self.ve = VedirectController(
             serial_conf=self.conf,
             serial_test=self.mppt_config["serial_test"],
@@ -142,8 +139,6 @@ class VedirectManager:
 
             if self.loop:
                 self.loop.call_soon_threadsafe(self.queue.put_nowait, state)
-
-            self.logger.info("MPPT State: %s", state)
 
         except Exception as e:
             self.logger.error("Error in VedirectManager._mppt_state_callback_function: %s", e)

@@ -1,12 +1,15 @@
 import asyncio
 import logging
+import select
+import sys
 from enum import Enum
 from pathlib import Path
 from typing import Optional
 
 import yaml
 
-from charging_manager import ChargingManager
+from adapter_manager import ChargingManager
+from control.debug_manager import DebugManager
 from vedirectManager import VedirectManager
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -30,6 +33,7 @@ class StateMachine:
         self.config = None
         self.charging_manager: Optional[ChargingManager] = None
         self.vedirect_manager: Optional[VedirectManager] = None
+        self.debug_manager: Optional[DebugManager] = None
         self.state = State.BOOT
         self._running = True
 
@@ -43,7 +47,7 @@ class StateMachine:
                     await self._handle_boot()
 
                 elif self.state == State.IDLE:
-                    await self._handle_operational()
+                    await self._handle_idle()
 
                 elif self.state == State.FAULT:
                     await self._handle_fault()
@@ -79,11 +83,16 @@ class StateMachine:
             else:
                 logger.error("Charging Manager setup failed during boot.")
                 self.state = State.FAULT
+
+            self.debug_manager = DebugManager(charging_manager=self.charging_manager)
         except Exception as e:
             logger.error(f"Boot failure: {e}")
             self.state = State.FAULT
 
-    async def _handle_operational(self) -> None:
+    async def _handle_idle(self) -> None:
+        if self.start_debug_mode():
+            return
+
         # 1. Update hardware device states
         await self.charging_manager.update_all_states()
 
@@ -94,7 +103,7 @@ class StateMachine:
             voltage = getattr(mppt_state, "voltage_bus", 0.0)
             solar_power = getattr(mppt_state, "power_panel", 0.0)
 
-            logger.debug(
+            print(
                 f"[MPPT] Voltage: {voltage:.2f}V | Solar: {solar_power:.1f}W | "
                 f"Mode: {getattr(mppt_state.state_of_operation, 'name', 'UNKNOWN')}"
             )
@@ -113,8 +122,22 @@ class StateMachine:
         await asyncio.sleep(5.0)
 
     async def _handle_debug(self) -> None:
-        logger.info("System in DEBUG state.")
-        await asyncio.sleep(1.0)
+        logger.info("Entering DEBUG state...")
+        if self.debug_manager:
+            await self.debug_manager.run_cli_session()
+
+        logger.info("Exiting DEBUG State, returning to IDLE.")
+        self.state = State.IDLE
+
+    def start_debug_mode(self) -> bool:
+        if select.select([sys.stdin], [], [], 0.0)[0]:
+            user_cmd = sys.stdin.readline().strip().lower()
+            print(user_cmd)
+            if user_cmd in ("d", "debug"):
+                logger.info("Switching to DEBUG mode triggered by user.")
+                self.state = State.DEBUG
+                return True
+        return False
 
 
 async def main():

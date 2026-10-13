@@ -33,7 +33,7 @@ class RequestedValues:
 
     def to_string(self):
         return (
-            "================ ROBO-TAG GELESEN ================\n"
+            "=================== ROBO-TAG =====================\n"
             f"Robot ID:        #{self.robot_id}\n"
             f"Tag ID (Position): #{self.tag_id}\n"
             f"Voltage:      {self.voltage_mv} V\n"
@@ -42,14 +42,14 @@ class RequestedValues:
             "==================================================\n"
         )
 
-class Adapter:
+class AdapterManager:
     _dpm_serial_lock = asyncio.Lock()
     _mfrc_serial_lock = asyncio.Lock()
 
-    def __init__(self, dpm_tty_port, dpm_baud_rate, dpm_address: int, dpm_stale_time, mfrc_spi_bus :int,
-                 mfrc_chip_select: int, mfrc_baud_rate: int, mfrc_pin_rst, boosted: bool):
+    def __init__(self, dpm_tty_port, dpm_baud_rate, dpm_address: int, dpm_stale_time, dpm_max_voltage: int,
+                 mfrc_spi_bus :int, mfrc_chip_select: int, mfrc_baud_rate: int, mfrc_pin_rst):
         self.dpm_address = dpm_address
-        self.boosted = boosted
+        self.dpm_max_voltage = dpm_max_voltage
         dpm_cfg = DPM86XXConfig(
             port=dpm_tty_port,
             baud_rate=dpm_baud_rate,
@@ -97,7 +97,7 @@ class Adapter:
             logger.error(f"Failed to setup device at address {self.dpm_address}: {e}")
             return False
 
-    async def set_output(self, state: bool) -> bool:
+    async def set_output_state(self, state: bool) -> bool:
         """Disables output on a device and releases its allocated system power."""
 
         def _sync_disable():
@@ -117,7 +117,7 @@ class Adapter:
         try:
             await self._execute_serial(self.dpm_device.update_state, self._dpm_serial_lock)
         except Exception as e:
-            logger.error(f"Failed to fetch state for device {self.dpm_address}: {e}"
+            logger.error(f"Failed to fetch state for device {self.dpm_address}: {e}")
 
     async def read_rfid(self):
 
@@ -151,7 +151,6 @@ class Adapter:
                 cutoff_ma = ((data[6] * 256) + data[7]) * 0.001,
                 battery_type = data[8]
             )
-
             return requested_values
 
         try:
@@ -162,15 +161,13 @@ class Adapter:
             logger.error(f"Failed to disable device {self.dpm_address}: {e}")
             return False
 
-    async def request_output(self, target_voltage: float, target_power: float):
+    async def set_output_values(self, target_voltage: float, target_power: float):
         """
         Sets specific voltage and power for a channel within hardware and system constraints.
         """
-
-        max_voltage = 65.0 if self.boosted else 50.0
-        if target_voltage <= 0 or target_voltage > max_voltage:
-            logger.warningS(
-                f"Device {self.dpm_address} rejected: Requested {target_voltage:.2f}V exceeds limit ({max_voltage}V)."
+        if target_voltage <= 0 or target_voltage > self.dpm_max_voltage:
+            logger.warning(
+                f"Device {self.dpm_address} rejected: Requested {target_voltage:.2f}V exceeds limit ({self.dpm_max_voltage}V)."
             )
             return False
 
@@ -198,68 +195,3 @@ class Adapter:
             logger.error(f"Communication error applying output to device {self.dpm_address}: {e}")
             return False
 
-
-
-class ChargingManager:
-    def __init__(self, config: dict):
-        """
-        Asynchronous manager for DPM86XX buck converters sharing a single serial bus.
-
-        :param devices: List of configured DPM86XX_Device wrappers.
-        """
-        self.devices_config = self.load_system_config(config)
-
-        self.adapter: List[Adapter] = []
-
-
-    async def setup_system(self) -> bool:
-        """
-        Setup all devices that are configured via the yaml
-        """
-        async with asyncio.TaskGroup() as tg:
-            results = [tg.create_task(adp.setup_device()) for adp in self.adapter]
-        return all(results)
-
-    def render_ui(self) -> None:
-        """Prints terminal display based on cached device states without blocking serial I/O."""
-        print("\x1b[2J\x1b[H", end="")  # Clear screen and reset cursor
-        device_list = [dev.device for dev in self.devices.values()]
-        display_device_list(device_list)
-
-
-# ---------------------------------------------------------------------------
-# Configuration Loader
-# ---------------------------------------------------------------------------
-
-    def load_system_config(self, config: dict) -> List[Adapter]:
-        dpm_config = config["adapter"]
-        tty_port = dpm_config["dpm_tty_port"]
-        baudrate = BaudRate(dpm_config["dpm_baudrate"])
-        stale_time = dpm_config["dpm_stale_time"]
-        mfrc_spi_bus = dpm_config["mfrc_spi_bus"]
-        mfrc_baudrate = dpm_config["mfrc_baudrate"]
-        mfrc_pin_rst = dpm_config["mfrc_pin_rst"]
-
-        devices: List[Adapter] = []
-        for dev_info in dpm_config["devices"]:
-            addr = dev_info["dpm_address"]
-
-            cfg = DPM86XXConfig(
-                port=tty_port,
-                baud_rate=baudrate,
-                address=addr,
-                protocol=Protocol.SIMPLE,
-                stale_time=stale_time,
-            )
-
-            devices.append(
-                Adapter(
-                    dpm_device=DPM86XXDevice(cfg, name=f"DPM8624-{addr}"),
-                    nfc_reader=MFRC522(bus=mfrc_spi_bus, device=dev_info["mfrc_chip_select"], spd=mfrc_baudrate, pin_rst=mfrc_pin_rst),
-                    boosted=dev_info["boosted"],
-                    name=f"DPM8624-{addr}",
-                    address=addr,
-                )
-            )
-
-        return devices
