@@ -3,7 +3,7 @@ from typing import List
 
 from control.adapter_manager import AdapterManager
 from drivers.dpm86xx import *
-from vedirectManager import VedirectManager
+from charging_station.raspcode.control.vedirect_manager import VedirectManager
 
 
 def load_system_config(config: dict):
@@ -60,3 +60,21 @@ class EnergyManager:
 
         asyncio.create_task(self.mppt.start())
         return all(results)
+
+    async def update_states(self) -> None:
+        """
+        NFC-Reader read and DPM update states and returned 
+        """
+        #TODO: NFC-Reader read and DPM update states and returned
+        async with asyncio.TaskGroup() as tg:
+            results = [tg.create_task(adp.update_state()) for adp in self.adapter]
+        
+        return all(results)
+
+    async def idle_loop(self) -> None:
+        """
+        Main loop for the EnergyManager, continuously updating device states.
+        """
+        while True:
+            state = await self.update_states()
+            await asyncio.sleep(1.0)  # Adjust the sleep duration as needed

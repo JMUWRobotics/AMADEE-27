@@ -8,9 +8,10 @@ from typing import Optional
 
 import yaml
 
-from adapter_manager import ChargingManager
+from adapter_manager import AdapterManager
 from control.debug_manager import DebugManager
-from vedirectManager import VedirectManager
+from vedirect_manager import VedirectManager
+from energy_manager import EnergyManager
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("StateMachine")
@@ -31,8 +32,7 @@ class StateMachine:
     def __init__(self, config_file: Path = CONFIG_PATH) -> None:
         self.config_file = config_file
         self.config = None
-        self.charging_manager: Optional[ChargingManager] = None
-        self.vedirect_manager: Optional[VedirectManager] = None
+        self.energy_manager: Optional[EnergyManager] = None
         self.debug_manager: Optional[DebugManager] = None
         self.state = State.BOOT
         self._running = True
@@ -71,20 +71,18 @@ class StateMachine:
             with open(self.config_file, "r", encoding="utf-8") as f:
                 self.config = yaml.safe_load(f)
 
-            self.charging_manager = ChargingManager(config=self.config)
-            self.vedirect_manager = VedirectManager(config=self.config)
+            self.energy_manager = EnergyManager(config=self.config)
+            self.debug_manager = DebugManager(charging_manager=self.charging_manager)
+            
+            station_ready = await self.energy_manager.setup_system()
 
-            charging_manager_ready = await self.charging_manager.setup_system()
-            asyncio.create_task(self.vedirect_manager.start())
-
-            if charging_manager_ready:
+            if station_ready:
                 logger.info("Boot sequence completed successfully. Switching to IDLE.")
                 self.state = State.IDLE
             else:
-                logger.error("Charging Manager setup failed during boot.")
+                logger.error("Station setup failed during boot.")
                 self.state = State.FAULT
-
-            self.debug_manager = DebugManager(charging_manager=self.charging_manager)
+                
         except Exception as e:
             logger.error(f"Boot failure: {e}")
             self.state = State.FAULT
