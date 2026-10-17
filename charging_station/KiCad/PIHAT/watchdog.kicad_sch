@@ -2753,7 +2753,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "00f56533-3350-4c00-9631-3608649362b2")
-		(property "Reference" "#PWR048"
+		(property "Reference" "#PWR033"
 			(at 157.48 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -2813,7 +2813,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR048")
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -2911,7 +2911,7 @@
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "0dd2773d-3abe-4f53-a4c9-0b38a69020fb")
-		(property "Reference" "C2"
+		(property "Reference" "C3"
 			(at 160.02 100.3362 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2997,7 +2997,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "C2")
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -3015,7 +3015,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1d0e591b-356a-49e9-849a-ab67e956da77")
-		(property "Reference" "#PWR050"
+		(property "Reference" "#PWR028"
 			(at 71.12 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -3075,7 +3075,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR050")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -3093,7 +3093,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2aac112d-b389-4cee-abc2-f43f94230248")
-		(property "Reference" "Q9"
+		(property "Reference" "Q6"
 			(at 193.04 138.4299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3185,7 +3185,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "Q9")
+					(reference "Q6")
 					(unit 1)
 				)
 			)
@@ -3203,7 +3203,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "36679688-8c68-4810-82f2-4d010b2d308d")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR035"
 			(at 175.26 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -3263,7 +3263,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR014")
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -3280,7 +3280,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4033b6a3-209f-4784-baf8-d42aa3eb8a36")
-		(property "Reference" "R12"
+		(property "Reference" "R6"
 			(at 215.646 143.51 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3344,7 +3344,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "R12")
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -3361,7 +3361,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "43955850-8720-43f2-8967-933c0a8c4337")
-		(property "Reference" "R9"
+		(property "Reference" "R4"
 			(at 158.496 90.17 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3425,7 +3425,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "R9")
+					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -3443,7 +3443,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4b7bbc54-2696-4b28-8564-3f34d5a912a4")
-		(property "Reference" "C5"
+		(property "Reference" "C4"
 			(at 177.8 127.0062 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3529,7 +3529,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "C5")
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -3547,7 +3547,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4d5e0f88-229d-4990-95b1-875042b692d6")
-		(property "Reference" "U4"
+		(property "Reference" "U6"
 			(at 66.04 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3645,7 +3645,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "U4")
+					(reference "U6")
 					(unit 1)
 				)
 			)
@@ -3663,7 +3663,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "59bb8910-5e84-4901-a6e8-eae0369bfa1d")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR036"
 			(at 181.61 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -3723,7 +3723,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR015")
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -3741,7 +3741,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5b5b32af-c3df-4b78-a042-69fe4d08e09d")
-		(property "Reference" "#PWR046"
+		(property "Reference" "#PWR042"
 			(at 214.63 127 0)
 			(hide yes)
 			(show_name no)
@@ -3801,7 +3801,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR046")
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -3819,7 +3819,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5e2348a3-0b9e-48be-8a97-3be32fa18c60")
-		(property "Reference" "#PWR040"
+		(property "Reference" "#PWR032"
 			(at 99.06 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -3879,7 +3879,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR040")
+					(reference "#PWR032")
 					(unit 1)
 				)
 			)
@@ -3897,7 +3897,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5f04e41b-ec05-40b3-84ea-30c64fa12c9c")
-		(property "Reference" "#PWR039"
+		(property "Reference" "#PWR027"
 			(at 54.61 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -3957,7 +3957,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR039")
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -3975,7 +3975,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "68022bd3-1baf-48ef-96da-1408ad2b3290")
-		(property "Reference" "Q1"
+		(property "Reference" "Q8"
 			(at 255.27 95.2499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4067,7 +4067,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "Q1")
+					(reference "Q8")
 					(unit 1)
 				)
 			)
@@ -4085,7 +4085,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "69376850-56fe-4602-9249-6aeaed6c39ab")
-		(property "Reference" "#PWR038"
+		(property "Reference" "#PWR029"
 			(at 71.12 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -4145,7 +4145,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR038")
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -4163,7 +4163,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6980443f-fb04-471e-8835-d4999d2e4411")
-		(property "Reference" "R4"
+		(property "Reference" "R8"
 			(at 237.49 91.44 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4225,7 +4225,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "R4")
+					(reference "R8")
 					(unit 1)
 				)
 			)
@@ -4242,7 +4242,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "79e52430-53a7-44b7-a0ca-a838d7d60b79")
-		(property "Reference" "Q8"
+		(property "Reference" "Q7"
 			(at 210.82 130.81 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4334,7 +4334,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "Q8")
+					(reference "Q7")
 					(unit 1)
 				)
 			)
@@ -4352,7 +4352,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7a926fd5-513f-4d78-82bf-f8ed9ba2ad0a")
-		(property "Reference" "Q10"
+		(property "Reference" "Q3"
 			(at 90.17 55.88 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4444,7 +4444,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "Q10")
+					(reference "Q3")
 					(unit 1)
 				)
 			)
@@ -4462,7 +4462,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7e2678aa-4451-401a-b7f8-94b790600834")
-		(property "Reference" "Q4"
+		(property "Reference" "Q1"
 			(at 74.93 81.28 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4554,7 +4554,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "Q4")
+					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -4572,7 +4572,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "80132f7c-6f2f-49fd-8ff2-1dd23a289afc")
-		(property "Reference" "#PWR049"
+		(property "Reference" "#PWR041"
 			(at 209.55 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -4632,7 +4632,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR049")
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -4649,7 +4649,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "80c5d501-c607-4a17-a7f1-e8ec6985812d")
-		(property "Reference" "R10"
+		(property "Reference" "R3"
 			(at 58.42 86.868 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4711,7 +4711,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "R10")
+					(reference "R3")
 					(unit 1)
 				)
 			)
@@ -4728,7 +4728,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "829a635e-694d-4b8f-b9ab-6e3f5023bf82")
-		(property "Reference" "U2"
+		(property "Reference" "U7"
 			(at 203.962 108.712 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4817,7 +4817,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "U2")
+					(reference "U7")
 					(unit 1)
 				)
 			)
@@ -4835,7 +4835,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "84dd14cb-7314-424c-ab55-6df91453678b")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR034"
 			(at 157.48 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -4895,7 +4895,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR013")
+					(reference "#PWR034")
 					(unit 1)
 				)
 			)
@@ -4913,7 +4913,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8d8d3f47-c33f-4cff-928d-9609016945cf")
-		(property "Reference" "#PWR028"
+		(property "Reference" "#PWR044"
 			(at 251.46 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -4973,7 +4973,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR028")
+					(reference "#PWR044")
 					(unit 1)
 				)
 			)
@@ -4991,7 +4991,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "953bc9c8-ac5b-4376-b06b-309c59443ed9")
-		(property "Reference" "Q7"
+		(property "Reference" "Q5"
 			(at 102.87 96.5199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5083,7 +5083,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "Q7")
+					(reference "Q5")
 					(unit 1)
 				)
 			)
@@ -5101,7 +5101,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a210dffd-c504-4238-a093-36ca4c579e63")
-		(property "Reference" "#PWR052"
+		(property "Reference" "#PWR030"
 			(at 86.36 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -5161,7 +5161,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR052")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -5179,7 +5179,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a55d4d2e-af19-4d02-9cab-50575de2656f")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR039"
 			(at 194.31 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -5239,7 +5239,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR012")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -5257,7 +5257,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a6b36c8b-a8c5-49f4-9d6c-d66b16e0eb5c")
-		(property "Reference" "Q6"
+		(property "Reference" "Q4"
 			(at 102.87 81.28 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5349,7 +5349,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "Q6")
+					(reference "Q4")
 					(unit 1)
 				)
 			)
@@ -5367,7 +5367,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ac18572a-9102-4600-adf3-5a4c1b1efd5f")
-		(property "Reference" "C3"
+		(property "Reference" "C5"
 			(at 186.69 73.6662 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5453,7 +5453,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "C3")
+					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -5471,7 +5471,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ad361ef1-1019-46a9-99ff-fc4c6b3982ab")
-		(property "Reference" "Q5"
+		(property "Reference" "Q2"
 			(at 74.93 96.5199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5563,7 +5563,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "Q5")
+					(reference "Q2")
 					(unit 1)
 				)
 			)
@@ -5581,7 +5581,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ae66519e-26bc-4368-bf40-103d7cbbf6ca")
-		(property "Reference" "#PWR045"
+		(property "Reference" "#PWR038"
 			(at 194.31 72.39 0)
 			(hide yes)
 			(show_name no)
@@ -5641,7 +5641,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR045")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -5818,7 +5818,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bcad0427-b139-486e-9372-5c3ee62ab0c2")
-		(property "Reference" "#PWR051"
+		(property "Reference" "#PWR031"
 			(at 99.06 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -5878,7 +5878,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR051")
+					(reference "#PWR031")
 					(unit 1)
 				)
 			)
@@ -5896,7 +5896,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d0a5838e-1c80-4481-bff4-24629fda06e2")
-		(property "Reference" "#PWR042"
+		(property "Reference" "#PWR040"
 			(at 196.85 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -5956,7 +5956,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR042")
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -5974,7 +5974,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d7249d10-92ae-4c0f-af31-d154a5adf530")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR037"
 			(at 184.15 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -6034,7 +6034,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR016")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -6051,7 +6051,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "dbcb8458-06c3-4cb0-8a2b-8c631c97c49b")
-		(property "Reference" "R11"
+		(property "Reference" "R5"
 			(at 210.566 90.17 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6115,7 +6115,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "R11")
+					(reference "R5")
 					(unit 1)
 				)
 			)
@@ -6133,7 +6133,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e4123eec-9865-4ac3-928e-fc9b4f2ed12f")
-		(property "Reference" "C4"
+		(property "Reference" "C2"
 			(at 49.53 55.8862 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6219,7 +6219,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "C4")
+					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -6237,7 +6237,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ea1e4e16-c0c2-4a56-812b-6f04c8e33a70")
-		(property "Reference" "#PWR053"
+		(property "Reference" "#PWR026"
 			(at 54.61 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -6297,7 +6297,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/2381f4c6-faae-45e7-8957-2cf2c57d738b"
-					(reference "#PWR053")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)

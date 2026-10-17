@@ -3552,7 +3552,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "04799762-1112-4ddb-ad2a-bfba11f31cfa")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR022"
 			(at 134.62 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -3612,7 +3612,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
-					(reference "#PWR08")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -3629,7 +3629,7 @@
 		(in_pos_files no)
 		(dnp yes)
 		(uuid "291deb40-66b5-478c-bd2f-9cf18f4c4d73")
-		(property "Reference" "#PWR0102"
+		(property "Reference" "#PWR019"
 			(at 87.63 195.58 0)
 			(hide yes)
 			(show_name no)
@@ -3687,7 +3687,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
-					(reference "#PWR0102")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -3947,7 +3947,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "76e28bda-5297-4860-ad21-a170c6ccfb06")
-		(property "Reference" "J1"
+		(property "Reference" "J9"
 			(at 146.05 65.6398 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4123,7 +4123,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
-					(reference "J1")
+					(reference "J9")
 					(unit 1)
 				)
 			)
@@ -4140,7 +4140,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7750cad9-ac7e-4701-bcdc-15c64fcf4c6c")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR023"
 			(at 137.16 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -4198,7 +4198,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
-					(reference "#PWR03")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -4215,7 +4215,7 @@
 		(in_pos_files no)
 		(dnp yes)
 		(uuid "9965d5e1-1b9c-480f-bcb2-da80c1cedbd7")
-		(property "Reference" "#PWR0103"
+		(property "Reference" "#PWR021"
 			(at 104.14 179.07 0)
 			(hide yes)
 			(show_name no)
@@ -4276,7 +4276,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
-					(reference "#PWR0103")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -4293,7 +4293,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a88329a6-da23-4c17-b153-43eb418aef61")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR025"
 			(at 154.94 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -4351,7 +4351,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
-					(reference "#PWR02")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -4369,7 +4369,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "da3f46ec-b738-43bb-ad5f-1cd15508fd09")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR024"
 			(at 154.94 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -4429,7 +4429,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
-					(reference "#PWR09")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -4446,7 +4446,7 @@
 		(in_pos_files no)
 		(dnp yes)
 		(uuid "dd862df9-6b98-46f9-a290-8640716bad54")
-		(property "Reference" "U1"
+		(property "Reference" "U5"
 			(at 81.28 169.5258 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4526,7 +4526,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
-					(reference "U1")
+					(reference "U5")
 					(unit 1)
 				)
 			)
@@ -4623,7 +4623,7 @@
 		(in_pos_files no)
 		(dnp yes)
 		(uuid "fbd5721a-7113-466b-8f78-286e345bca84")
-		(property "Reference" "#PWR0101"
+		(property "Reference" "#PWR020"
 			(at 107.95 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -4683,7 +4683,7 @@
 		(instances
 			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
-					(reference "#PWR0101")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
