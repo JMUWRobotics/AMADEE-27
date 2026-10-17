@@ -7,7 +7,7 @@
 	(title_block
 		(title "SLCU (Stack Light Control Unit)")
 		(date "2026-10-10")
-		(rev "3.0")
+		(rev "3.1")
 		(company "JMU Würzburg")
 		(comment 1 "Nico Schubert")
 	)
@@ -2490,6 +2490,17 @@
 		)
 		(uuid "076f86c6-90a0-4d14-9c43-13b044290fad")
 	)
+	(text "max PD_{12V} = 12V * (7*(12V-2V)/1500ohm) + 6*12V/1000ohm) = @{format(12 * (7*(12-2)/1500 + 6*12/1000), 3)} W\nmax PD_{10V} = 10V * (7*(10V-2V)/1500ohm) + 6*10V/1000ohm) = @{format(10 * (7*(10-2)/1500 + 6*10/1000), 3)} W\n"
+		(exclude_from_sim no)
+		(at 108.204 34.798 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "28077056-f217-4f99-ad68-0175322fff1a")
+	)
 	(text "Signal Translator: Enable Gate"
 		(exclude_from_sim no)
 		(at 132.08 37.084 0)
@@ -2532,6 +2543,17 @@
 			(justify left top)
 		)
 		(uuid "dc04671b-47e2-4671-85ee-27fd9a0e8872")
+	)
+	(text "max PD_{12V} = 12V * ((12V-2V)/1500ohm + 12V/1000ohm) = @{format(12 * ((12-2)/1500 + 12/1000), 3)}W\nmax PD_{10V} = 10V * ((10V-2V)/1500ohm + 10V/1000ohm) = @{format(10 * ((10-2)/1500 + 10/1000), 3)}W"
+		(exclude_from_sim no)
+		(at 39.37 78.994 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dc58c068-aa0a-4a07-86ca-caa8455744df")
 	)
 	(text "Singal Translator: RED"
 		(exclude_from_sim no)
@@ -9317,7 +9339,7 @@
 				)
 			)
 		)
-		(property "Value" "2N7002"
+		(property "Value" "2SK1958-VB"
 			(at 146.05 44.704 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9364,6 +9386,28 @@
 			)
 		)
 		(property "Sim.Device" ""
+			(at 146.05 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "2SK1958-VB"
+			(at 146.05 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C20755445"
 			(at 146.05 50.8 0)
 			(hide yes)
 			(show_name no)

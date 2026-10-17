@@ -7,7 +7,7 @@
 	(title_block
 		(title "SLCU (Stack Light Control Unit)")
 		(date "2026-10-10")
-		(rev "3.0")
+		(rev "3.1")
 		(company "JMU Würzburg")
 		(comment 1 "Nico Schubert")
 	)
@@ -1172,6 +1172,16 @@
 		)
 		(uuid "9de53ce9-6804-42c2-9924-9afc1a122e88")
 	)
+	(text "max PD = 0.043 * (9.55 - 0.666) = @{format(0.043 * (9.55 - 0.666), 3)}W"
+		(exclude_from_sim no)
+		(at 177.8 57.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d4bbcaaa-efec-4a79-8ea4-824903af09b4")
+	)
 	(text_box "Both Sink connections/wires (Continous and Blinking) \nare internally protected against reverse currentflow and therefor dont impose a risk of short circuits when connected together.\n\nThe Continously on Sink overrules the Blinking Sink in the case that both are connected to an LED at the same time.\n\n\nStack light voltages:\nContinous	| C	| 0.666 V\nBlinking	| B	| 0.666 V\n        	|	| (1.75  V  +-0.10 V)?\nRed line	| R	| 9.55  V  +-0.05 V\nYellow line	| Y	| 8.80  V  +-0.05 V\nGreen line	| G	| 7.52  V  +-0.03 V\n\n\nStack light currents:\nI_{CR} = 40 mA  +-3 mA\nI_{CY} = 31 mA  +-4 mA\nI_{CG} = 12 mA  +-3 mA\n"
 		(exclude_from_sim no)
 		(at 45.72 61.2806 0)
@@ -1678,7 +1688,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2N7002"
+		(property "Value" "2SK1958-VB"
 			(at 161.29 107.9499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1726,6 +1736,28 @@
 			)
 		)
 		(property "Sim.Device" ""
+			(at 154.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "2SK1958-VB"
+			(at 154.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C20755445"
 			(at 154.94 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -1785,7 +1817,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2N7002"
+		(property "Value" "2SK1958-VB"
 			(at 181.61 76.1999 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1833,6 +1865,28 @@
 			)
 		)
 		(property "Sim.Device" ""
+			(at 175.26 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "2SK1958-VB"
+			(at 175.26 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C20755445"
 			(at 175.26 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -2880,7 +2934,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2N7002"
+		(property "Value" "2SK1958-VB"
 			(at 201.93 107.9499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2928,6 +2982,28 @@
 			)
 		)
 		(property "Sim.Device" ""
+			(at 195.58 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "2SK1958-VB"
+			(at 195.58 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C20755445"
 			(at 195.58 106.68 0)
 			(hide yes)
 			(show_name no)

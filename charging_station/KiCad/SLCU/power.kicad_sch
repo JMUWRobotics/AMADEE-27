@@ -7,7 +7,7 @@
 	(title_block
 		(title "SLCU (Stack Light Control Unit)")
 		(date "2026-10-10")
-		(rev "3.0")
+		(rev "3.1")
 		(company "JMU Würzburg")
 		(comment 1 "Nico Schubert")
 	)
@@ -3810,7 +3810,7 @@
 				)
 				(uuid "dbcba79a-2a58-4311-8300-cbf0f75f3942")
 			)
-			(table_cell "12"
+			(table_cell "10"
 				(exclude_from_sim no)
 				(at 200.66 99.06 0)
 				(size 19.05 2.54)
@@ -4014,7 +4014,7 @@
 				)
 				(uuid "823ac3c3-26e0-4af9-b92a-9d64c3a868de")
 			)
-			(table_cell "51"
+			(table_cell "47"
 				(exclude_from_sim no)
 				(at 200.66 109.22 0)
 				(size 19.05 2.54)

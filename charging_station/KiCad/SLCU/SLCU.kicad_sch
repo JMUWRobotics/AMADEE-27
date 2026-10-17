@@ -7,7 +7,7 @@
 	(title_block
 		(title "SLCU (Stack Light Control Unit)")
 		(date "2026-10-10")
-		(rev "3.0")
+		(rev "3.1")
 		(company "JMU Würzburg")
 		(comment 1 "Nico Schubert")
 	)
