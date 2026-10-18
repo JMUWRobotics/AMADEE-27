@@ -110,10 +110,12 @@ class RequestedValues:
         The tag is untrusted input (a 1-byte checksum is no protection against
         a wrongly written or tampered tag), so every value is range-checked.
         """
-        if not 0 < self.voltage_v <= max_voltage_v:
+        if not math.isfinite(self.voltage_v) or not 0 < self.voltage_v <= max_voltage_v:
             raise TagDataError(f"voltage {self.voltage_v} V outside (0, {max_voltage_v}] V")
-        if not 0 < self.current_a <= max_current_a:
+        if not math.isfinite(self.current_a) or not 0 < self.current_a <= max_current_a:
             raise TagDataError(f"current {self.current_a} A outside (0, {max_current_a}] A")
+        if not math.isfinite(self.cutoff_a):
+            raise TagDataError(f"cutoff current must be finite, got {self.cutoff_a!r}")
         if not 0 <= self.cutoff_a < self.current_a:
             raise TagDataError(f"cutoff {self.cutoff_a} A must be >= 0 and below the charge current")
 
@@ -162,6 +164,20 @@ class AdapterManager:
         :param limit_margin: relative overshoot of the programmed limits tolerated before aborting
         :param cutoff_hold_s: current must stay below the cutoff this long before charging ends
         """
+        if (not math.isfinite(dpm_max_voltage) or not math.isfinite(dpm_max_current)
+                or dpm_max_voltage <= 0 or dpm_max_current <= 0):
+            raise ValueError("DPM maximum voltage and current must be finite and positive")
+        if not math.isfinite(dpm_stale_time) or dpm_stale_time <= 0:
+            raise ValueError("dpm_stale_time must be finite and positive")
+        if not math.isfinite(tolerance) or not 0 <= tolerance < 1:
+            raise ValueError("tolerance must be finite and in [0, 1)")
+        if not math.isfinite(limit_margin) or limit_margin < 0:
+            raise ValueError("limit_margin must be finite and non-negative")
+        if (not math.isfinite(cutoff_hold_s) or cutoff_hold_s < 0
+                or max_setpoint_attempts < 1 or tag_absent_polls < 1
+                or not math.isfinite(error_retry_s) or error_retry_s < 0):
+            raise ValueError("invalid state-machine timing / retry parameter")
+
         self.dpm_max_voltage = dpm_max_voltage
         self.dpm_max_current = dpm_max_current
         self.stale_time = dpm_stale_time
@@ -179,6 +195,7 @@ class AdapterManager:
             pin_mode=mfrc_pin_mode, pin_rst=mfrc_pin_rst,
         )
         self._mfrc: Optional[MFRC522] = None
+        self._defaults_saved = False
 
         dpm_cfg = DPM86XXConfig(
             port=dpm_tty_port,
@@ -202,9 +219,7 @@ class AdapterManager:
 
         self._set_voltage: float = 0
         self._set_current: float = 0
-
-    # ------------------------------------------------------------------ properties
-
+        self._allocated_power_w: Optional[float] = None
 
     # ------------------------------------------------------------------ properties
 
@@ -264,8 +279,9 @@ class AdapterManager:
                 api.set_power_on_default(False)
                 api.set_fast_discharge(False)
                 api.set_voltage_and_current(0, 0)
-                # Writes non-volatile memory: fine at start-up, don't call it in a loop.
-                api.save_settings(SaveSlot.M0)
+                if not self._defaults_saved:
+                    api.save_settings(SaveSlot.M0)
+                    self._defaults_saved = True
                 if new_address is not None:
                     # Must come last: after this the device only answers to the new address.
                     api.set_slave_address(new_address)
@@ -289,6 +305,7 @@ class AdapterManager:
             return False
 
         self.requested_values = None
+        self._allocated_power_w = None
         self._set_state(AdapterState.IDLE)
         logger.info("%s: initialised to safe default state", self.name)
         return True
@@ -382,7 +399,8 @@ class AdapterManager:
 
     async def _tag_removed(self) -> bool:
         """Poll the reader; True once no tag was seen for ``tag_absent_polls`` polls in a row."""
-        if await self.read_rfid() is None:
+        values = await self.read_rfid()
+        if values is None and self._last_rfid_problem is None:
             self._absent_polls += 1
         else:
             self._absent_polls = 0
@@ -402,10 +420,9 @@ class AdapterManager:
 
     def setpoints_match_request(self) -> bool:
         """True if the DPM reports exactly the requested voltage / current limit."""
-        req = self._set_voltage
-        s = self._set_current
-        return (self._close(s.voltage_set, self._set_voltage, _V_RESOLUTION)
-                and self._close(s.current_set, req.current_a, _I_RESOLUTION))
+        state = self.dpm_device.state
+        return (self._close(state.voltage_set, self._set_voltage, _V_RESOLUTION)
+                and self._close(state.current_set, self._set_current, _I_RESOLUTION))
 
     def output_within_limits(self) -> bool:
         """True if the measured output does not exceed the programmed limits.
@@ -416,6 +433,8 @@ class AdapterManager:
         """
         s = self.dpm_device.state
         if None in (s.voltage_set, s.current_set, s.voltage_measured, s.current_measured):
+            return False
+        if s.voltage_measured < 0 or s.current_measured < -_I_RESOLUTION:
             return False
         return (s.voltage_measured <= s.voltage_set * (1 + self.limit_margin) + _V_RESOLUTION
                 and s.current_measured <= s.current_set * (1 + self.limit_margin) + _I_RESOLUTION)
@@ -455,6 +474,7 @@ class AdapterManager:
     async def _fail_safe(self) -> None:
         """Switch the output off and enter ERROR. Called for every unexpected error."""
         self.requested_values = None
+        self._allocated_power_w = None
         confirmed = False
         try:
             await self.set_output_state(False)
@@ -497,6 +517,10 @@ class AdapterManager:
                     await self._step_cutoff()
                 case AdapterState.ERROR:
                     await self._step_error()
+        except asyncio.CancelledError:
+            with contextlib.suppress(Exception):
+                await asyncio.shield(self._fail_safe())
+            raise
         except Exception:
             logger.exception("%s: error in state %s - failing safe", self.name, self.state.name)
             await self._fail_safe()
@@ -506,46 +530,102 @@ class AdapterManager:
         if values is None:
             return
         self.requested_values = values
+        self._allocated_power_w = None
         logger.info("%s: charging request received\n%s", self.name, values)
         self._set_state(AdapterState.REQUESTING)
 
     async def _step_requesting(self, allow_start: bool) -> None:
         req = self._require_request()
-        if not allow_start:
+        if not allow_start or self._allocated_power_w == 0.0:
             # Waiting for power: give up if the robot has left in the meantime.
             if await self._tag_removed():
                 self.requested_values = None
+                self._allocated_power_w = None
                 self._set_state(AdapterState.IDLE)
             return
-        await self._apply_setpoints(req.voltage_v, req.current_a)
+
+        target_voltage = req.voltage_v
+        target_current = min(
+            req.current_a,
+            self.dpm_max_current,
+        )
+        if target_current < (_I_RESOLUTION / 2):
+            self._allocated_power_w = 0.0
+            return
         self._attempts = 0
-        self._set_voltage = self.requested_values.voltage_v
-        self._set_current = self.requested_values.current_a
+        await self._apply_setpoints(target_voltage, target_current)
+        self._set_voltage = target_voltage
+        self._set_current = target_current
+        self._attempts = 0
         self._set_state(AdapterState.SET_VALUES)
 
     async def _step_set_values(self) -> None:
-        req = self._require_request()
-        self._attempts += 1
-        if self._attempts > self.max_setpoint_attempts:
-            raise AdapterError("DPM did not accept the requested set-points")
         if not await self.read_dpm_state():
+            if self.dpm_device.state.is_stale(self.stale_time):
+                raise AdapterError(f"no fresh DPM data for more than {self.stale_time} s")
             return
+
         if self.setpoints_match_request():
             await self.set_output_state(True)
             self._below_cutoff_since = None
             self._set_state(AdapterState.CHARGING)
-        else:
-            await self._apply_setpoints(req.voltage_v, req.current_a)
+            return
 
-    async def reset_set_values(self, set_power) -> None:
-        await self.pause("Reset of Output")
-        self._set_current = set_power / self._set_voltage
+        self._attempts += 1
+        if self._attempts >= self.max_setpoint_attempts:
+            raise AdapterError("DPM did not accept the allocated set-points")
+        await self._apply_setpoints(self._set_voltage, self._set_current)
+
+    async def reset_set_values(self, set_power:float) -> None:
+        req = self._require_request()
+        if not math.isfinite(set_power) or set_power < 0:
+            raise AdapterError(f"invalid power allocation: {set_power!r} W")
+
+        # An allocation cannot authorize more than the power requested by the tag.
+        allocated_power = min(float(set_power), req.power_w)
+        target_voltage = req.voltage_v
+        target_current = allocated_power / target_voltage
+        target_current = min(target_current, req.current_a, self.dpm_max_current)
+
+        target_current = math.floor(target_current / _I_RESOLUTION + 1e-12) * _I_RESOLUTION
+        self._allocated_power_w = allocated_power
+
+        # The DPM API rounds current to 1 mA. Do not enable an output for a target
+        # that would round to zero, and turn off any output that was previously active.
+        if target_current < (_I_RESOLUTION / 2):
+            self._allocated_power_w = 0.0  # CHANGED: do not let _step_requesting fall back to full power.
+            if self.state in (AdapterState.SET_VALUES, AdapterState.CHARGING):
+                await self.pause("power allocation is zero or below DPM resolution")
+            return
+
+        # Avoid toggling the physical output on every control tick when the
+        # allocation has not changed by at least one DPM set-point step.
+        same_target = (
+            math.isclose(self._set_voltage, target_voltage, abs_tol=_V_RESOLUTION / 2)
+            and math.isclose(self._set_current, target_current, abs_tol=_I_RESOLUTION / 2)
+        )
+        if same_target and self.state in (AdapterState.SET_VALUES, AdapterState.CHARGING):
+            return
+
+        if self.state is AdapterState.CHARGING:
+            await self.set_output_state(False)
+            self._set_state(AdapterState.REQUESTING)
+
+        await self._apply_setpoints(target_voltage, target_current)
+        self._set_voltage = target_voltage
+        self._set_current = target_current
+        self._attempts = 0
+        self._below_cutoff_since = None
         self._set_state(AdapterState.SET_VALUES)
 
     async def _step_charging(self) -> None:
         # A failed read is tolerated until the cached state becomes stale.
-        await self.read_dpm_state()
+        read_ok = await self.read_dpm_state()
         s = self.dpm_device.state
+        if not read_ok:
+            if s.is_stale(self.stale_time):
+                raise AdapterError(f"no fresh DPM data for more than {self.stale_time} s")
+            return
         if s.is_stale(self.stale_time):
             raise AdapterError(f"no fresh DPM data for more than {self.stale_time} s")
         if not s.output_enabled:
@@ -563,6 +643,7 @@ class AdapterManager:
         # Stay here until the robot leaves, otherwise a full battery would restart the cycle.
         if await self._tag_removed():
             self.requested_values = None
+            self._allocated_power_w = None
             self._set_state(AdapterState.IDLE)
 
     async def _step_error(self) -> None:

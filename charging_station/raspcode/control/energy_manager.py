@@ -4,14 +4,15 @@ from __future__ import annotations
 import asyncio
 import contextlib
 import logging
-import time
+import math
 from enum import IntEnum
-from typing import Optional, Sequence, Callable
+from typing import Optional, Sequence
 
 import RPi.GPIO as GPIO
 
 from control.adapter_manager import AdapterManager, AdapterState
-from control.vedirect_manager import VedirectManager, MpptState, MpptOperationState, MpptTrackerOperationState
+from control.vedirect_manager import VedirectManager, MpptOperationState, MpptTrackerOperationState, \
+    MpptError
 from drivers.dpm86xx import BaudRate
 
 logger = logging.getLogger(__name__)
@@ -34,6 +35,9 @@ def allocate_max_min(demands: Sequence[float], budget: float) -> list[float]:
     what was asked and the surplus is split among the others.
     ``[100, 400, 800]`` with 600 W  ->  ``[100, 250, 250]``
     """
+    # Reject malformed numeric inputs before they can propagate into hardware set-points.
+    if not math.isfinite(float(budget)) or any(not math.isfinite(float(d)) or d < 0 for d in demands):
+        raise ValueError("power budget and demands must be finite; demands must be non-negative")
     alloc = [0.0] * len(demands)
     pending = [i for i, d in enumerate(demands) if d > 0]
     remaining = max(0.0, budget)
@@ -53,6 +57,9 @@ def allocate_max_min(demands: Sequence[float], budget: float) -> list[float]:
 
 def allocate_proportional(demands: Sequence[float], budget: float) -> list[float]:
     """Everybody is scaled by the same factor: ``[100, 400, 800]`` with 650 W -> ``[50, 200, 400]``."""
+    # Reject malformed numeric inputs before they can propagate into hardware set-points.
+    if not math.isfinite(float(budget)) or any(not math.isfinite(float(d)) or d < 0 for d in demands):
+        raise ValueError("power budget and demands must be finite; demands must be non-negative")
     total = sum(d for d in demands if d > 0)
     if total <= budget:
         return [max(0.0, d) for d in demands]
@@ -113,13 +120,20 @@ class EnergyManager:
         """
         self.power_supply_pin: int = config["power_supply_pin"]
         self.mppt_pin: int = config["mppt_pin"]
-        self.max_total_power_supply_w: Optional[float] = config.get("max_total_power_supply_w")
-        self.poll_interval_s: float = config.get("poll_interval_s", 0.5)
+        self.max_total_power_supply_w: Optional[float] = config["max_total_power_supply_w"]
+        self.poll_interval_s: float = float(config.get("poll_interval_s", 0.5))
 
         self.adapters, self.mppt = load_system_config(config)
         self.power_selector_state = PowerSelectorState.OFF
-        self.power_margin = config["power_margin"]
-        self.allocation_policies = config["allocation_policies"]
+        self.power_margin = float(config.get("power_margin", 0.10))
+        self.allocation_policies = config.get("allocation_policies", "min_max")
+
+        self.low_battery_voltage_v = float(config.get("low_battery_voltage_v", 51.0))
+        self.low_battery_hysteresis_v = float(config.get("low_battery_hysteresis_v", 0.5))
+        self.mppt_max_age_s = float(config.get("mppt_max_age_s", max(2.0, 3.0 * self.poll_interval_s)))
+        self.mppt_startup_timeout_s = float(config.get("mppt_startup_timeout_s", 30.0))
+        self._low_battery_latched = False
+        self._gpio_ready = False
 
     # ------------------------------------------------------------------ setup / shutdown
 
@@ -139,15 +153,19 @@ class EnergyManager:
         """
         try:
             await asyncio.to_thread(self._setup_gpio)
+            self._gpio_ready = True
+            await self._refresh_power_selector_state()
         except Exception:
             logger.exception("GPIO setup failed")
             return False
 
-        self.mppt.start()  # without this the MPPT never delivers data and startup() would hang
+        if self.power_selector_state == PowerSelectorState.MPPT:
+            self.mppt.start()  # without this the MPPT never delivers data and startup() would hang
 
         # gather(return_exceptions=True): one failing device must not cancel the others.
         jobs = {adp.name: adp.setup_device() for adp in self.adapters}
-        jobs["mppt"] = self.mppt.startup()
+        if self.power_selector_state == PowerSelectorState.MPPT:
+            jobs["mppt"] = self.mppt.startup()
         results = await asyncio.gather(*jobs.values(), return_exceptions=True)
 
         ok = True
@@ -162,7 +180,8 @@ class EnergyManager:
     async def shutdown(self) -> None:
         """Switch every output off and release the hardware. Always call this on exit."""
         await asyncio.gather(*(adp.shutdown() for adp in self.adapters), return_exceptions=True)
-        self.mppt.stop()
+        if self.power_selector_state == PowerSelectorState.MPPT:
+            self.mppt.stop()
         with contextlib.suppress(Exception):
             GPIO.cleanup()
         logger.info("Shutdown complete")
@@ -188,6 +207,10 @@ class EnergyManager:
             self.power_selector_state = state
         return state
 
+
+    async def _refresh_power_selector_state(self) -> PowerSelectorState:
+        return await asyncio.to_thread(self.read_power_selector_state)
+
     async def _source_ok(self) -> bool:
         source_ok = self.power_selector_state in (PowerSelectorState.MPPT, PowerSelectorState.POWER_SUPPLY)
 
@@ -201,16 +224,73 @@ class EnergyManager:
         return source_ok
 
     # ------------------------------------------------------------------ control loop
-    def power_limit_reached(self) -> float | None:
+    def power_limit_reached(self) -> Optional[float]:
+        """Return available charging watts, or None for an explicitly uncapped supply."""
         if self.power_selector_state is PowerSelectorState.POWER_SUPPLY:
             return self.max_total_power_supply_w
-        state = self.mppt.get_latest_state()
+        state = self.mppt.get_fresh_state(self.mppt_max_age_s)
+        if state is None:
+            logger.warning("MPPT telemetry is missing/stale; charging budget set to 0 W")
+            return 0.0
+        if state.state_of_operation in (
+                MpptOperationState.FAULT,
+                MpptOperationState.UNKNOWN,
+                MpptOperationState.OFF,
+                MpptOperationState.STARTING_UP,
+        ):
+            logger.error("MPPT is not in a usable state: %s", state.state_of_operation.name)
+            return 0.0
         if state.tracker_operation_mode == MpptTrackerOperationState.VOLTAGE_OR_CURRENT_LIMITED:
+            logger.debug("MPP not reached; adapter requests are not software-capped")
             return None
-        return state.voltage_bus * state.current_bus * (1 - self.margin)
+        if state.tracker_operation_mode is MpptTrackerOperationState.UNKNOWN:
+            logger.error("MPPT tracker mode is unknown; charging budget set to 0 W")
+            return 0.0
+        if state.error_code not in (MpptError.NO_ERROR,):
+            logger.error("MPPT reports error: %s", state.error_code.name)
+            return 0.0
+        measured_bus_power = state.voltage_bus * state.current_bus
+        return measured_bus_power * (1 - self.power_margin)
 
-    def _adp_in_state(self, state: AdapterState) -> list:
-        return [adp.name for adp in self.adapters if adp.state == state]
+    def _adp_in_state(self, state: AdapterState) -> list[AdapterManager]:
+        return [adp for adp in self.adapters if adp.state is state]
+
+    def _adapters_needing_power(self) -> list[AdapterManager]:
+        active_states = (AdapterState.REQUESTING, AdapterState.SET_VALUES, AdapterState.CHARGING)
+        return [adp for adp in self.adapters if adp.state in active_states]
+
+    async def _allocate_power(self, power_limit: Optional[float] = None) -> bool:
+        """Apply a fair power budget to requests before a SET_VALUES state can enable output."""
+        adapters = self._adapters_needing_power()
+        if power_limit is None:
+            # An uncapped external supply restores each active request to its
+            # full RFID-authorised power after any previous MPPT-side throttling.
+            results = await asyncio.gather(
+                *(adp.reset_set_values(adp.requested_power_w) for adp in adapters),
+                return_exceptions=True,
+            )
+            for adp, result in zip(adapters, results):
+                if isinstance(result, BaseException):
+                    logger.error("%s: could not restore full request on uncapped supply: %r", adp.name, result)
+                    await adp.pause("failed to restore set-points on supply change")
+                    # A pause failure invokes AdapterManager's own fail-safe policy.
+            return True
+
+        demands = [adp.requested_power_w for adp in adapters]
+        allocator = allocate_proportional if self.allocation_policies == "proportional" else allocate_max_min
+        allocations = allocator(demands, max(0.0, power_limit))
+        results = await asyncio.gather(
+            *(adp.reset_set_values(power_w) for adp, power_w in zip(adapters, allocations)),
+            return_exceptions=True,
+        )
+        for adp, result, allocated in zip(adapters, results, allocations):
+            if isinstance(result, BaseException):
+                logger.error("%s: failed to apply %.2f W allocation: %r", adp.name, allocated, result)
+                # Do not continue charging at the old, possibly too-large set-point.
+                await adp.pause("power budget reallocation failed")
+            else:
+                logger.debug("%s: allocated %.2f W of %.2f W requested", adp.name, allocated, adp.requested_power_w)
+        return power_limit > 0.0
 
     async def _trigger_steps(self, allow_start: bool):
         # Adapters are independent: one failing must not stop the others.
@@ -220,39 +300,54 @@ class EnergyManager:
                 logger.error("%s: unhandled error in step(): %r", adp.name, result)
 
     async def step_idle(self) -> bool:
-        await self._trigger_steps(allow_start=True)
-        if any([adp.state == AdapterState.IDLE for adp in self.adapters]):
-            return True
-        else:
-            return False
+        await self._refresh_power_selector_state()
+        await self._source_ok()
+        await self._trigger_steps(allow_start=False)
+        return any(adp.state in (AdapterState.REQUESTING, AdapterState.SET_VALUES, AdapterState.CHARGING)
+                   for adp in self.adapters)
 
     async def step_charging(self) -> bool:
+        await self._refresh_power_selector_state()
+        source_ok = await self._source_ok()
+        low_battery = await self.low_battery()
+        if not source_ok or low_battery:
+            await self._trigger_steps(allow_start=False)
+            return any(adp.state in (AdapterState.REQUESTING, AdapterState.SET_VALUES, AdapterState.CHARGING)
+                       for adp in self.adapters)
+
         power_limit = self.power_limit_reached()
-        if power_limit is not None:
-            adp_set = self._adp_in_state(AdapterState.SET_VALUES)
-            adp_charging = self._adp_in_state(AdapterState.CHARGING)
-            adp_req = adp_set + adp_charging
-            demands = [adp.requested_power_w() for adp in adp_req]
-            allocation = allocate_max_min(demands, power_limit)
+        allow_start = await self._allocate_power(power_limit)
+        await self._trigger_steps(allow_start=allow_start)
+        return any(adp.state in (AdapterState.REQUESTING, AdapterState.SET_VALUES, AdapterState.CHARGING)
+                   for adp in self.adapters)
+
+    async def low_battery(self) -> bool:
+        """Pause charging on a low MPPT bus; bypass this check on the external supply."""
+        if self.power_selector_state is not PowerSelectorState.MPPT:
+            self._low_battery_latched = False
+            return False
+
+        state = self.mppt.get_fresh_state(self.mppt_max_age_s)
+        if state is None:
             await asyncio.gather(
-                *[adp.set_power(alloc) for adp, alloc in zip(adp_req, allocation)],
-                return_exceptions=True
+                *(adp.pause("MPPT telemetry missing or stale") for adp in self.adapters),
+                return_exceptions=True,
             )
-        await self._trigger_steps(allow_start=True)
-        if any(adp.state == AdapterState.IDLE for adp in self.adapters) or any(adp.state == AdapterState.IDLE for adp in self.adapters):
             return True
-        return False
 
-    async def low_batterie(self) -> bool:
-        if(self.mppt.get_latest_state().voltage_bus <= 51):
-            await asyncio.gather(*[adp.pause("Bus Volatge to low") for adp in self.adapters], return_exceptions=True)
-            return True
-        return False
+        if self._low_battery_latched:
+            self._low_battery_latched = state.voltage_bus < (
+                self.low_battery_voltage_v + self.low_battery_hysteresis_v
+            )
+        else:
+            self._low_battery_latched = state.voltage_bus <= self.low_battery_voltage_v
 
-    async def step_low_battery(self) -> bool:
-        if (self.mppt.get_latest_state().voltage_bus <= 51):
-            return True
-        return False
+        if self._low_battery_latched:
+            await asyncio.gather(
+                *(adp.pause(f"MPPT bus voltage low ({state.voltage_bus:.2f} V)") for adp in self.adapters),
+                return_exceptions=True,
+            )
+        return self._low_battery_latched
 
 
 
