@@ -1,0 +1,46 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+C2,100nF,C_0603_1608Metric,18.3,-16.5,-90.0,top
+C4,1nF,C_0603_1608Metric,38.2,-23.4,-90.0,top
+C5,100nF,C_0603_1608Metric,43.725,-17.9,0.0,top
+D1,M7,D_SMA,87.75,-36.4,90.0,top
+D2,D_Schottky,D_SOD-323,28.0,-13.7,90.0,top
+D3,WD_LED_EN,LED_0805_2012Metric,76.0875,-30.6,180.0,top
+D4,WDO,LED_0805_2012Metric,76.1,-35.4,180.0,top
+D5,Heartbeat,LED_0805_2012Metric,76.0875,-33.0,180.0,top
+H1,MountingHole,MountingHole_2.2mm_M2_DIN965_Pad,82.677817,-27.636836,180.0,top
+H2,MountingHole,MountingHole_2.5mm_Pad,121.827817,-10.836836,180.0,top
+J1,5v(Vin),"TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal",69.0,-19.5,90.0,top
+J2,MPPT,"TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal",117.0,-2.4,180.0,top
+J3,PS,"TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal",104.5,-2.5,180.0,top
+J4,RFID0,JST_XH_S7B-XH-A_1x07_P2.50mm_Horizontal,16.5,-42.055,0.0,top
+J5,RFID1,JST_XH_S7B-XH-A_1x07_P2.50mm_Horizontal,41.5,-42.055,0.0,top
+J6,RFID2,JST_XH_S7B-XH-A_1x07_P2.50mm_Horizontal,74.0,-42.055,0.0,top
+J7,Raspberry Control Signals,JST_XH_S7B-XH-A_1x07_P2.50mm_Horizontal,112.75,-42.0,0.0,top
+J8,WD_F,"TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal",94.25,-46.1675,0.0,top
+J9,GPIO,PinSocket_2x20_P2.54mm_Vertical,29.0,-0.0,-90.0,top
+JP1,force enable,SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm,29.0,-30.2,0.0,top
+Q1,AO3401A,SOT-23,30.6,-19.0375,270.0,top
+Q2,AO3400A,SOT-23,26.1,-19.0375,90.0,top
+Q3,AO3401A,SOT-23,21.95,-20.5625,180.0,top
+Q4,AO3401A,SOT-23,30.55,-23.8,270.0,top
+Q5,AO3400A,SOT-23,26.05,-23.8,90.0,top
+Q6,AO3400A,SOT-23,43.9,-25.4,90.0,top
+Q7,AO3401A,SOT-23,50.325,-24.2,180.0,top
+Q8,AO3400A,SOT-23,83.3,-34.4,270.0,top
+R10,200,R_0603_1608Metric,57.495,-27.3,180.0,top
+R11,200,R_0603_1608Metric,57.49,-25.64,180.0,top
+R3,200,R_0603_1608Metric,28.825,-16.3,0.0,top
+R4,10k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,40.3,-18.8,-90.0,top
+R5,10k,R_0805_2012Metric,48.725,-19.1,0.0,top
+R6,10k,R_0805_2012Metric,47.3,-25.4,90.0,top
+R8,200,R_0603_1608Metric,48.725,-21.0,0.0,top
+R9,200,R_0603_1608Metric,35.4,-23.8,0.0,top
+TP1,SET0,TestPoint_Pad_D1.0mm,34.75,-19.25,90.0,bottom
+TP2,WD_EN,TestPoint_Pad_D1.0mm,34.75,-26.2,90.0,bottom
+TP3,~{WDO},TestPoint_Pad_D1.0mm,53.5,-20.0,180.0,bottom
+U1,MSK12C02G25-B,SW-SMD_MSK12C02G25-B,67.65,0.905,0.0,top
+U2,MSK12C02G25-B,SW-SMD_MSK12C02G25-B,80.15,0.905,0.0,top
+U3,MSK12C02G25-B,SW-SMD_MSK12C02G25-B,92.65,0.905,0.0,top
+U4,IM03GR,RELAY-SMD_IMXXGR,95.45,-36.45,0.0,top
+U6,TLV809EA29DBZR,SOT-23-3_L2.9-W1.3-P0.95-LS2.4-BR,21.0,-16.5625,180.0,top
+U7,TPS3430WDRC,VSON-10-1EP_3x3mm_P0.5mm_EP1.65x2.4mm,44.425,-21.0,0.0,top

@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "Raspbery Pi HAT")
-		(date "15 nov 2012")
+		(date "2026-10-19")
 		(rev "v2.0")
 		(company "JMU Robotics")
 		(comment 1 "Mayank")
@@ -1083,7 +1083,7 @@
 						(type none)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at -5.08 -7.62 90)
 					(length 2.54)
 					(name "1"
@@ -1101,7 +1101,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 0 -7.62 90)
 					(length 2.54)
 					(name "2"
@@ -1119,7 +1119,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 2.54 -7.62 90)
 					(length 2.54)
 					(name "3"
@@ -1137,7 +1137,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 5.08 -7.62 90)
 					(length 2.54)
 					(name "4"
@@ -1155,7 +1155,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 5.08 7.62 270)
 					(length 2.54)
 					(name "5"
@@ -1173,7 +1173,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 2.54 7.62 270)
 					(length 2.54)
 					(name "6"
@@ -1191,7 +1191,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 0 7.62 270)
 					(length 2.54)
 					(name "7"
@@ -1209,7 +1209,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at -5.08 7.62 270)
 					(length 2.54)
 					(name "8"
@@ -1513,7 +1513,7 @@
 						(type none)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at -3.81 7.62 270)
 					(length 5.08)
 					(name "1"
@@ -1531,7 +1531,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 1.27 7.62 270)
 					(length 5.08)
 					(name "2"
@@ -1549,7 +1549,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 3.81 7.62 270)
 					(length 5.08)
 					(name "3"
@@ -1567,7 +1567,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin no_connect line
 					(at 11.43 -2.54 180)
 					(length 5.08)
 					(name "4"
@@ -1585,7 +1585,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin no_connect line
 					(at -11.43 -2.54 0)
 					(length 5.08)
 					(name "5"
@@ -2161,32 +2161,8 @@
 		(uuid "b2255d7b-d4e9-4ab9-a6f5-067bb71d507b")
 	)
 	(no_connect
-		(at 35.56 115.57)
-		(uuid "05feb521-921c-49d8-a9e0-b0692630c450")
-	)
-	(no_connect
-		(at 35.56 49.53)
-		(uuid "266ba762-9e90-47a6-a890-0e06644dd896")
-	)
-	(no_connect
-		(at 35.56 138.43)
-		(uuid "3b291f3d-8875-4764-bcfa-763e8f5f4c97")
-	)
-	(no_connect
-		(at 35.56 72.39)
-		(uuid "5602ec14-1be8-484e-a6d1-f87097ed29f3")
-	)
-	(no_connect
-		(at 35.56 82.55)
-		(uuid "58385f35-cca6-4306-baf1-9ea505e6d0ea")
-	)
-	(no_connect
 		(at 215.9 49.53)
 		(uuid "8aab9aed-7e91-4d61-bbf8-20a60e90196d")
-	)
-	(no_connect
-		(at 35.56 105.41)
-		(uuid "bb68ed7f-8604-4228-8f28-20ffab72f776")
 	)
 	(no_connect
 		(at 215.9 34.29)
@@ -2221,6 +2197,16 @@
 			(type default)
 		)
 		(uuid "06065f8d-f9ab-4146-952a-b39f08b0d450")
+	)
+	(wire
+		(pts
+			(xy 220.98 33.02) (xy 226.06 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06179a9c-efdb-4c2d-9fa6-d50b5674b576")
 	)
 	(wire
 		(pts
@@ -2274,16 +2260,6 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 30.48) (xy 226.06 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0f1246cf-29a8-4f4e-a936-69d0150baea0")
-	)
-	(wire
-		(pts
 			(xy 77.47 82.55) (xy 91.44 82.55)
 		)
 		(stroke
@@ -2291,16 +2267,6 @@
 			(type default)
 		)
 		(uuid "10941648-b342-4534-96e1-1894bafe2e0f")
-	)
-	(wire
-		(pts
-			(xy 220.98 33.02) (xy 226.06 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1293c491-4a56-41f8-83b7-e7952701ac61")
 	)
 	(wire
 		(pts
@@ -2321,6 +2287,16 @@
 			(type default)
 		)
 		(uuid "18d2539a-df20-4e3b-82ff-9bb0ba07b832")
+	)
+	(wire
+		(pts
+			(xy 128.27 35.56) (xy 153.67 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1996ebf2-5644-44a0-a995-f11f2a5a5502")
 	)
 	(wire
 		(pts
@@ -2514,6 +2490,16 @@
 	)
 	(wire
 		(pts
+			(xy 233.68 40.64) (xy 233.68 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54fc3bed-652d-4b44-b79e-3ed0e01fa422")
+	)
+	(wire
+		(pts
 			(xy 190.5 36.83) (xy 181.61 36.83)
 		)
 		(stroke
@@ -2554,16 +2540,6 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 38.1) (xy 153.67 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "78b66173-a359-4646-b44c-c983f789fce4")
-	)
-	(wire
-		(pts
 			(xy 137.16 123.19) (xy 129.54 123.19)
 		)
 		(stroke
@@ -2571,6 +2547,16 @@
 			(type default)
 		)
 		(uuid "79dcf29c-235a-4f23-a7d8-79c9488ead39")
+	)
+	(wire
+		(pts
+			(xy 233.68 30.48) (xy 218.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7aa879db-0c0b-4b7e-9831-58f0e4402f69")
 	)
 	(wire
 		(pts
@@ -2604,6 +2590,16 @@
 	)
 	(wire
 		(pts
+			(xy 226.06 33.02) (xy 226.06 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "806572c9-5432-457f-9c54-af8a271f0460")
+	)
+	(wire
+		(pts
 			(xy 111.76 133.35) (xy 104.14 133.35)
 		)
 		(stroke
@@ -2631,16 +2627,6 @@
 			(type default)
 		)
 		(uuid "87bb179c-57a2-4d96-aa2d-7ff5df0ce256")
-	)
-	(wire
-		(pts
-			(xy 128.27 35.56) (xy 153.67 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8b9c764d-8c55-4d00-b745-556faf550692")
 	)
 	(wire
 		(pts
@@ -2874,6 +2860,16 @@
 	)
 	(wire
 		(pts
+			(xy 233.68 53.34) (xy 233.68 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5593e8d-470f-44ba-a639-3d2eaf346fad")
+	)
+	(wire
+		(pts
 			(xy 86.36 125.73) (xy 78.74 125.73)
 		)
 		(stroke
@@ -2934,6 +2930,16 @@
 	)
 	(wire
 		(pts
+			(xy 226.06 50.8) (xy 220.98 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfa3c662-5005-48f5-813b-cd3f63bda0ab")
+	)
+	(wire
+		(pts
 			(xy 48.26 54.61) (xy 48.26 57.15)
 		)
 		(stroke
@@ -2984,6 +2990,16 @@
 	)
 	(wire
 		(pts
+			(xy 218.44 49.53) (xy 218.44 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db0d64fe-752a-40cc-a878-5874bc3f671f")
+	)
+	(wire
+		(pts
 			(xy 135.89 54.61) (xy 128.27 54.61)
 		)
 		(stroke
@@ -3004,13 +3020,13 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 50.8) (xy 220.98 50.8)
+			(xy 128.27 38.1) (xy 153.67 38.1)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e2ea115c-d439-408f-bdaa-333223c61c9f")
+		(uuid "e3b7576d-de96-4e57-bf29-8ac8843ba599")
 	)
 	(wire
 		(pts
@@ -3074,6 +3090,16 @@
 	)
 	(wire
 		(pts
+			(xy 218.44 53.34) (xy 233.68 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f6382714-10cb-457e-90bc-a13fa29b7376")
+	)
+	(wire
+		(pts
 			(xy 109.22 135.89) (xy 109.22 138.43)
 		)
 		(stroke
@@ -3082,15 +3108,15 @@
 		)
 		(uuid "fc574866-5281-438a-b816-be51716fe49c")
 	)
-	(wire
-		(pts
-			(xy 218.44 49.53) (xy 218.44 50.8)
+	(label "CE0"
+		(at 78.74 123.19 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
 		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd465964-9de4-455f-8edb-7e797f290922")
+		(uuid "023a2d43-7633-4ea6-9eed-44b999ddae87")
 	)
 	(label "SW_CHRG_2"
 		(at 57.15 92.71 180)
@@ -3101,26 +3127,6 @@
 			(justify right bottom)
 		)
 		(uuid "0760e74f-0110-47f6-85fc-c7b5c3fd38e1")
-	)
-	(label "CE3"
-		(at 135.89 59.69 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "08f3ad6c-93fd-4593-8f85-0dfe8c04e1e1")
-	)
-	(label "CE2"
-		(at 104.14 123.19 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "18ecc2bc-640b-47b5-bb54-162379a65d6c")
 	)
 	(label "MOSI"
 		(at 129.54 128.27 0)
@@ -3151,6 +3157,16 @@
 			(justify left bottom)
 		)
 		(uuid "447b630f-c3b3-402c-b43d-6a62779c1552")
+	)
+	(label "CE1"
+		(at 135.89 57.15 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4a67ae18-bb49-4abe-818e-06a0a05a501c")
 	)
 	(label "MISO"
 		(at 104.14 130.81 0)
@@ -3212,15 +3228,25 @@
 		)
 		(uuid "76990c3b-b0e7-48cb-b8a9-eb720a863e9f")
 	)
-	(label "CE3"
-		(at 129.54 123.19 0)
+	(label "CE1"
+		(at 104.14 123.19 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "7eff387a-853a-4789-83e0-9873bde39640")
+		(uuid "8553da10-3ad7-4b24-8697-100224603402")
+	)
+	(label "CE2"
+		(at 135.89 59.69 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "86d28f75-1acf-4105-a7b9-26a7d221406d")
 	)
 	(label "MISO"
 		(at 129.54 130.81 0)
@@ -3292,16 +3318,6 @@
 		)
 		(uuid "a59da906-af99-46f6-b657-22e7ec275b19")
 	)
-	(label "CE2"
-		(at 135.89 57.15 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a811eebb-88ee-4c55-9186-fb287f5974e6")
-	)
 	(label "CLK"
 		(at 78.74 125.73 0)
 		(effects
@@ -3342,15 +3358,15 @@
 		)
 		(uuid "cc19e786-d312-4f90-816a-1315292b7b7a")
 	)
-	(label "CE1"
-		(at 135.89 54.61 180)
+	(label "CE2"
+		(at 129.54 123.19 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
-		(uuid "d93fbc1d-bdc8-4b8b-9bcb-a6df0cdb2914")
+		(uuid "ccd36221-47d0-4ad9-b3a2-9d5721688edd")
 	)
 	(label "S_RED"
 		(at 149.86 80.01 180)
@@ -3361,6 +3377,16 @@
 			(justify right bottom)
 		)
 		(uuid "de67b8af-a807-4c34-ad2a-8557999212fe")
+	)
+	(label "CE0"
+		(at 135.89 54.61 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e11b2290-f6f7-4255-8a5c-9ffb70610d6e")
 	)
 	(label "CLK"
 		(at 104.14 125.73 0)
@@ -3422,16 +3448,6 @@
 		)
 		(uuid "f9f94a9b-c75a-4090-b536-2166aefecfc0")
 	)
-	(label "CE1"
-		(at 78.74 123.19 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fc4adca2-f0a6-4d88-a4d4-3d60119c42ea")
-	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
 		(at 31.75 29.21 0)
@@ -3464,7 +3480,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal"
+		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal"
 			(at 31.75 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -3475,7 +3491,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C5188434.pdf"
 			(at 31.75 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -3497,6 +3513,39 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 31.75 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MX126-5.0-02P-GN01-Cu-S-A"
+			(at 31.75 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C5188434"
+			(at 31.75 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "6ccbce8d-f0ea-466b-be17-a749f775cc8e")
 		)
@@ -3504,7 +3553,7 @@
 			(uuid "96693462-e948-404c-8e28-66b86c19e265")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "J1")
 					(unit 1)
@@ -3582,7 +3631,7 @@
 			(uuid "a6468f3b-0bf3-4267-b92f-fc92724c1576")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#FLG01")
 					(unit 1)
@@ -3660,7 +3709,7 @@
 			(uuid "2433cc4a-d9cd-482a-a648-e008b5f64cf1")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR013")
 					(unit 1)
@@ -3681,25 +3730,23 @@
 		(dnp no)
 		(uuid "13e74ab9-ce8c-4b26-866c-7f65b71a130e")
 		(property "Reference" "U4"
-			(at 213.614 54.61 0)
+			(at 215.9 29.464 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Value" "IM03GR"
-			(at 213.614 56.896 0)
+			(at 215.9 27.432 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "external_ECAD:RELAY-SMD_IMXXGR"
@@ -3793,7 +3840,7 @@
 			(uuid "2a89570a-ebbc-4d01-9d82-a857a8a20039")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "U4")
 					(unit 1)
@@ -3871,7 +3918,7 @@
 			(uuid "2468a6cd-169f-4a00-87a5-dcc9817b073f")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR08")
 					(unit 1)
@@ -3949,7 +3996,7 @@
 			(uuid "ee0de436-ff2d-410f-9525-0f8c0cb8e380")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR011")
 					(unit 1)
@@ -3970,25 +4017,23 @@
 		(dnp no)
 		(uuid "1c82f001-6d27-42d5-a1dc-234dccbac0c6")
 		(property "Reference" "U2"
-			(at 29.21 95.2501 90)
+			(at 50.8 93.98 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Value" "MSK12C02G25-B"
-			(at 29.21 92.7101 90)
+			(at 30.48 93.98 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" "external_ECAD:SW-SMD_MSK12C02G25-B"
@@ -4073,7 +4118,7 @@
 			(uuid "a0831857-90ad-4fa2-9c87-a3269e49949e")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "U2")
 					(unit 1)
@@ -4151,7 +4196,7 @@
 			(uuid "50594c45-f22f-4efa-866a-ec7e3dd2fc1e")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR07")
 					(unit 1)
@@ -4229,7 +4274,7 @@
 			(uuid "0d249220-6e1b-4196-acc9-115f16e83929")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR015")
 					(unit 1)
@@ -4304,7 +4349,7 @@
 			(uuid "dceb03fa-8783-4150-98d4-5ce838b0cf9a")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR04")
 					(unit 1)
@@ -4346,7 +4391,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965"
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad"
 			(at 160.02 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -4402,7 +4447,7 @@
 			)
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "H1")
 					(unit 1)
@@ -4423,25 +4468,23 @@
 		(dnp no)
 		(uuid "29b15830-b0d1-4119-a209-db6d9d6f424b")
 		(property "Reference" "U1"
-			(at 29.21 62.2301 90)
+			(at 50.8 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Value" "MSK12C02G25-B"
-			(at 29.21 59.6901 90)
+			(at 30.48 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" "external_ECAD:SW-SMD_MSK12C02G25-B"
@@ -4526,7 +4569,7 @@
 			(uuid "ad71a036-53dd-4a0d-95e6-9713cc5d9d84")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "U1")
 					(unit 1)
@@ -4604,7 +4647,7 @@
 			(uuid "f3ee1ae4-7573-4ce6-b4e2-55ec3337d388")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR017")
 					(unit 1)
@@ -4731,7 +4774,7 @@
 			(uuid "feab7e32-a836-4e2c-a118-5bf5bed6220e")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "J7")
 					(unit 1)
@@ -4760,7 +4803,7 @@
 				)
 			)
 		)
-		(property "Value" "RFID3"
+		(property "Value" "RFID2"
 			(at 144.272 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4859,7 +4902,7 @@
 			(uuid "e316db0d-36ae-4a21-9a8d-9cdfb80eca5c")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "J6")
 					(unit 1)
@@ -4898,7 +4941,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal"
+		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal"
 			(at 77.47 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -4909,7 +4952,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C5188434.pdf"
 			(at 77.47 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -4931,6 +4974,39 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 77.47 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MX126-5.0-02P-GN01-Cu-S-A"
+			(at 77.47 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C5188434"
+			(at 77.47 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "dd6a1c37-0b2a-41f3-b335-6c716f7c9113")
 		)
@@ -4938,7 +5014,7 @@
 			(uuid "7cc7dee5-6413-43e9-81c5-4cb9a7b13517")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "J3")
 					(unit 1)
@@ -4959,25 +5035,23 @@
 		(dnp no)
 		(uuid "5f9e45ef-220b-4fdf-ad93-c2ab04158a15")
 		(property "Reference" "U3"
-			(at 29.21 128.2701 90)
+			(at 50.8 127 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Value" "MSK12C02G25-B"
-			(at 29.21 125.7301 90)
+			(at 30.48 127 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" "external_ECAD:SW-SMD_MSK12C02G25-B"
@@ -5062,7 +5136,7 @@
 			(uuid "7f33b608-aa76-4b4b-9d8d-c7ca8d9d78ea")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "U3")
 					(unit 1)
@@ -5140,7 +5214,7 @@
 			(uuid "25f774b1-5891-400e-a76c-f61fddbcd519")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR014")
 					(unit 1)
@@ -5169,7 +5243,7 @@
 				)
 			)
 		)
-		(property "Value" "RFID1"
+		(property "Value" "RFID0"
 			(at 93.726 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5268,7 +5342,7 @@
 			(uuid "a5c9409b-24dc-4e55-acce-729c8d34b878")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "J4")
 					(unit 1)
@@ -5346,7 +5420,7 @@
 			(uuid "d0f6fcce-91e9-40c9-b58c-27086228c151")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#FLG02")
 					(unit 1)
@@ -5424,7 +5498,7 @@
 			(uuid "48da8931-4a68-40e9-9716-4c1423c9efcd")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR09")
 					(unit 1)
@@ -5502,7 +5576,7 @@
 			(uuid "4ec20af3-2b21-436d-bee8-a0f18a61ef87")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR016")
 					(unit 1)
@@ -5580,7 +5654,7 @@
 			(uuid "332a41e4-4813-4d3f-8ef1-0d3949acefc9")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR012")
 					(unit 1)
@@ -5677,7 +5751,7 @@
 				)
 			)
 		)
-		(property "LCSC Part" ""
+		(property "LCSC Part" "C95872"
 			(at 200.66 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -5688,7 +5762,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C95872"
+		(property "LCSC" ""
 			(at 200.66 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -5706,7 +5780,7 @@
 			(uuid "e8c0b6e0-1d5e-4a63-88f0-49d6280fbf82")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "D1")
 					(unit 1)
@@ -5784,7 +5858,7 @@
 			(uuid "9f79317d-7b18-4767-babb-2e3be5de24a7")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR01")
 					(unit 1)
@@ -5862,7 +5936,7 @@
 			(uuid "487a149b-98ff-4219-8c9b-1165f2236b86")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR03")
 					(unit 1)
@@ -5940,7 +6014,7 @@
 			(uuid "1c4493a2-d7df-4733-9c6e-572366a238b0")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR05")
 					(unit 1)
@@ -5979,7 +6053,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal"
+		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal"
 			(at 77.47 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -5990,7 +6064,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C5188434.pdf"
 			(at 77.47 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -6012,6 +6086,39 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 77.47 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MX126-5.0-02P-GN01-Cu-S-A"
+			(at 77.47 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C5188434"
+			(at 77.47 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2b833f3f-6fa5-46f8-80de-2ff39c28b8cf")
 		)
@@ -6019,7 +6126,7 @@
 			(uuid "bf1c9469-2052-45de-bfd7-c4b252c19413")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "J2")
 					(unit 1)
@@ -6094,7 +6201,7 @@
 			(uuid "67b49815-1468-41eb-bdbd-0c6a7f8f1394")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR02")
 					(unit 1)
@@ -6123,7 +6230,7 @@
 				)
 			)
 		)
-		(property "Value" "RFID2"
+		(property "Value" "RFID1"
 			(at 118.872 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6222,7 +6329,7 @@
 			(uuid "d35b7ea3-c109-4b02-a745-f1e54b49b704")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "J5")
 					(unit 1)
@@ -6300,7 +6407,7 @@
 			(uuid "0ec1d055-2598-4e76-8dfc-98db6cf54af8")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR018")
 					(unit 1)
@@ -6310,7 +6417,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 231.14 30.48 0)
+		(at 238.76 40.64 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6320,7 +6427,7 @@
 		(dnp no)
 		(uuid "e588d5fb-cda7-45d5-a575-c9e5030b3070")
 		(property "Reference" "J8"
-			(at 231.14 27.94 0)
+			(at 238.76 38.1 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6330,7 +6437,7 @@
 			)
 		)
 		(property "Value" "WD_F"
-			(at 235.966 31.242 0)
+			(at 243.586 41.402 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6339,8 +6446,8 @@
 				)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal"
-			(at 231.14 30.48 0)
+		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal"
+			(at 238.76 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6350,8 +6457,8 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
-			(at 231.14 30.48 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C5188434.pdf"
+			(at 238.76 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6362,7 +6469,40 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 231.14 30.48 0)
+			(at 238.76 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 238.76 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MX126-5.0-02P-GN01-Cu-S-A"
+			(at 238.76 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C5188434"
+			(at 238.76 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6379,7 +6519,7 @@
 			(uuid "58fd3644-6f6a-42ce-b2ca-2c596c508bd3")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "J8")
 					(unit 1)
@@ -6421,7 +6561,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.5mm"
+		(property "Footprint" "MountingHole:MountingHole_2.5mm_Pad"
 			(at 160.02 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -6477,7 +6617,7 @@
 			)
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "H2")
 					(unit 1)
@@ -6555,7 +6695,7 @@
 			(uuid "f1e5e7d6-b265-4f28-83c9-b05827f4ba99")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR010")
 					(unit 1)
@@ -6630,7 +6770,7 @@
 			(uuid "4738d683-08d6-4b8c-9bba-f67a0e196bc8")
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR06")
 					(unit 1)
@@ -6707,7 +6847,7 @@
 			)
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(page "4")
 				)
@@ -6751,7 +6891,7 @@
 				(justify left top)
 			)
 		)
-		(pin "GPIO2{slash}MPPT" output
+		(pin "GPIO2{slash}MPPT" input
 			(at 91.44 44.45 180)
 			(uuid "07a0f9de-0a49-4fc9-8aaf-7eff6d8a305a")
 			(effects
@@ -6761,7 +6901,7 @@
 				(justify left)
 			)
 		)
-		(pin "GPIO3{slash}PS" output
+		(pin "GPIO3{slash}PS" input
 			(at 91.44 57.15 180)
 			(uuid "ccd8fd11-6611-4005-b75c-c9f13899f823")
 			(effects
@@ -6769,66 +6909,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-		(pin "GPIO0{slash}R_MO" output
-			(at 128.27 82.55 0)
-			(uuid "5beb3956-fd6c-42b4-aa29-76f851370766")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "GPIO1{slash}Y_ST" output
-			(at 128.27 85.09 0)
-			(uuid "f5da0fe1-8e2f-48e7-8f21-7afcf3440e63")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "GPIO4{slash}R_ST" output
-			(at 128.27 80.01 0)
-			(uuid "443bfa2c-92ca-435f-a8f5-8fff52c43e93")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "GPIO6{slash}Y_MO" output
-			(at 128.27 87.63 0)
-			(uuid "5e2a4f35-334c-42f4-9d7e-6ae57b8491e9")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "GPIO13{slash}G_ST" output
-			(at 128.27 90.17 0)
-			(uuid "00d3ca52-7262-4d7b-bf7d-29f1f5683d84")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "GPIO26{slash}G_MO" output
-			(at 128.27 92.71 0)
-			(uuid "258fdfcb-3bd8-4325-9480-d2726af72a54")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 		(pin "GPIO5{slash}CE1" output
@@ -6871,7 +6951,7 @@
 				(justify right)
 			)
 		)
-		(pin "GPIO19{slash}MISO" output
+		(pin "GPIO19{slash}MISO" input
 			(at 128.27 69.85 0)
 			(uuid "50dcb8c5-bf51-496e-91f5-5cc97a6faaba")
 			(effects
@@ -6911,9 +6991,9 @@
 				(justify right)
 			)
 		)
-		(pin "GPIO15{slash}WD_EN" output
-			(at 128.27 38.1 0)
-			(uuid "00514a13-f426-428b-a958-22fdd775f01c")
+		(pin "GPIO0{slash}Y_B" output
+			(at 128.27 87.63 0)
+			(uuid "891312c2-ced1-46c4-96e9-37fc3612ed56")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6921,9 +7001,59 @@
 				(justify right)
 			)
 		)
-		(pin "SW_CHRG_1" input
+		(pin "GPIO1{slash}G_S" output
+			(at 128.27 90.17 0)
+			(uuid "721adf5a-08d6-4b90-b55b-d3f91cc4bd79")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GPIO4{slash}G_B" output
+			(at 128.27 92.71 0)
+			(uuid "ba997417-c54f-4048-9134-961fe37b3556")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GPIO6{slash}Y_S" output
+			(at 128.27 85.09 0)
+			(uuid "677a5302-8f47-4c89-aca3-1d4f848a462f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GPIO13{slash}R_B" output
+			(at 128.27 82.55 0)
+			(uuid "16634426-c46c-4299-8bc1-e93b3584e293")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GPIO26{slash}R_S" output
+			(at 128.27 80.01 0)
+			(uuid "caf84425-08b4-43ea-96fa-974b12942e6e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SW_BUCK_10" input
 			(at 91.44 82.55 180)
-			(uuid "534de857-5995-4a20-bbb7-6507d22c68af")
+			(uuid "d56c20ed-a13f-4637-a7b2-ed53508ba925")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6931,9 +7061,9 @@
 				(justify left)
 			)
 		)
-		(pin "SW_CHRG_2" input
+		(pin "SW_BUCK_11" input
 			(at 91.44 85.09 180)
-			(uuid "00c9c542-a53b-457b-b4e0-1377381d71ee")
+			(uuid "2ebbcc08-7d20-44bf-b724-83a61753fdb1")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6941,18 +7071,28 @@
 				(justify left)
 			)
 		)
-		(pin "SW_CHRG_3" input
+		(pin "SW_BUCK_12" input
 			(at 91.44 87.63 180)
-			(uuid "b93336aa-19fe-482a-a086-8fdbf42e20e4")
+			(uuid "395beca0-192c-4bf6-932a-77bc4434f1e0")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(pin "GPIO18{slash}GPIO_WD_EN" output
+			(at 128.27 38.1 0)
+			(uuid "19ffff71-1342-4740-a119-9d3f5007f6ff")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
-			(project "PIHAT"
+			(project "PIHAT-rounded"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(page "2")
 				)
