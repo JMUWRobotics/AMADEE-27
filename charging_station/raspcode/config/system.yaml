@@ -1,3 +1,6 @@
+mppt_pin: 02
+power_supply_pin: 03
+
 bus:
   max_voltage: 60
   max_current: 32
