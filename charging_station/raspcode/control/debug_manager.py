@@ -1,13 +1,13 @@
 import asyncio
 import logging
 from typing import Optional
-from adapter_manager import ChargingManager
+from control.adapter_manager import AdapterManager, AdapterState
 
 logger = logging.getLogger("DebugManager")
 
 
 class DebugManager:
-    def __init__(self, charging_manager: ChargingManager):
+    def __init__(self, charging_manager: AdapterManager) -> None:
         self.charging_manager = charging_manager
 
     def _print_help(self) -> None:

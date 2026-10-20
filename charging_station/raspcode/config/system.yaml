@@ -23,16 +23,19 @@ adapter:
   mfrc_pin_rst: 32
   devices:
     -
+      gpio_pin: 2
       dpm_address: 10
       max_voltage: 60
       mfrc_chip_select: 0
     -
+      gpio_pin: 3
       dpm_address: 11
-      dpm_boosted: 45
+      max_voltage: 45
       mfrc_chip_select: 1
     -
+      gpio_pin: 4
       dpm_address: 12
-      dpm_boosted: 45
+      max_voltage: 45
       mfrc_chip_select: 2
 
 mppt:

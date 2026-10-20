@@ -5,11 +5,12 @@ import asyncio
 import contextlib
 import logging
 import math
-from enum import IntEnum
-from typing import Optional, Sequence
 
+from typing import Dict, Optional, Sequence
+import yaml
 import RPi.GPIO as GPIO
 
+from charging_station.raspcode.control.gpio_manager import PowerSelectorState
 from control.adapter_manager import AdapterManager, AdapterState
 from control.vedirect_manager import VedirectManager, MpptOperationState, MpptTrackerOperationState, \
     MpptError
@@ -17,11 +18,6 @@ from drivers.dpm86xx import BaudRate
 
 logger = logging.getLogger(__name__)
 
-class PowerSelectorState(IntEnum):
-    OFF = 0
-    MPPT = 1
-    POWER_SUPPLY = 2
-    UNDEFINED = 3  # both feedback pins active - wiring fault or relay in transition
 
 
 # =============================================================================
@@ -65,7 +61,8 @@ def allocate_proportional(demands: Sequence[float], budget: float) -> list[float
         return [max(0.0, d) for d in demands]
     return [max(0.0, d) * budget / total for d in demands]
 
-def load_system_config(config: dict) -> tuple[list[AdapterManager], VedirectManager]:
+
+def load_system_config(config: dict, enable_switches: Dict[int, bool]) -> tuple[list[AdapterManager], VedirectManager]:
     """Build all adapters and the MPPT reader from the parsed ``system.yaml``."""
     dpm_config = config["adapter"]
     devices = dpm_config["devices"]
@@ -82,24 +79,29 @@ def load_system_config(config: dict) -> tuple[list[AdapterManager], VedirectMana
     dpm_lock = asyncio.Lock()
     mfrc_lock = asyncio.Lock()
 
-    adapters = [
-        AdapterManager(
-            dpm_tty_port=dpm_config["dpm_tty_port"],
-            dpm_baud_rate=BaudRate(dpm_config["dpm_baudrate"]),
-            dpm_address=dev["dpm_address"],
-            dpm_stale_time=dpm_config["dpm_stale_time"],
-            dpm_max_voltage=dev["dpm_max_voltage"],
-            dpm_max_current=dev["dpm_max_current"],
-            mfrc_spi_bus=dpm_config["mfrc_spi_bus"],
-            mfrc_chip_select=dev["mfrc_chip_select"],
-            mfrc_baud_rate=dpm_config["mfrc_baudrate"],
-            mfrc_pin_rst=dpm_config["mfrc_pin_rst"],
-            mfrc_pin_mode=GPIO.BCM,
-            dpm_lock=dpm_lock,
-            mfrc_lock=mfrc_lock,
+    adapters = []
+    for dev in devices:
+        if not enable_switches.get(dev["dpm_address"], False):
+            logger.info("Adapter %d is disabled via GPIO switch; skipping", dev["dpm_address"])
+            continue
+        adapters.append(
+            AdapterManager(
+                dpm_tty_port=dpm_config["dpm_tty_port"],
+                dpm_baud_rate=BaudRate(dpm_config["dpm_baudrate"]),
+                dpm_address=dev["dpm_address"],
+                dpm_stale_time=dpm_config["dpm_stale_time"],
+                dpm_max_voltage=dev["dpm_max_voltage"],
+                dpm_max_current=dev["dpm_max_current"],
+                mfrc_spi_bus=dpm_config["mfrc_spi_bus"],
+                mfrc_chip_select=dev["mfrc_chip_select"],
+                mfrc_baud_rate=dpm_config["mfrc_baudrate"],
+                mfrc_pin_rst=dpm_config["mfrc_pin_rst"],
+                mfrc_pin_mode=GPIO.BCM,
+                dpm_lock=dpm_lock,
+                mfrc_lock=mfrc_lock,
+            )
         )
-        for dev in devices
-    ]
+
 
     mppt_config = config["mppt"]
     ve_device = VedirectManager(
@@ -111,7 +113,7 @@ def load_system_config(config: dict) -> tuple[list[AdapterManager], VedirectMana
 
 
 class EnergyManager:
-    def __init__(self, config: dict) -> None:
+    def __init__(self, config: dict, power_selector_state: PowerSelectorState, enable_switches: Dict[int, bool]) -> None:
         """Supervises the power-source selector, the MPPT and all charging adapters.
 
         :param config: parsed ``system.yaml``. Optional top-level keys:
@@ -123,8 +125,10 @@ class EnergyManager:
         self.max_total_power_supply_w: Optional[float] = config["max_total_power_supply_w"]
         self.poll_interval_s: float = float(config.get("poll_interval_s", 0.5))
 
-        self.adapters, self.mppt = load_system_config(config)
-        self.power_selector_state = PowerSelectorState.OFF
+        if all(not enable_switches.values()):
+            raise RuntimeError("No charging adapters are enabled via GPIO switches. At least one must be enabled.")
+        self.adapters, self.mppt = load_system_config(config,enable_switches)
+        self.power_selector_state = power_selector_state
         self.power_margin = float(config.get("power_margin", 0.10))
         self.allocation_policies = config.get("allocation_policies", "min_max")
 
@@ -137,27 +141,13 @@ class EnergyManager:
 
     # ------------------------------------------------------------------ setup / shutdown
 
-    def _setup_gpio(self) -> None:
-        # Every library that touches the pins (MFRC522 included) must use the same numbering.
-        if GPIO.getmode() is None:
-            GPIO.setmode(GPIO.BCM)
-        elif GPIO.getmode() != GPIO.BCM:
-            raise RuntimeError("GPIO already configured with a numbering other than BCM")
-        GPIO.setup(self.power_supply_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-        GPIO.setup(self.mppt_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
 
     async def setup_system(self) -> bool:
-        """Initialise GPIO, all adapters and the MPPT. Returns True only if everything came up.
+        """Initialise all adapters and the MPPT if selected. Returns True only if everything came up.
 
         Adapters that fail enter ERROR and retry on their own, so the system can run degraded.
         """
-        try:
-            await asyncio.to_thread(self._setup_gpio)
-            self._gpio_ready = True
-            await self._refresh_power_selector_state()
-        except Exception:
-            logger.exception("GPIO setup failed")
-            return False
 
         if self.power_selector_state == PowerSelectorState.MPPT:
             self.mppt.start()  # without this the MPPT never delivers data and startup() would hang
@@ -178,6 +168,9 @@ class EnergyManager:
         return ok
 
     async def shutdown(self) -> None:
+        with open(self.config_file, "r", encoding="utf-8") as f:
+                self.config = yaml.safe_load(f)
+
         """Switch every output off and release the hardware. Always call this on exit."""
         await asyncio.gather(*(adp.shutdown() for adp in self.adapters), return_exceptions=True)
         if self.power_selector_state == PowerSelectorState.MPPT:
@@ -185,43 +178,6 @@ class EnergyManager:
         with contextlib.suppress(Exception):
             GPIO.cleanup()
         logger.info("Shutdown complete")
-
-    # ------------------------------------------------------------------ power selector
-
-    def read_power_selector_state(self) -> PowerSelectorState:
-        """Read the (active-low) feedback pins of the source selector and cache the result."""
-        mppt_active = GPIO.input(self.mppt_pin) == GPIO.LOW
-        supply_active = GPIO.input(self.power_supply_pin) == GPIO.LOW
-
-        if mppt_active and supply_active:
-            state = PowerSelectorState.UNDEFINED
-        elif mppt_active:
-            state = PowerSelectorState.MPPT
-        elif supply_active:
-            state = PowerSelectorState.POWER_SUPPLY
-        else:
-            state = PowerSelectorState.OFF
-
-        if state is not self.power_selector_state:
-            logger.info("Power selector: %s -> %s", self.power_selector_state.name, state.name)
-            self.power_selector_state = state
-        return state
-
-
-    async def _refresh_power_selector_state(self) -> PowerSelectorState:
-        return await asyncio.to_thread(self.read_power_selector_state)
-
-    async def _source_ok(self) -> bool:
-        source_ok = self.power_selector_state in (PowerSelectorState.MPPT, PowerSelectorState.POWER_SUPPLY)
-
-        if not source_ok:
-            # Fail-safe: never keep charging from an undefined / disconnected source.
-            await asyncio.gather(
-                *(adp.pause(f"power selector is {self.power_selector_state.name}") for adp in self.adapters),
-                return_exceptions=True,
-            )
-
-        return source_ok
 
     # ------------------------------------------------------------------ control loop
     def power_limit_reached(self) -> Optional[float]:
@@ -299,27 +255,17 @@ class EnergyManager:
             if isinstance(result, BaseException):
                 logger.error("%s: unhandled error in step(): %r", adp.name, result)
 
-    async def step_idle(self) -> bool:
-        await self._refresh_power_selector_state()
-        await self._source_ok()
+    async def step_idle(self) -> dict[int, AdapterState]:
         await self._trigger_steps(allow_start=False)
-        return any(adp.state in (AdapterState.REQUESTING, AdapterState.SET_VALUES, AdapterState.CHARGING)
-                   for adp in self.adapters)
+        adp_states = {adp.address: adp.state for adp in self.adapters}            
+        return adp_states
 
     async def step_charging(self) -> bool:
-        await self._refresh_power_selector_state()
-        source_ok = await self._source_ok()
-        low_battery = await self.low_battery()
-        if not source_ok or low_battery:
-            await self._trigger_steps(allow_start=False)
-            return any(adp.state in (AdapterState.REQUESTING, AdapterState.SET_VALUES, AdapterState.CHARGING)
-                       for adp in self.adapters)
-
         power_limit = self.power_limit_reached()
         allow_start = await self._allocate_power(power_limit)
         await self._trigger_steps(allow_start=allow_start)
-        return any(adp.state in (AdapterState.REQUESTING, AdapterState.SET_VALUES, AdapterState.CHARGING)
-                   for adp in self.adapters)
+        adp_states = {adp.address: adp.state for adp in self.adapters}            
+        return adp_states
 
     async def low_battery(self) -> bool:
         """Pause charging on a low MPPT bus; bypass this check on the external supply."""
