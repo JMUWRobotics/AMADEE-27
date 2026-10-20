@@ -1172,13 +1172,14 @@
 		)
 		(uuid "9de53ce9-6804-42c2-9924-9afc1a122e88")
 	)
-	(text "max PD = 0.043 * (9.55 - 0.666) = @{format(0.043 * (9.55 - 0.666), 3)}W"
+	(text "max PD = R_{DS(on)} * (0.043A)^{2} = @{format(2 * 0.043^2 * 1000, 0)}mW @ R_{DS(on)}=2Ω\nmax R_{DS(on)} = 200mW / (50mA)^{2} = @{format(0.2 / (0.05)^2, 0)}Ω"
 		(exclude_from_sim no)
-		(at 177.8 57.15 0)
+		(at 145.796 50.8 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left top)
 		)
 		(uuid "d4bbcaaa-efec-4a79-8ea4-824903af09b4")
 	)
@@ -1209,6 +1210,12 @@
 		(uuid "1569f915-6429-4758-93a3-9d0257a14644")
 	)
 	(junction
+		(at 149.86 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "50648988-c679-45e3-8461-4772e6fce979")
+	)
+	(junction
 		(at 156.21 74.93)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1219,12 +1226,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8cb28fd9-8260-4f14-8761-63893f8c963d")
-	)
-	(junction
-		(at 149.86 106.68)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9f5f59f2-13e7-4352-8d1a-e3059c2956e3")
 	)
 	(junction
 		(at 165.1 74.93)
@@ -1667,135 +1668,6 @@
 	)
 	(symbol
 		(lib_id "Transistor_FET:2N7002")
-		(at 154.94 106.68 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "37628cd5-a879-4320-9979-e3eec9345f25")
-		(property "Reference" "Q19"
-			(at 161.29 105.4099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "2SK1958-VB"
-			(at 161.29 107.9499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70"
-			(at 160.02 108.585 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF"
-			(at 160.02 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"
-			(at 154.94 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 154.94 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "2SK1958-VB"
-			(at 154.94 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part" "C20755445"
-			(at 154.94 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "3"
-			(uuid "6dc994ab-c4ff-4c01-9c7e-049ee52148a7")
-		)
-		(pin "1"
-			(uuid "1e54d759-61cc-4484-b6df-de5545ec51be")
-		)
-		(pin "2"
-			(uuid "89a4c9a0-6689-419d-a913-668396ce8540")
-		)
-		(instances
-			(project "SLCU"
-				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/1df9ca8f-5bef-4849-800e-2aa8ac37238a"
-					(reference "Q27")
-					(unit 1)
-				)
-				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/2623eb01-301d-4fd0-912b-89c8fd0b0d6a"
-					(reference "Q23")
-					(unit 1)
-				)
-				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/99bb6119-3b19-4954-b909-e6698db20511"
-					(reference "Q19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_FET:2N7002")
 		(at 175.26 74.93 0)
 		(unit 1)
 		(body_style 1)
@@ -1805,7 +1677,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "42b5fe7a-2e82-492d-91cd-e7144b494bae")
+		(uuid "43039ab9-8676-4c5a-9ee1-45c99202f3ea")
 		(property "Reference" "Q20"
 			(at 181.61 73.6599 0)
 			(show_name no)
@@ -1817,7 +1689,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2SK1958-VB"
+		(property "Value" "2N7002"
 			(at 181.61 76.1999 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1875,36 +1747,14 @@
 				)
 			)
 		)
-		(property "MPN" "2SK1958-VB"
-			(at 175.26 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part" "C20755445"
-			(at 175.26 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "3"
-			(uuid "9eec0898-5897-40bf-9671-b6ff0f061f8d")
+			(uuid "e3c6ad4e-b6da-4e20-ad95-c0f12a4f2309")
 		)
 		(pin "1"
-			(uuid "3bee216e-d74a-41cb-a246-6e1bfe592e41")
+			(uuid "19136bed-ba43-4fbc-bf70-2f78cdd360fd")
 		)
 		(pin "2"
-			(uuid "c7576059-abe6-44c4-8a3e-e82168602aa0")
+			(uuid "e81a41a4-1c43-45e2-a239-e1da31eb7573")
 		)
 		(instances
 			(project "SLCU"
@@ -2220,6 +2070,113 @@
 				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/99bb6119-3b19-4954-b909-e6698db20511"
 					(reference "RN7")
 					(unit 4)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:2N7002")
+		(at 154.94 106.68 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8c3e9dd4-88b9-4b3d-8688-98a20b7716bc")
+		(property "Reference" "Q19"
+			(at 161.29 105.4099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2N7002"
+			(at 161.29 107.9499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70"
+			(at 160.02 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF"
+			(at 160.02 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"
+			(at 154.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" ""
+			(at 154.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "31e50d7d-08cb-4fe5-8270-f2e88f275950")
+		)
+		(pin "1"
+			(uuid "9ac8727d-8f94-4309-9556-02ec3eec43e2")
+		)
+		(pin "2"
+			(uuid "f6493190-6144-49f3-b6ba-78ca1038a6fe")
+		)
+		(instances
+			(project "SLCU"
+				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/1df9ca8f-5bef-4849-800e-2aa8ac37238a"
+					(reference "Q27")
+					(unit 1)
+				)
+				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/2623eb01-301d-4fd0-912b-89c8fd0b0d6a"
+					(reference "Q23")
+					(unit 1)
+				)
+				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/99bb6119-3b19-4954-b909-e6698db20511"
+					(reference "Q19")
+					(unit 1)
 				)
 			)
 		)
@@ -2912,135 +2869,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:2N7002")
-		(at 195.58 106.68 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e8cd4b7b-56cf-4090-aea5-1465719c2e48")
-		(property "Reference" "Q21"
-			(at 201.93 105.4099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "2SK1958-VB"
-			(at 201.93 107.9499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70"
-			(at 200.66 108.585 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF"
-			(at 200.66 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"
-			(at 195.58 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 195.58 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "2SK1958-VB"
-			(at 195.58 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part" "C20755445"
-			(at 195.58 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "3"
-			(uuid "a823e61b-6e1d-4286-b73c-c16ce37e9780")
-		)
-		(pin "1"
-			(uuid "a2b59315-113c-4c02-b8cd-8114872f72d8")
-		)
-		(pin "2"
-			(uuid "45844814-49f9-4692-8103-6326b283952c")
-		)
-		(instances
-			(project "SLCU"
-				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/1df9ca8f-5bef-4849-800e-2aa8ac37238a"
-					(reference "Q29")
-					(unit 1)
-				)
-				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/2623eb01-301d-4fd0-912b-89c8fd0b0d6a"
-					(reference "Q25")
-					(unit 1)
-				)
-				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/99bb6119-3b19-4954-b909-e6698db20511"
-					(reference "Q21")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 187.96 106.68 0)
 		(unit 1)
@@ -3141,6 +2969,113 @@
 				)
 				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/99bb6119-3b19-4954-b909-e6698db20511"
 					(reference "TP11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:2N7002")
+		(at 195.58 106.68 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f8cec58c-db80-4316-8466-da7ed22ef89a")
+		(property "Reference" "Q21"
+			(at 201.93 105.4099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2N7002"
+			(at 201.93 107.9499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70"
+			(at 200.66 108.585 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF"
+			(at 200.66 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"
+			(at 195.58 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" ""
+			(at 195.58 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "16826508-1c55-4181-a017-0ed08efe4fcf")
+		)
+		(pin "1"
+			(uuid "d55c4f6e-73d9-4847-b092-ef1700828e37")
+		)
+		(pin "2"
+			(uuid "d21c6da4-ae8c-4a3b-bf32-55385aae7a13")
+		)
+		(instances
+			(project "SLCU"
+				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/1df9ca8f-5bef-4849-800e-2aa8ac37238a"
+					(reference "Q29")
+					(unit 1)
+				)
+				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/2623eb01-301d-4fd0-912b-89c8fd0b0d6a"
+					(reference "Q25")
+					(unit 1)
+				)
+				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/99bb6119-3b19-4954-b909-e6698db20511"
+					(reference "Q21")
 					(unit 1)
 				)
 			)

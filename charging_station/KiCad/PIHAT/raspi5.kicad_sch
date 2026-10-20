@@ -2617,7 +2617,7 @@
 			(uuid "01cb510d-59d8-49e9-af6d-445a03033a6b")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR054")
 					(unit 1)
@@ -2692,7 +2692,7 @@
 			(uuid "ee46b34f-7467-4ffe-8639-203ff907bebe")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR050")
 					(unit 1)
@@ -2770,7 +2770,7 @@
 			(uuid "35cefd6c-5e90-4e69-ad34-0b6043cec18b")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#FLG03")
 					(unit 1)
@@ -2845,7 +2845,7 @@
 			(uuid "d8c73428-742c-4b10-94ab-11a8728786bf")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR049")
 					(unit 1)
@@ -2923,7 +2923,7 @@
 			(uuid "ac564ecc-3176-46c1-97a3-0ec488d587fa")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR048")
 					(unit 1)
@@ -2998,7 +2998,7 @@
 			(uuid "ed9e63ee-2227-4e3c-a2c9-93dd66e5f6c6")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR055")
 					(unit 1)
@@ -3073,7 +3073,7 @@
 			(uuid "f446ab0d-3832-47de-94ac-2cfdbe13f4f0")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR051")
 					(unit 1)
@@ -3288,7 +3288,7 @@
 			(uuid "29eeb218-05e1-4423-9a4c-287c0a510147")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "J9")
 					(unit 1)
@@ -3363,7 +3363,7 @@
 			(uuid "e00d07c2-f040-42d7-a92a-8adce54c2d88")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR052")
 					(unit 1)
@@ -3441,7 +3441,7 @@
 			(uuid "6ec8268f-7c1a-4042-b74b-80bec6528476")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR056")
 					(unit 1)
@@ -3516,7 +3516,7 @@
 			(uuid "a93ae654-419f-45fe-9df0-ca3a44c1c4b4")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR025")
 					(unit 1)
@@ -3591,7 +3591,7 @@
 			(uuid "1f8c6230-6c60-4edb-a94b-d9220dbf09c2")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR053")
 					(unit 1)
@@ -3669,7 +3669,7 @@
 			(uuid "576d7442-9451-4af4-969c-c6c5eb086ab3")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR024")
 					(unit 1)
@@ -3747,7 +3747,7 @@
 			(uuid "d17d70fb-23a4-47c6-921e-e36a1cdbbb52")
 		)
 		(instances
-			(project "PIHAT-rounded"
+			(project "PIHAT"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/8b73852e-04bf-4357-a410-53a0a560e029"
 					(reference "#PWR047")
 					(unit 1)

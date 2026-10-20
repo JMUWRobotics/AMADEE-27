@@ -2490,9 +2490,9 @@
 		)
 		(uuid "076f86c6-90a0-4d14-9c43-13b044290fad")
 	)
-	(text "max PD_{12V} = 12V * (7*(12V-2V)/1500ohm) + 6*12V/1000ohm) = @{format(12 * (7*(12-2)/1500 + 6*12/1000), 3)} W\nmax PD_{10V} = 10V * (7*(10V-2V)/1500ohm) + 6*10V/1000ohm) = @{format(10 * (7*(10-2)/1500 + 6*10/1000), 3)} W\n"
+	(text "I_{max,Burst} = 7*(12V - 2V) / 1500Ω + 6*12V / 1000Ω = @{format( (7*(12 - 2) / 1500 + 6*12 / 1000) * 1000, 3)}mA\nI_{max,Cont} = 7*(12V - 2V) / 1500Ω + 6*12V / 11000Ω = @{format( (7*(12 - 2) / 1500 + 6*12 / 11000) * 1000, 3)}mA\n\nmax Burst PD = R_{DS(on)} * I_{max,Burst}^{2} = @{format( 2 * (7*(12 - 2) / 1500 + 6*12 / 1000)^2 * 1000, 3)}mW @ R_{DS(on)}=2Ω\nmax Cont. PD = R_{DS(on)} * I_{max,Cont}^{2} = @{format( 2 * (7*(12 - 2) / 1500 + 6*12 / 11000)^2 * 1000, 3)}mW @ R_{DS(on)}=2Ω\n"
 		(exclude_from_sim no)
-		(at 108.204 34.798 0)
+		(at 116.078 34.036 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2544,7 +2544,7 @@
 		)
 		(uuid "dc04671b-47e2-4671-85ee-27fd9a0e8872")
 	)
-	(text "max PD_{12V} = 12V * ((12V-2V)/1500ohm + 12V/1000ohm) = @{format(12 * ((12-2)/1500 + 12/1000), 3)}W\nmax PD_{10V} = 10V * ((10V-2V)/1500ohm + 10V/1000ohm) = @{format(10 * ((10-2)/1500 + 10/1000), 3)}W"
+	(text "I_{max,Color} = (12V - 2V) / 1500Ω + 12V / 1000Ω = @{format(((12 - 2) / 1500 + 12 / 1000)* 1000, 3)}mA\nmax PD = R_{DS(on)} * I_{max,Color}^{2} = @{format(( 2 * ((12 - 2) / 1500 + 12 / 1000)^2)*1000, 3)}mW @ R_{DS(on)}=2Ω\nmax R_{DS(on)} = 200mW / (@{format(((12 - 2) / 1500 + 12 / 1000)* 1000, 3)}mA)^{2} = @{format(0.2 / ((12 - 2) / 1500 + 12 / 1000)^2, 0)}Ω"
 		(exclude_from_sim no)
 		(at 39.37 78.994 0)
 		(effects
@@ -8128,6 +8128,102 @@
 		)
 	)
 	(symbol
+		(lib_id "Transistor_FET:2N7002")
+		(at 146.05 50.8 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a2e58ed6-5bb1-47b6-9deb-47465db6f063")
+		(property "Reference" "Q15"
+			(at 146.05 42.164 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2N7002"
+			(at 146.05 44.704 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70"
+			(at 147.955 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF"
+			(at 149.86 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"
+			(at 146.05 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" ""
+			(at 146.05 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "df7cfee0-d1b2-43cc-aa15-ca77d8c950bd")
+		)
+		(pin "1"
+			(uuid "d8c323c8-694d-48c7-b600-54dac58944e2")
+		)
+		(pin "2"
+			(uuid "b985b513-af2a-4d0d-bb42-a0ea33117ce1")
+		)
+		(instances
+			(project "SLCU"
+				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/1256c985-d505-4a7e-8bdd-0163862c50f7"
+					(reference "Q15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "PCM_Resistor_AKL:R_4x0603_Sep_Concave")
 		(at 60.96 138.43 180)
 		(unit 4)
@@ -9313,124 +9409,6 @@
 			(project "SLCU"
 				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/1256c985-d505-4a7e-8bdd-0163862c50f7"
 					(reference "R21")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_FET:2N7002")
-		(at 146.05 50.8 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "e0fc03d7-1882-445e-83eb-9b8ea2a47f0b")
-		(property "Reference" "Q15"
-			(at 146.05 42.164 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "2SK1958-VB"
-			(at 146.05 44.704 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70"
-			(at 147.955 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF"
-			(at 149.86 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"
-			(at 146.05 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 146.05 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "2SK1958-VB"
-			(at 146.05 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part" "C20755445"
-			(at 146.05 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "3"
-			(uuid "05ece885-f2ec-466a-a011-8ace9007a34d")
-		)
-		(pin "1"
-			(uuid "8268925d-d3a6-4748-9087-66cfad64c898")
-		)
-		(pin "2"
-			(uuid "905776cc-8292-4e34-97de-0bfa969bd744")
-		)
-		(instances
-			(project "SLCU"
-				(path "/f738e776-c49a-4f35-8deb-cc918068af7e/1256c985-d505-4a7e-8bdd-0163862c50f7"
-					(reference "Q15")
 					(unit 1)
 				)
 			)
