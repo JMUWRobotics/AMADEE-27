@@ -95,15 +95,15 @@ class GPIOManager:
         green_state,yellow_state,red_state, = state
 
         # Set green light
-        GPIO.output(self.green_continoues, GPIO.HIGH if green_state == LightState.CONTINUOUS else GPIO.LOW)
+        GPIO.output(self.green_continoues, GPIO.HIGH if green_state != LightState.OFF else GPIO.LOW)
         GPIO.output(self.green_flashing, GPIO.HIGH if green_state == LightState.FLASHING else GPIO.LOW)
 
         # Set red light
-        GPIO.output(self.red_continoues, GPIO.HIGH if red_state == LightState.CONTINUOUS else GPIO.LOW)
+        GPIO.output(self.red_continoues, GPIO.HIGH if red_state != LightState.OFF else GPIO.LOW)
         GPIO.output(self.red_flashing, GPIO.HIGH if red_state == LightState.FLASHING else GPIO.LOW)
 
         # Set yellow light
-        GPIO.output(self.yellow_continoues, GPIO.HIGH if yellow_state == LightState.CONTINUOUS else GPIO.LOW)
+        GPIO.output(self.yellow_continoues, GPIO.HIGH if yellow_state != LightState.OFF else GPIO.LOW)
         GPIO.output(self.yellow_flashing, GPIO.HIGH if yellow_state == LightState.FLASHING else GPIO.LOW)
 
     def enable_watchdog(self) -> None:
