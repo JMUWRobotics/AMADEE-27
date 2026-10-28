@@ -1,0 +1,86 @@
+# =============================================================================
+# SYSTEM & POWER SELECTOR CONFIGURATION
+# =============================================================================
+# GPIO-Pins
+power_supply_pin: 14
+mppt_pin: 15
+green_continoues: 23
+green_flashing: 22
+red_continoues: 6
+red_flashing: 5
+yellow_continoues: 0
+yellow_flashing: 1
+
+watchdog_enable_pin: 18
+watchdog_ping: 27
+
+# Max. verfügbare Leistung des externen Netzteils in Watt
+max_total_power_supply_w: 1000.0
+
+# Abfrageintervall der Hauptschleife (in Sekunden)
+poll_interval_s: 0.5
+
+# Sicherheitsmarge für die MPPT-Leistungsberechnung (0.10 = 10% Reserve)
+power_margin: 0.10
+
+# Lastverteilungsstrategie: "min_max" (Max-Min / Water-filling) oder "proportional"
+allocation_policies: min_max
+
+# Schwellenwerte für Abschaltung bei niedriger MPPT-Busspannung
+low_battery_voltage_v: 51.0
+low_battery_hysteresis_v: 0.5
+
+# Timeouts & Max-Alter für MPPT-Telemeteriedaten
+mppt_max_age_s: 5.0
+mppt_startup_timeout_s: 30.0
+
+# =============================================================================
+# STATUS-LEDS & WATCHDOG CONFIGURATION (GPIO Manager)
+# =============================================================================
+
+
+# =============================================================================
+# CHARGING ADAPTERS CONFIGURATION (DPM86XX + MFRC522 RFID)
+# =============================================================================
+adapter:
+  dpm_tty_port: /dev/ttyUSB1
+  dpm_baudrate: 9600
+  dpm_protocol: simple
+  dpm_stale_time: 1.0
+  
+  # Maximale Hardware-Grenzwerte der DPMs für die Validierung
+  dpm_max_voltage: 60.0
+  dpm_max_current: 32.0
+
+  # SPI & RFID Konfiguration
+  mfrc_spi_bus: 1
+  mfrc_baudrate: 100000
+  mfrc_pin_rst: 32
+
+  # Einzelne Adapter-Instanzen
+  devices:
+    - gpio_pin: 2
+      dpm_address: 10
+      dpm_max_voltage: 60.0
+      mfrc_chip_select: 0
+    - gpio_pin: 3
+      dpm_address: 11
+      dpm_max_voltage: 45.0
+      mfrc_chip_select: 1
+    - gpio_pin: 4
+      dpm_address: 12
+      dpm_max_voltage: 45.0
+      mfrc_chip_select: 2
+
+# =============================================================================
+# VICTRON MPPT CHARGE CONTROLLER (VE.Direct)
+# =============================================================================
+mppt:
+  device: smartsolar_150_35
+  tty_port: /dev/ttyUSB0
+  timeout: 60
+  serial_test:
+    PID_test:
+      typeTest: value
+      key: PID
+      value: 0xAO58
