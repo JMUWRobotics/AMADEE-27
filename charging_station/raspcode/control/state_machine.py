@@ -8,28 +8,22 @@ from typing import Optional
 
 import yaml
 
-from charging_station.raspcode.control.adapter_manager import AdapterState
-from control.debug_manager import DebugManager
-from control.energy_manager import EnergyManager
-from control.gpio_manager import GPIOManager    
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-logger = logging.getLogger("StateMachine")
+from .adapter_manager import AdapterState
+from .debug_manager import DebugManager
+from .energy_manager import EnergyManager
+from .gpio_manager import GPIOManager 
+from .types import State   
+
+logger = logging.getLogger("StateMachine")  # Use the module name for logging
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 CONFIG_PATH = BASE_DIR / "config" / "system.yaml"
 
-class State(Enum):
-    BOOT = 1 # Setup state, the station is booting up, initializing and testing all components
-    IDLE = 2 # Idle state, the station is ready to accept charging requests
-    CHARGING = 3 # Charging state, the station is currently charging a robot
-    LOW_BATTERY = 4 # Low battery state, no robot is allowed to charge, but the station is still operational
-    LOW_SOLAR_IDLE = 5 # Low solar state, no robot is allowed to charge, but the station is still operational    
-    LOW_SOLAR_CHARGING = 6 # Low solar state, no robot is allowed to charge, but the station is still operational
-    FAULT = 7 # Fault state, an error has occurred and the station is not operational
-    DEBUG = 8 # Debug state, for manually setting parameters
+
 
 class StateMachine:
     def __init__(self, config_file: Path = CONFIG_PATH) -> None:
+        logger.info("GPIOManager is initializing...")
         self.config_file = config_file
         self.config = None
         self.energy_manager: Optional[EnergyManager] = None
@@ -44,8 +38,11 @@ class StateMachine:
         if self.state == State.BOOT:
             await self._handle_boot()   
         while self._running:
+            if self.gpio_manager is None or self.energy_manager is None:
+                logger.error("GPIOManager or EnergyManager not initialized. Exiting loop.")
+                break
             await asyncio.sleep(1.0)
-            await self.gpio_manager.set_light(self.state)  # Update light state based on current state
+            await asyncio.create_task(self.gpio_manager.set_light(self.state))  # Update light state based on current state
             if self.energy_manager.low_battery():
                 self.state = State.LOW_BATTERY  
             try:
@@ -85,12 +82,35 @@ class StateMachine:
         try:
             with open(self.config_file, "r", encoding="utf-8") as f:
                 self.config = yaml.safe_load(f)
+            
+            if self.config is None:
+                logger.error("Configuration file is empty or invalid. Transitioning to FAULT state.")
+                self.state = State.FAULT
+                return
+            else:
+                logger.info("Configuration loaded successfully.")
       
             #self.debug_manager = DebugManager(charging_manager=self.charging_manager)
             self.gpio_manager = GPIOManager(config=self.config)
+            if self.gpio_manager is None:
+                logger.error("GPIOManager failed to initialize. Transitioning to FAULT state.")
+                self.state = State.FAULT
+                return
+            else:
+                logger.info("GPIOManager initialized successfully.")
+
             power_selector_state = self.gpio_manager.read_power_selector_state()
+            logger.info(f"Power selector state: {power_selector_state}")
+
             enable_switches = self.gpio_manager.read_switches()
+            logger.info(f"Enable switches state: {enable_switches}")
             self.energy_manager = EnergyManager(config=self.config,power_selector_state=power_selector_state,enable_switches=enable_switches)  # Initial read to cache the state
+            if self.energy_manager is None:
+                logger.error("EnergyManager failed to initialize. Transitioning to FAULT state.")
+                self.state = State.FAULT
+                return
+            else:
+                logger.info("EnergyManager initialized successfully.")
             station_ready = await self.energy_manager.setup_system()
 
             if station_ready:
@@ -179,6 +199,8 @@ async def main():
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s", force=True)
+    logging.getLogger("raspcode").setLevel(logging.DEBUG)
     try:
         asyncio.run(main())
     except KeyboardInterrupt:

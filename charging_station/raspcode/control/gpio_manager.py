@@ -1,15 +1,15 @@
 import asyncio
 
 import RPi.GPIO as GPIO
-from typing import Dict
+from typing import Dict, Union
 from enum import IntEnum
 import logging
-from state_machine import State
+from .types import State
 logger = logging.getLogger(__name__)
 light_state_dict: Dict[State, tuple] = {
     State.BOOT: (1, 1, 0),  # Green,Yellow continuous
     State.IDLE: (1, 0, 0),  # Green continuous
-    State.CHARGING: (1, 2, 0),  # Green continuous, Yellow flashing 
+    State.CHARGING: (0, 1, 0),  # Green continuous, Yellow flashing 
     State.FAULT: (0, 0, 1),  # Red continuous
     State.DEBUG: (1, 1, 1),  # Green + Yellow continuous
     State.LOW_BATTERY: (0, 2, 0),  # Yellow flashing
@@ -29,6 +29,7 @@ class LightState(IntEnum):
 
 class GPIOManager:
     def __init__(self, config: dict):
+        logger.info("Initializing GPIOManager...")
         self.config = config
         dpm_config = config["adapter"]
         devices = dpm_config["devices"]
@@ -53,8 +54,8 @@ class GPIOManager:
             GPIO.setmode(GPIO.BCM)
         elif GPIO.getmode() != GPIO.BCM:
             raise RuntimeError("GPIO already configured with a numbering other than BCM")
-        GPIO.setup(self.power_supply_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-        GPIO.setup(self.mppt_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(self.power_supply_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        GPIO.setup(self.mppt_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
         GPIO.setup(self.green_continoues, GPIO.OUT)
         GPIO.setup(self.green_flashing, GPIO.OUT)
         GPIO.setup(self.red_continoues, GPIO.OUT)
@@ -73,6 +74,8 @@ class GPIOManager:
         mppt_active = GPIO.input(self.mppt_pin) == GPIO.LOW
         supply_active = GPIO.input(self.power_supply_pin) == GPIO.LOW
 
+        logger.debug(f"Power selector feedback - MPPT at GPIO{self.mppt_pin}: {'active' if mppt_active else 'inactive'}, Power Supply at GPIO{self.power_supply_pin}: {'active' if supply_active else 'inactive'}")
+
         if mppt_active and not supply_active:
             state = PowerSelectorState.MPPT
         elif supply_active and not mppt_active:
@@ -85,26 +88,24 @@ class GPIOManager:
         
         return state
 
-    def set_light(self, state: State) -> None:
-        """Set the light state based on the provided State enum."""
-        light_state = light_state_dict.get(state, (LightState.OFF, LightState.OFF, LightState.OFF))
-        self.set_light(light_state)
-
-    def set_light(self, state: tuple[LightState, LightState, LightState]) -> None:
+    def set_light(self, state: Union[State, tuple[LightState, LightState, LightState]]) -> None:
         """Set the light state based on the provided LightState enum. State is a tuple of (green_state, yellow_state, red_state)."""
-        green_state,yellow_state,red_state, = state
+        if isinstance(state, State):
+            state = light_state_dict.get(state, (LightState.OFF, LightState.OFF, LightState.OFF))
+        logger.debug(f"Setting light state to: {state}")
+        (green_state,yellow_state,red_state) = state
 
         # Set green light
-        GPIO.output(self.green_continoues, GPIO.HIGH if green_state != LightState.OFF else GPIO.LOW)
-        GPIO.output(self.green_flashing, GPIO.HIGH if green_state == LightState.FLASHING else GPIO.LOW)
+        GPIO.output(self.green_continoues, GPIO.LOW if green_state != LightState.OFF else GPIO.HIGH)
+        GPIO.output(self.green_flashing, GPIO.LOW if green_state == LightState.FLASHING else GPIO.HIGH)
 
         # Set red light
-        GPIO.output(self.red_continoues, GPIO.HIGH if red_state != LightState.OFF else GPIO.LOW)
-        GPIO.output(self.red_flashing, GPIO.HIGH if red_state == LightState.FLASHING else GPIO.LOW)
+        GPIO.output(self.red_continoues, GPIO.LOW if red_state != LightState.OFF else GPIO.HIGH)
+        GPIO.output(self.red_flashing, GPIO.LOW if red_state == LightState.FLASHING else GPIO.HIGH)
 
         # Set yellow light
-        GPIO.output(self.yellow_continoues, GPIO.HIGH if yellow_state != LightState.OFF else GPIO.LOW)
-        GPIO.output(self.yellow_flashing, GPIO.HIGH if yellow_state == LightState.FLASHING else GPIO.LOW)
+        GPIO.output(self.yellow_continoues, GPIO.LOW if yellow_state != LightState.OFF else GPIO.HIGH)
+        GPIO.output(self.yellow_flashing, GPIO.LOW if yellow_state == LightState.FLASHING else GPIO.HIGH)
 
     def enable_watchdog(self) -> None:
         """Enable the watchdog by setting the enable pin high."""
@@ -116,5 +117,5 @@ class GPIOManager:
         """Read the state of all switches and return a dictionary mapping address to state (True for closed, False for open)."""
         switch_states = {}
         for addr, pin in self.switches:
-            switch_states[addr] = GPIO.input(pin) == GPIO.LOW  # Assuming active-low switches
+            switch_states[addr] = GPIO.input(pin) == GPIO.HIGH  # Assuming active-low switches
         return switch_states

@@ -25,7 +25,7 @@ from typing import Callable, Optional, Sequence, TypeVar
 
 from mfrc522 import MFRC522
 
-from drivers.dpm86xx import (
+from ..drivers.dpm86xx import (
     BaudRate,
     DPM86XXConfig,
     DPM86XXDevice,
@@ -35,13 +35,13 @@ from drivers.dpm86xx import (
     SaveSlot,
 )
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)  # use the same logger as the state machine that uses this class
 
 T = TypeVar("T")
 
 TAG_DATA_BLOCK = 4  # block that holds the charging request
 TAG_BLOCK_SIZE = 16  # 15 payload bytes + 1 checksum byte
-MFRC522_VERSIONS = (0x91, 0x92)
+MFRC522_VERSIONS = (0x91, 0x82)
 
 # DPM86XX wire resolution: 0.01 V / 0.001 A
 _V_RESOLUTION = 0.01
@@ -164,32 +164,48 @@ class AdapterManager:
         :param limit_margin: relative overshoot of the programmed limits tolerated before aborting
         :param cutoff_hold_s: current must stay below the cutoff this long before charging ends
         """
+        logger.info("Initializing AdapterManager for DPM address %d...", dpm_address)
         if (not math.isfinite(dpm_max_voltage) or not math.isfinite(dpm_max_current)
                 or dpm_max_voltage <= 0 or dpm_max_current <= 0):
+            logger.error("Invalid DPM maximum voltage or current: %s V, %s A", dpm_max_voltage, dpm_max_current)
             raise ValueError("DPM maximum voltage and current must be finite and positive")
         if not math.isfinite(dpm_stale_time) or dpm_stale_time <= 0:
+            logger.error("Invalid DPM stale time: %s s", dpm_stale_time)
             raise ValueError("dpm_stale_time must be finite and positive")
         if not math.isfinite(tolerance) or not 0 <= tolerance < 1:
+            logger.error("Invalid tolerance: %s", tolerance)
             raise ValueError("tolerance must be finite and in [0, 1)")
         if not math.isfinite(limit_margin) or limit_margin < 0:
+            logger.error("Invalid limit margin: %s", limit_margin)
             raise ValueError("limit_margin must be finite and non-negative")
         if (not math.isfinite(cutoff_hold_s) or cutoff_hold_s < 0
                 or max_setpoint_attempts < 1 or tag_absent_polls < 1
                 or not math.isfinite(error_retry_s) or error_retry_s < 0):
+            logger.error("Invalid state-machine timing / retry parameter")
             raise ValueError("invalid state-machine timing / retry parameter")
 
         self.dpm_max_voltage = dpm_max_voltage
+        logger.debug(f"DPM maximum voltage: {self.dpm_max_voltage}")
         self.dpm_max_current = dpm_max_current
+        logger.debug(f"DPM maximum current: {self.dpm_max_current}")
         self.stale_time = dpm_stale_time
+        logger.debug(f"DPM stale time: {self.stale_time}")
         self.tolerance = tolerance
+        logger.debug(f"Tolerance: {self.tolerance}")
         self.limit_margin = limit_margin
+        logger.debug(f"Limit margin: {self.limit_margin}")
         self.cutoff_hold_s = cutoff_hold_s
+        logger.debug(f"Cutoff hold time: {self.cutoff_hold_s}")
         self.max_setpoint_attempts = max_setpoint_attempts
+        logger.debug(f"Max setpoint attempts: {self.max_setpoint_attempts}")
         self.tag_absent_polls = tag_absent_polls
+        logger.debug(f"Tag absent polls: {self.tag_absent_polls}")
         self.error_retry_s = error_retry_s
-
+        logger.debug(f"Error retry time: {self.error_retry_s}")
+        
         self._dpm_lock = dpm_lock
         self._mfrc_lock = mfrc_lock
+        logger.debug(f"Create MFRC522 args: bus={mfrc_spi_bus}, device={mfrc_chip_select}, spd={mfrc_baud_rate}, pin_mode={mfrc_pin_mode}, pin_rst={mfrc_pin_rst}")
         self._mfrc_args = dict(
             bus=mfrc_spi_bus, device=mfrc_chip_select, spd=mfrc_baud_rate,
             pin_mode=mfrc_pin_mode, pin_rst=mfrc_pin_rst,
@@ -204,6 +220,8 @@ class AdapterManager:
             protocol=Protocol.SIMPLE,
             stale_time=dpm_stale_time,
         )
+        logger.debug(f"Create DPM86XX config: {dpm_cfg}")
+        logger.info("Creating DPM86XX device for address %d...", dpm_address)
         self.dpm_device = DPM86XXDevice(dpm_cfg, name=f"DPM8624-{dpm_address}")
 
         self.state = AdapterState.OFF
@@ -220,6 +238,8 @@ class AdapterManager:
         self._set_voltage: float = 0
         self._set_current: float = 0
         self._allocated_power_w: Optional[float] = None
+        
+        logger.info("AdapterManager for DPM address %d initialized successfully.", dpm_address)
 
     # ------------------------------------------------------------------ properties
 
@@ -275,6 +295,7 @@ class AdapterManager:
 
         def _dpm_setup() -> None:
             with self.dpm_device.api as api:
+                logger.debug("Setting DPM to safe default state...")
                 api.set_output(False)
                 api.set_power_on_default(False)
                 api.set_fast_discharge(False)
@@ -286,15 +307,21 @@ class AdapterManager:
                     # Must come last: after this the device only answers to the new address.
                     api.set_slave_address(new_address)
                     self.dpm_device.config.address = new_address
+                logger.debug("DPM setup complete. Output OFF, defaults saved, address %d", self.dpm_device.address)
 
         def _mfrc_setup() -> None:
+            logger.debug("Initializing MFRC522 RFID reader...")
             if self._mfrc is None:
+                logger.debug("Creating MFRC522 instance with args: %r", self._mfrc_args)
                 self._mfrc = MFRC522(**self._mfrc_args)
+                logger.debug("MFRC522 instance created: %r", self._mfrc)
             version = self._mfrc.Read_MFRC522(self._mfrc.VersionReg)
+            logger.debug("MFRC522 version register read: %r", version)
             if version not in MFRC522_VERSIONS:
                 raise AdapterError(
                     f"RFID reader (CS {self._mfrc_args['device']}) not responding, version register = {version!r}"
                 )
+            logger.debug("MFRC522 RFID reader initialized successfully, version register = %r", version)
 
         try:
             await self._run_blocking(_dpm_setup, self._dpm_lock)

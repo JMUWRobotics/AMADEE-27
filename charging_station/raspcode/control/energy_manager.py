@@ -10,11 +10,11 @@ from typing import Dict, Optional, Sequence
 import yaml
 import RPi.GPIO as GPIO
 
-from charging_station.raspcode.control.gpio_manager import PowerSelectorState
-from control.adapter_manager import AdapterManager, AdapterState
-from control.vedirect_manager import VedirectManager, MpptOperationState, MpptTrackerOperationState, \
+from .gpio_manager import PowerSelectorState
+from .adapter_manager import AdapterManager, AdapterState
+from .vedirect_manager import VedirectManager, MpptOperationState, MpptTrackerOperationState, \
     MpptError
-from drivers.dpm86xx import BaudRate
+from ..drivers.dpm86xx import BaudRate
 
 logger = logging.getLogger(__name__)
 
@@ -64,6 +64,7 @@ def allocate_proportional(demands: Sequence[float], budget: float) -> list[float
 
 def load_system_config(config: dict, enable_switches: Dict[int, bool]) -> tuple[list[AdapterManager], VedirectManager]:
     """Build all adapters and the MPPT reader from the parsed ``system.yaml``."""
+    logger.info("Loading system configuration...")
     dpm_config = config["adapter"]
     devices = dpm_config["devices"]
 
@@ -120,14 +121,17 @@ class EnergyManager:
                        ``max_total_power_w`` (budget over all adapters) and
                        ``poll_interval_s`` (control tick, default 0.5 s).
         """
-        self.power_supply_pin: int = config["power_supply_pin"]
-        self.mppt_pin: int = config["mppt_pin"]
-        self.max_total_power_supply_w: Optional[float] = config["max_total_power_supply_w"]
-        self.poll_interval_s: float = float(config.get("poll_interval_s", 0.5))
+        logger.info("Initializing EnergyManager...")
+        logger.debug(f"Power selector state: {power_selector_state}")
 
-        if all(not enable_switches.values()):
-            raise RuntimeError("No charging adapters are enabled via GPIO switches. At least one must be enabled.")
+        self.max_total_power_supply_w: Optional[float] = config["max_total_power_supply_w"]
+        logger.debug(f"Max total power supply: {self.max_total_power_supply_w}")
+        self.poll_interval_s: float = float(config.get("poll_interval_s", 0.5))
+        logger.debug(f"Poll interval: {self.poll_interval_s}")
+        if enable_switches and all(not v for v in enable_switches.values()):
+            logger.warning("No charging adapters are enabled via GPIO switches. At least one must be enabled.")
         self.adapters, self.mppt = load_system_config(config,enable_switches)
+        logger.debug(f"Loaded adapters: {self.adapters}")
         self.power_selector_state = power_selector_state
         self.power_margin = float(config.get("power_margin", 0.10))
         self.allocation_policies = config.get("allocation_policies", "min_max")
@@ -148,17 +152,20 @@ class EnergyManager:
 
         Adapters that fail enter ERROR and retry on their own, so the system can run degraded.
         """
-
+        logger.info("Starting system setup...")
         if self.power_selector_state == PowerSelectorState.MPPT:
             self.mppt.start()  # without this the MPPT never delivers data and startup() would hang
 
         # gather(return_exceptions=True): one failing device must not cancel the others.
+        logger.info("Starting setup of all adapters and MPPT (if selected)...")
         jobs = {adp.name: adp.setup_device() for adp in self.adapters}
         if self.power_selector_state == PowerSelectorState.MPPT:
             jobs["mppt"] = self.mppt.startup()
+            logger.info("Startup of MPPT initiated; waiting for telemetry to become available...")
         results = await asyncio.gather(*jobs.values(), return_exceptions=True)
 
         ok = True
+        logger.info("Setup results:")
         for label, result in zip(jobs, results):
             if isinstance(result, BaseException):
                 logger.error("Setup of %s failed: %r", label, result)

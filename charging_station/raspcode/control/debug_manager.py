@@ -1,9 +1,9 @@
 import asyncio
 import logging
 from typing import Optional
-from control.adapter_manager import AdapterManager, AdapterState
+from .adapter_manager import AdapterManager, AdapterState
 
-logger = logging.getLogger("DebugManager")
+logger = logging.getLogger(__name__)
 
 
 class DebugManager:
