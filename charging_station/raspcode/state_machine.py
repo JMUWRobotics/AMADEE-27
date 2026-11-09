@@ -8,17 +8,17 @@ from typing import Optional
 
 import yaml
 
-from control.adapter_manager import AdapterState  # was charging_station.raspcode.control.adapter_manager (second module copy)
-from control.comm_manager import CommConfig, CommManager
-from control.debug_manager import DebugManager
-from control.energy_manager import EnergyManager
-from control.gpio_manager import GPIOManager
-from control.system_state import State  # moved out of this file to break the circular import with gpio_manager
+from raspcode.control.adapter_manager import AdapterState  # was charging_station.raspcode.control.adapter_manager (second module copy)
+from raspcode.control.comm_manager import CommConfig, CommManager
+from raspcode.control.debug_manager import DebugManager
+from raspcode.control.energy_manager import EnergyManager
+from raspcode.control.gpio_manager import GPIOManager
+from raspcode.control.system_state import State  # moved out of this file to break the circular import with gpio_manager
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("StateMachine")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-CONFIG_PATH = BASE_DIR / "config" / "system.yaml"
+CONFIG_PATH = BASE_DIR /"raspcode" / "config" / "system.yaml"
 
 
 class StateMachine:

@@ -25,7 +25,7 @@ from typing import Callable, Optional, Sequence, TypeVar
 
 from mfrc522 import MFRC522
 
-from drivers.dpm86xx import (
+from raspcode.drivers.dpm86xx import (
     BaudRate,
     DPM86XXConfig,
     DPM86XXDevice,

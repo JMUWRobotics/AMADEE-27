@@ -10,11 +10,11 @@ from typing import Callable, Dict, Optional, Sequence
 import yaml
 import RPi.GPIO as GPIO
 
-from control.gpio_manager import PowerSelectorState  # was charging_station.raspcode.control.gpio_manager: a second module copy, enum identity checks (``is``) failed
-from control.adapter_manager import AdapterManager, AdapterState
-from control.vedirect_manager import VedirectManager, MpptOperationState, MpptTrackerOperationState, \
+from raspcode.control.gpio_manager import PowerSelectorState  # was charging_station.raspcode.control.gpio_manager: a second module copy, enum identity checks (``is``) failed
+from raspcode.control.adapter_manager import AdapterManager, AdapterState
+from raspcode.control.vedirect_manager import VedirectManager, MpptOperationState, MpptTrackerOperationState, \
     MpptError
-from drivers.dpm86xx import BaudRate
+from raspcode.drivers.dpm86xx import BaudRate
 
 logger = logging.getLogger(__name__)
 

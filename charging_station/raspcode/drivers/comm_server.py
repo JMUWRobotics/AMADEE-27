@@ -31,7 +31,7 @@ import logging
 from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 
-from drivers.comm_protocol import (
+from raspcode.drivers.comm_protocol import (
     ACK,
     CHARGE_ACCEPT,
     CHARGE_COMPLETE,
