@@ -6,15 +6,15 @@ import contextlib
 import logging
 import math
 
-from typing import Dict, Optional, Sequence
+from typing import Callable, Dict, Optional, Sequence
 import yaml
 import RPi.GPIO as GPIO
 
-from .gpio_manager import PowerSelectorState
-from .adapter_manager import AdapterManager, AdapterState
-from .vedirect_manager import VedirectManager, MpptOperationState, MpptTrackerOperationState, \
+from control.gpio_manager import PowerSelectorState  # was charging_station.raspcode.control.gpio_manager: a second module copy, enum identity checks (``is``) failed
+from control.adapter_manager import AdapterManager, AdapterState
+from control.vedirect_manager import VedirectManager, MpptOperationState, MpptTrackerOperationState, \
     MpptError
-from ..drivers.dpm86xx import BaudRate
+from drivers.dpm86xx import BaudRate
 
 logger = logging.getLogger(__name__)
 
@@ -64,7 +64,6 @@ def allocate_proportional(demands: Sequence[float], budget: float) -> list[float
 
 def load_system_config(config: dict, enable_switches: Dict[int, bool]) -> tuple[list[AdapterManager], VedirectManager]:
     """Build all adapters and the MPPT reader from the parsed ``system.yaml``."""
-    logger.info("Loading system configuration...")
     dpm_config = config["adapter"]
     devices = dpm_config["devices"]
 
@@ -91,8 +90,9 @@ def load_system_config(config: dict, enable_switches: Dict[int, bool]) -> tuple[
                 dpm_baud_rate=BaudRate(dpm_config["dpm_baudrate"]),
                 dpm_address=dev["dpm_address"],
                 dpm_stale_time=dpm_config["dpm_stale_time"],
-                dpm_max_voltage=dev["dpm_max_voltage"],
-                dpm_max_current=dev["dpm_max_current"],
+                # the per-device entries in system.yaml only carry dpm_max_voltage; the current limit is global
+                dpm_max_voltage=dev.get("dpm_max_voltage", dpm_config["dpm_max_voltage"]),
+                dpm_max_current=dev.get("dpm_max_current", dpm_config["dpm_max_current"]),
                 mfrc_spi_bus=dpm_config["mfrc_spi_bus"],
                 mfrc_chip_select=dev["mfrc_chip_select"],
                 mfrc_baud_rate=dpm_config["mfrc_baudrate"],
@@ -121,17 +121,14 @@ class EnergyManager:
                        ``max_total_power_w`` (budget over all adapters) and
                        ``poll_interval_s`` (control tick, default 0.5 s).
         """
-        logger.info("Initializing EnergyManager...")
-        logger.debug(f"Power selector state: {power_selector_state}")
-
+        self.power_supply_pin: int = config["power_supply_pin"]
+        self.mppt_pin: int = config["mppt_pin"]
         self.max_total_power_supply_w: Optional[float] = config["max_total_power_supply_w"]
-        logger.debug(f"Max total power supply: {self.max_total_power_supply_w}")
         self.poll_interval_s: float = float(config.get("poll_interval_s", 0.5))
-        logger.debug(f"Poll interval: {self.poll_interval_s}")
-        if enable_switches and all(not v for v in enable_switches.values()):
-            logger.warning("No charging adapters are enabled via GPIO switches. At least one must be enabled.")
+
+        if not any(enable_switches.values()):  # was ``all(not enable_switches.values())``: TypeError (all(bool))
+            raise RuntimeError("No charging adapters are enabled via GPIO switches. At least one must be enabled.")
         self.adapters, self.mppt = load_system_config(config,enable_switches)
-        logger.debug(f"Loaded adapters: {self.adapters}")
         self.power_selector_state = power_selector_state
         self.power_margin = float(config.get("power_margin", 0.10))
         self.allocation_policies = config.get("allocation_policies", "min_max")
@@ -143,6 +140,10 @@ class EnergyManager:
         self._low_battery_latched = False
         self._gpio_ready = False
 
+        # Optional authorisation hook (set by CommManager). Returns True if the given adapter may charge.
+        # None = no gate: the RFID tag alone starts a charge (original behaviour).
+        self.adapter_gate: Optional[Callable[[AdapterManager], bool]] = None
+
     # ------------------------------------------------------------------ setup / shutdown
 
 
@@ -152,20 +153,17 @@ class EnergyManager:
 
         Adapters that fail enter ERROR and retry on their own, so the system can run degraded.
         """
-        logger.info("Starting system setup...")
+
         if self.power_selector_state == PowerSelectorState.MPPT:
             self.mppt.start()  # without this the MPPT never delivers data and startup() would hang
 
         # gather(return_exceptions=True): one failing device must not cancel the others.
-        logger.info("Starting setup of all adapters and MPPT (if selected)...")
         jobs = {adp.name: adp.setup_device() for adp in self.adapters}
         if self.power_selector_state == PowerSelectorState.MPPT:
             jobs["mppt"] = self.mppt.startup()
-            logger.info("Startup of MPPT initiated; waiting for telemetry to become available...")
         results = await asyncio.gather(*jobs.values(), return_exceptions=True)
 
         ok = True
-        logger.info("Setup results:")
         for label, result in zip(jobs, results):
             if isinstance(result, BaseException):
                 logger.error("Setup of %s failed: %r", label, result)
@@ -175,10 +173,9 @@ class EnergyManager:
         return ok
 
     async def shutdown(self) -> None:
-        with open(self.config_file, "r", encoding="utf-8") as f:
-                self.config = yaml.safe_load(f)
-
         """Switch every output off and release the hardware. Always call this on exit."""
+        # (removed: re-reading self.config_file here - EnergyManager has no such attribute, so
+        #  shutdown() always died with AttributeError before it switched anything off)
         await asyncio.gather(*(adp.shutdown() for adp in self.adapters), return_exceptions=True)
         if self.power_selector_state == PowerSelectorState.MPPT:
             self.mppt.stop()
@@ -218,9 +215,31 @@ class EnergyManager:
     def _adp_in_state(self, state: AdapterState) -> list[AdapterManager]:
         return [adp for adp in self.adapters if adp.state is state]
 
+    def _gate_open(self, adp: AdapterManager) -> bool:
+        return self.adapter_gate is None or bool(self.adapter_gate(adp))
+
     def _adapters_needing_power(self) -> list[AdapterManager]:
+        # An adapter whose gate is closed neither gets a share of the budget nor is it started.
         active_states = (AdapterState.REQUESTING, AdapterState.SET_VALUES, AdapterState.CHARGING)
-        return [adp for adp in self.adapters if adp.state in active_states]
+        return [adp for adp in self.adapters if adp.state in active_states and self._gate_open(adp)]
+
+    async def _enforce_gate(self) -> None:
+        """Backstop: whatever is running without authorisation is paused (output off)."""
+        if self.adapter_gate is None:
+            return
+        running = [adp for adp in self.adapters
+                   if adp.state in (AdapterState.SET_VALUES, AdapterState.CHARGING) and not self._gate_open(adp)]
+        if running:
+            await asyncio.gather(*(adp.pause("no authorisation from the charging protocol") for adp in running),
+                                 return_exceptions=True)
+
+    async def emergency_off(self, reason: str) -> None:
+        """Force every output off, whatever state the adapters are in (used for FAULT)."""
+        results = await asyncio.gather(*(adp.set_output_state(False) for adp in self.adapters),
+                                       return_exceptions=True)
+        for adp, result in zip(self.adapters, results):
+            if isinstance(result, BaseException):
+                logger.critical("%s: could not switch output off (%s): %r", adp.name, reason, result)
 
     async def _allocate_power(self, power_limit: Optional[float] = None) -> bool:
         """Apply a fair power budget to requests before a SET_VALUES state can enable output."""
@@ -257,21 +276,25 @@ class EnergyManager:
 
     async def _trigger_steps(self, allow_start: bool):
         # Adapters are independent: one failing must not stop the others.
-        results = await asyncio.gather(*[adp.step(allow_start=allow_start) for adp in self.adapters], return_exceptions=True)
+        results = await asyncio.gather(
+            *[adp.step(allow_start=allow_start and self._gate_open(adp)) for adp in self.adapters],
+            return_exceptions=True)
         for adp, result in zip(self.adapters, results):
             if isinstance(result, BaseException):
                 logger.error("%s: unhandled error in step(): %r", adp.name, result)
 
     async def step_idle(self) -> dict[int, AdapterState]:
+        await self._enforce_gate()
         await self._trigger_steps(allow_start=False)
-        adp_states = {adp.address: adp.state for adp in self.adapters}            
+        adp_states = {adp.dpm_address: adp.state for adp in self.adapters}  # was adp.address (no such attribute)            
         return adp_states
 
     async def step_charging(self) -> bool:
+        await self._enforce_gate()
         power_limit = self.power_limit_reached()
         allow_start = await self._allocate_power(power_limit)
         await self._trigger_steps(allow_start=allow_start)
-        adp_states = {adp.address: adp.state for adp in self.adapters}            
+        adp_states = {adp.dpm_address: adp.state for adp in self.adapters}  # was adp.address (no such attribute)            
         return adp_states
 
     async def low_battery(self) -> bool:

@@ -87,3 +87,25 @@ mppt:
       typeTest: value
       key: PID
       value: 0xAO58
+
+# =============================================================================
+# Wi-Fi CONFIGURATION
+# =============================================================================
+comm:
+  enabled: true
+  host: 0.0.0.0                 # auf allen Netzwerkschnittstellen lauschen
+  port: 9000                    # TCP-Port, den die Rover ansprechen
+  heartbeat_interval_s: 5.0     # so oft sollen die Rover einen Heartbeat senden (wird im ACCEPT mitgeteilt)
+  heartbeat_timeout_s: 15.0     # kein Heartbeat so lange -> Notabschaltung des Adapters
+  request_timeout_s: 10.0       # nach dem Verbinden muss die CHARGE_REQUEST so schnell kommen
+  reservation_timeout_s: 300.0  # Slot zugewiesen, Rover meldet sich aber nie am Adapter -> Slot wieder frei
+  stop_ack_timeout_s: 5.0       # Wartezeit auf das ACK des Rovers nach CHARGE_STOP (danach wird trotzdem abgeschaltet)
+  reject_retry_after_s: 30.0    # Hinweis an den Rover, wann er es erneut versuchen soll
+  check_interval_s: 0.5         # so oft prüft die Station laufende Sitzungen (Ladeende, Adapterfehler ...)
+  min_charge_power_w: 20.0      # weniger verfügbare Leistung pro Rover -> Ablehnung "insufficient_power"
+  start_timeout_s: 300.0        # freigegeben, aber der Adapter lädt so lange nicht (z. B. keine Leistung) -> Sitzung
+                                # beenden (STOP "charge_not_started"). Zeiten in LOW_BATTERY/LOW_SOLAR/FAULT zählen nicht.
+  nfc_fallback: true            # true: RFID-Karte startet im Notfall einen Ladevorgang ohne WLAN
+                                # false: Karten werden gar nicht mehr gelesen
+  default_cutoff_a: null        # Abschaltstrom, falls der Rover keinen "cutoff_a" mitschickt
+                                # (null = "cutoff_a" ist Pflicht im CHARGE_REQUEST)

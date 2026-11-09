@@ -25,7 +25,7 @@ from typing import Callable, Optional, Sequence, TypeVar
 
 from mfrc522 import MFRC522
 
-from ..drivers.dpm86xx import (
+from drivers.dpm86xx import (
     BaudRate,
     DPM86XXConfig,
     DPM86XXDevice,
@@ -35,13 +35,13 @@ from ..drivers.dpm86xx import (
     SaveSlot,
 )
 
-logger = logging.getLogger(__name__)  # use the same logger as the state machine that uses this class
+logger = logging.getLogger(__name__)
 
 T = TypeVar("T")
 
 TAG_DATA_BLOCK = 4  # block that holds the charging request
 TAG_BLOCK_SIZE = 16  # 15 payload bytes + 1 checksum byte
-MFRC522_VERSIONS = (0x91, 0x82)
+MFRC522_VERSIONS = (0x91, 0x92)
 
 # DPM86XX wire resolution: 0.01 V / 0.001 A
 _V_RESOLUTION = 0.01
@@ -73,7 +73,7 @@ class RequestedValues:
     [6:8] cutoff current mA (all big-endian uint16), [8] battery type,
     [9:15] reserved, [15] checksum = sum(bytes 0..14) % 256.
     """
-    robot_id: int
+    robot_id: str
     tag_id: int
     voltage_v: float
     current_a: float
@@ -164,48 +164,32 @@ class AdapterManager:
         :param limit_margin: relative overshoot of the programmed limits tolerated before aborting
         :param cutoff_hold_s: current must stay below the cutoff this long before charging ends
         """
-        logger.info("Initializing AdapterManager for DPM address %d...", dpm_address)
         if (not math.isfinite(dpm_max_voltage) or not math.isfinite(dpm_max_current)
                 or dpm_max_voltage <= 0 or dpm_max_current <= 0):
-            logger.error("Invalid DPM maximum voltage or current: %s V, %s A", dpm_max_voltage, dpm_max_current)
             raise ValueError("DPM maximum voltage and current must be finite and positive")
         if not math.isfinite(dpm_stale_time) or dpm_stale_time <= 0:
-            logger.error("Invalid DPM stale time: %s s", dpm_stale_time)
             raise ValueError("dpm_stale_time must be finite and positive")
         if not math.isfinite(tolerance) or not 0 <= tolerance < 1:
-            logger.error("Invalid tolerance: %s", tolerance)
             raise ValueError("tolerance must be finite and in [0, 1)")
         if not math.isfinite(limit_margin) or limit_margin < 0:
-            logger.error("Invalid limit margin: %s", limit_margin)
             raise ValueError("limit_margin must be finite and non-negative")
         if (not math.isfinite(cutoff_hold_s) or cutoff_hold_s < 0
                 or max_setpoint_attempts < 1 or tag_absent_polls < 1
                 or not math.isfinite(error_retry_s) or error_retry_s < 0):
-            logger.error("Invalid state-machine timing / retry parameter")
             raise ValueError("invalid state-machine timing / retry parameter")
 
         self.dpm_max_voltage = dpm_max_voltage
-        logger.debug(f"DPM maximum voltage: {self.dpm_max_voltage}")
         self.dpm_max_current = dpm_max_current
-        logger.debug(f"DPM maximum current: {self.dpm_max_current}")
         self.stale_time = dpm_stale_time
-        logger.debug(f"DPM stale time: {self.stale_time}")
         self.tolerance = tolerance
-        logger.debug(f"Tolerance: {self.tolerance}")
         self.limit_margin = limit_margin
-        logger.debug(f"Limit margin: {self.limit_margin}")
         self.cutoff_hold_s = cutoff_hold_s
-        logger.debug(f"Cutoff hold time: {self.cutoff_hold_s}")
         self.max_setpoint_attempts = max_setpoint_attempts
-        logger.debug(f"Max setpoint attempts: {self.max_setpoint_attempts}")
         self.tag_absent_polls = tag_absent_polls
-        logger.debug(f"Tag absent polls: {self.tag_absent_polls}")
         self.error_retry_s = error_retry_s
-        logger.debug(f"Error retry time: {self.error_retry_s}")
-        
+
         self._dpm_lock = dpm_lock
         self._mfrc_lock = mfrc_lock
-        logger.debug(f"Create MFRC522 args: bus={mfrc_spi_bus}, device={mfrc_chip_select}, spd={mfrc_baud_rate}, pin_mode={mfrc_pin_mode}, pin_rst={mfrc_pin_rst}")
         self._mfrc_args = dict(
             bus=mfrc_spi_bus, device=mfrc_chip_select, spd=mfrc_baud_rate,
             pin_mode=mfrc_pin_mode, pin_rst=mfrc_pin_rst,
@@ -220,12 +204,23 @@ class AdapterManager:
             protocol=Protocol.SIMPLE,
             stale_time=dpm_stale_time,
         )
-        logger.debug(f"Create DPM86XX config: {dpm_cfg}")
-        logger.info("Creating DPM86XX device for address %d...", dpm_address)
         self.dpm_device = DPM86XXDevice(dpm_cfg, name=f"DPM8624-{dpm_address}")
 
         self.state = AdapterState.OFF
         self.requested_values: Optional[RequestedValues] = None
+        # Where the current request came from: "comm" (WiFi session, set by start_request()) or
+        # "rfid" (tag - the emergency path, e.g. a robot with a completely empty battery).
+        self.request_source: Optional[str] = None
+        # False while a WiFi session owns this adapter (or the NFC fallback is switched off):
+        # an IDLE adapter then does not read the tag, so a tag can never hijack a reserved adapter.
+        self.rfid_enabled = True
+        # After a WiFi session the robot is usually still docked WITH its tag: do not start a second
+        # (tag) charge until the tag has been gone once.
+        self._rearm_rfid = False
+        # One operation at a time per adapter: step(), reset_set_values(), pause(), force_off() and
+        # release_request() must not interleave at their awaits (a WiFi session ending while a step is
+        # talking to the DPM could otherwise re-enable the output or push the adapter into ERROR).
+        self._busy = asyncio.Lock()
 
         # state-machine bookkeeping
         self._attempts = 0
@@ -238,10 +233,12 @@ class AdapterManager:
         self._set_voltage: float = 0
         self._set_current: float = 0
         self._allocated_power_w: Optional[float] = None
-        
-        logger.info("AdapterManager for DPM address %d initialized successfully.", dpm_address)
 
     # ------------------------------------------------------------------ properties
+
+    @property
+    def output_voltage_v(self) -> Optional[float]:
+        return self.dpm_device.state.voltage_measured
 
     @property
     def dpm_address(self) -> int:
@@ -257,7 +254,9 @@ class AdapterManager:
     def requested_power_w(self) -> float:
         return self.requested_values.power_w if self.requested_values else 0.0
 
-
+    @property
+    def set_voltage_v(self) -> float:
+        return self._set_vo
     @property
     def committed_power_w(self) -> float:
         """Power this adapter is currently allowed to draw (0 unless it is starting or charging)."""
@@ -289,17 +288,16 @@ class AdapterManager:
     async def setup_device(self, new_address: Optional[int] = None) -> bool:
         """Put the DPM into a safe default state and check the RFID reader.
 
-        Safe state: output OFF, power-on default OFF, fast discharge OFF, 0 V / 0 A.
+        Safe state: output OFF, power-on default OFF, fast discharge OFF, 60 V / 0 A.
         Returns True on success (-> IDLE); on failure the adapter enters ERROR.
         """
 
         def _dpm_setup() -> None:
             with self.dpm_device.api as api:
-                logger.debug("Setting DPM to safe default state...")
-                api.set_output(False)
+                api.set_output(True)
                 api.set_power_on_default(False)
                 api.set_fast_discharge(False)
-                api.set_voltage_and_current(0, 0)
+                api.set_voltage_and_current(self.dpm_max_voltage, 0)
                 if not self._defaults_saved:
                     api.save_settings(SaveSlot.M0)
                     self._defaults_saved = True
@@ -307,21 +305,15 @@ class AdapterManager:
                     # Must come last: after this the device only answers to the new address.
                     api.set_slave_address(new_address)
                     self.dpm_device.config.address = new_address
-                logger.debug("DPM setup complete. Output OFF, defaults saved, address %d", self.dpm_device.address)
 
         def _mfrc_setup() -> None:
-            logger.debug("Initializing MFRC522 RFID reader...")
             if self._mfrc is None:
-                logger.debug("Creating MFRC522 instance with args: %r", self._mfrc_args)
                 self._mfrc = MFRC522(**self._mfrc_args)
-                logger.debug("MFRC522 instance created: %r", self._mfrc)
             version = self._mfrc.Read_MFRC522(self._mfrc.VersionReg)
-            logger.debug("MFRC522 version register read: %r", version)
             if version not in MFRC522_VERSIONS:
                 raise AdapterError(
                     f"RFID reader (CS {self._mfrc_args['device']}) not responding, version register = {version!r}"
                 )
-            logger.debug("MFRC522 RFID reader initialized successfully, version register = %r", version)
 
         try:
             await self._run_blocking(_dpm_setup, self._dpm_lock)
@@ -357,7 +349,7 @@ class AdapterManager:
 
         def _apply() -> None:
             with self.dpm_device.api as api:
-                api.set_output(enabled)
+                api.set_voltage_and_current(self.dpm_max_voltage, 0)  # ensure safe state before switching on
 
         await self._run_blocking(_apply, self._dpm_lock)
         logger.info("%s: output %s", self.name, "ON" if enabled else "OFF")
@@ -512,6 +504,19 @@ class AdapterManager:
 
     async def pause(self, reason: str) -> None:
         """Switch the output off but keep the request; charging resumes via REQUESTING when allowed again."""
+        async with self._busy:
+            await self._pause_locked(reason)
+
+    async def force_off(self, reason: str) -> None:
+        """Pause, then switch the output off unconditionally (whatever state the adapter is in).
+
+        Used when a WiFi session ends. Raises if the output could not be switched off.
+        """
+        async with self._busy:
+            await self._pause_locked(reason)
+            await self.set_output_state(False)
+
+    async def _pause_locked(self, reason: str) -> None:
         if self.state not in (AdapterState.SET_VALUES, AdapterState.CHARGING):
             return
         logger.warning("%s: pausing charge: %s", self.name, reason)
@@ -528,6 +533,10 @@ class AdapterManager:
         :param allow_start: set by the EnergyManager; False while no power source is
                             selected or the power budget is exhausted.
         """
+        async with self._busy:
+            await self._step_locked(allow_start)
+
+    async def _step_locked(self, allow_start: bool) -> None:
         try:
             match self.state:
                 case AdapterState.OFF:
@@ -552,11 +561,56 @@ class AdapterManager:
             logger.exception("%s: error in state %s - failing safe", self.name, self.state.name)
             await self._fail_safe()
 
+
+    async def start_request(self, values: RequestedValues, source: str = "comm") -> None:
+        """Start a charge request that did not come from a tag (WiFi session). Only possible in IDLE.
+
+        The request is validated against the hardware limits exactly like a tag. The adapter then
+        continues as usual: REQUESTING -> (power allocation) -> SET_VALUES -> CHARGING.
+        """
+        if self.state is not AdapterState.IDLE:
+            raise AdapterError(f"cannot start a request in state {self.state.name}")
+        values.validate(self.dpm_max_voltage, self.dpm_max_current)
+        self.requested_values = values
+        self.request_source = source
+        self._allocated_power_w = None
+        logger.info("%s: charging request from %s\n%s", self.name, source, values)
+        self._set_state(AdapterState.REQUESTING)
+
+    async def release_request(self) -> None:
+        """End a request started with start_request(): output off, back to IDLE.
+
+        ERROR / OFF are left to their own handling. Raises if the output could not be switched off.
+        """
+        if self.request_source != "comm":
+            return
+        async with self._busy:
+            self._rearm_rfid = True
+            if self.state in (AdapterState.SET_VALUES, AdapterState.CHARGING):
+                try:
+                    await self.set_output_state(False)
+                except Exception:
+                    await self._fail_safe()
+                    raise
+            if self.state in (AdapterState.REQUESTING, AdapterState.SET_VALUES,
+                              AdapterState.CHARGING, AdapterState.CUTOFF):
+                self.requested_values = None
+                self._allocated_power_w = None
+                self.request_source = None
+                self._set_state(AdapterState.IDLE)
+
     async def _step_idle(self) -> None:
+        if not self.rfid_enabled:
+            return
+        if self._rearm_rfid:
+            if await self._tag_removed():
+                self._rearm_rfid = False
+            return
         values = await self.read_rfid()
-        if values is None:
+        if values is None or not self.rfid_enabled:   # a WiFi session may have claimed the adapter meanwhile
             return
         self.requested_values = values
+        self.request_source = "rfid"
         self._allocated_power_w = None
         logger.info("%s: charging request received\n%s", self.name, values)
         self._set_state(AdapterState.REQUESTING)
@@ -565,6 +619,9 @@ class AdapterManager:
         req = self._require_request()
         if not allow_start or self._allocated_power_w == 0.0:
             # Waiting for power: give up if the robot has left in the meantime.
+            # (A WiFi request ends with its session, not with a tag.)
+            if self.request_source == "comm":
+                return
             if await self._tag_removed():
                 self.requested_values = None
                 self._allocated_power_w = None
@@ -603,7 +660,11 @@ class AdapterManager:
             raise AdapterError("DPM did not accept the allocated set-points")
         await self._apply_setpoints(self._set_voltage, self._set_current)
 
-    async def reset_set_values(self, set_power:float) -> None:
+    async def reset_set_values(self, set_power: float) -> None:
+        async with self._busy:
+            await self._reset_set_values_locked(set_power)
+
+    async def _reset_set_values_locked(self, set_power: float) -> None:
         req = self._require_request()
         if not math.isfinite(set_power) or set_power < 0:
             raise AdapterError(f"invalid power allocation: {set_power!r} W")
@@ -622,7 +683,7 @@ class AdapterManager:
         if target_current < (_I_RESOLUTION / 2):
             self._allocated_power_w = 0.0  # CHANGED: do not let _step_requesting fall back to full power.
             if self.state in (AdapterState.SET_VALUES, AdapterState.CHARGING):
-                await self.pause("power allocation is zero or below DPM resolution")
+                await self._pause_locked("power allocation is zero or below DPM resolution")
             return
 
         # Avoid toggling the physical output on every control tick when the
@@ -668,6 +729,9 @@ class AdapterManager:
 
     async def _step_cutoff(self) -> None:
         # Stay here until the robot leaves, otherwise a full battery would restart the cycle.
+        # (A WiFi request is released by its session instead; the station tells the rover to stop.)
+        if self.request_source == "comm":
+            return
         if await self._tag_removed():
             self.requested_values = None
             self._allocated_power_w = None
