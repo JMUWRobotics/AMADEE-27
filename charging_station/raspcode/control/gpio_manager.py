@@ -117,5 +117,5 @@ class GPIOManager:
         """Read the state of all switches and return a dictionary mapping address to state (True for closed, False for open)."""
         switch_states = {}
         for addr, pin in self.switches:
-            switch_states[addr] = GPIO.input(pin) == GPIO.LOW  # Assuming active-low switches
+            switch_states[addr] = GPIO.input(pin) == GPIO.HIGH  # Assuming active-high switches
         return switch_states

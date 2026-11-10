@@ -14,7 +14,7 @@ from raspcode.control.debug_manager import DebugManager
 from raspcode.control.energy_manager import EnergyManager
 from raspcode.control.gpio_manager import GPIOManager
 from raspcode.control.system_state import State  # moved out of this file to break the circular import with gpio_manager
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+
 logger = logging.getLogger("StateMachine")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -229,6 +229,8 @@ async def main():
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(message)s")
+    logging.getLogger("raspcode").setLevel(logging.DEBUG)
     try:
         asyncio.run(main())
     except (KeyboardInterrupt, asyncio.CancelledError):

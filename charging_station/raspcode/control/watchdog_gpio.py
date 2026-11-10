@@ -17,9 +17,9 @@ logger = logging.getLogger(__name__)
 
 WATCHDOG_ENABLE_PIN = 18   # Default wie in GPIOManager ("watchdog_enable_pin")
 WATCHDOG_PING_PIN = 27     # Default wie in GPIOManager ("watchdog_ping")
-PING_INTERVAL = 1.0        # s zwischen den Impulsen, deutlich kleiner als der Watchdog-Timeout!
+PING_INTERVAL = 0.1        # s zwischen den Impulsen, deutlich kleiner als der Watchdog-Timeout!
 PULSE_WIDTH = 0.01         # s, Mindestpulsbreite im Datenblatt des Watchdogs prüfen
-ENABLE_PULSE_WIDTH = 0.1   # s, wie in GPIOManager.enable_watchdog()
+ENABLE_PULSE_WIDTH = 0.01   # s, wie in GPIOManager.enable_watchdog()
 
 
 def setup_gpio() -> None:
@@ -54,24 +54,19 @@ def system_ok() -> bool:
     return True
 
 
-def run(stop: threading.Event) -> None:
+def run() -> None:
     setup_gpio()
     enable_watchdog()
-    while not stop.is_set():
-        if system_ok():
-            ping_watchdog()
-        else:
-            logger.warning("System nicht ok - Watchdog wird nicht gefüttert")
-        stop.wait(PING_INTERVAL)
-    # Beim Beenden wird nicht mehr gefüttert -> der Watchdog löst nach dem Timeout aus.
+    while True:
+        GPIO.output(WATCHDOG_PING_PIN, GPIO.HIGH)
+        time.sleep(PULSE_WIDTH)
+        GPIO.output(WATCHDOG_PING_PIN, GPIO.LOW)
+        time.sleep(PING_INTERVAL - PULSE_WIDTH)
 
 
 def main() -> None:
     logging.basicConfig(level=logging.INFO)
-    stop = threading.Event()
-    signal.signal(signal.SIGINT, lambda *_: stop.set())
-    signal.signal(signal.SIGTERM, lambda *_: stop.set())
-    run(stop)
+    run()
 
 
 if __name__ == "__main__":

@@ -41,7 +41,7 @@ T = TypeVar("T")
 
 TAG_DATA_BLOCK = 4  # block that holds the charging request
 TAG_BLOCK_SIZE = 16  # 15 payload bytes + 1 checksum byte
-MFRC522_VERSIONS = (0x91, 0x92)
+MFRC522_VERSIONS = (0x91, 0x92, 0x82)
 
 # DPM86XX wire resolution: 0.01 V / 0.001 A
 _V_RESOLUTION = 0.01
