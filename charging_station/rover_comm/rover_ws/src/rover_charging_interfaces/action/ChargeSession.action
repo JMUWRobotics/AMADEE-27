@@ -1,0 +1,37 @@
+# Eine komplette Lade-Sitzung: Anfrage -> Slot -> Anfahren/Andocken -> Laden -> Ende.
+#
+# Die Action ueberwacht die Sitzung und meldet jeden Zustandswechsel als Feedback.
+# Angedockt wird weiterhin ueber den Service charging/confirm_docked gemeldet, ein reguelaeres Ende
+# kann ueber charging/finish_charge ODER durch Abbrechen (cancel) der Action ausgeloest werden.
+#
+#   Ende                                        Ergebnis der Action
+#   FINISHED (Rover hat beendet, Port aus)      SUCCEEDED, success=true
+#   STOPPED_BY_STATION mit Grund charge_complete  SUCCEEDED, success=true   (Akku voll; Parameter success_stop_reasons)
+#   anderes STOPPED_BY_STATION, REJECTED,
+#   CONNECTION_LOST, ERROR                      ABORTED,   success=false, reason sagt warum
+#   Abbruch durch den Aufrufer (cancel)         CANCELED   (vorher wird sauber beendet, siehe unten)
+#
+# cancel: vor der Slot-Zuweisung wird die Verbindung hart geschlossen; danach (ACCEPTED/CHARGING) wird sauber
+# beendet (CHARGE_COMPLETE), der Rover muss bis zum Ergebnis am Adapter bleiben.
+# Es laeuft immer nur eine Sitzung; weitere Ziele (und der Service request_charge) werden solange abgelehnt.
+
+# JSON-Objekt mit den Soll-Werten, z. B. {"voltage_v": 29.4, "current_a": 5.0}; leer = keine Angaben
+string target_values_json
+---
+# true = Laden regulaer abgeschlossen (siehe Tabelle oben)
+bool success
+# letzter Zustand: FINISHED STOPPED_BY_STATION REJECTED CONNECTION_LOST ERROR IDLE
+string state
+# Grund (Ablehnung, Stopp-Grund der Station, Fehlerursache); leer, wenn nichts Besonderes vorlag
+string reason
+# zugewiesener Slot (DPM-Adresse bzw. Slot-Nummer der Station), -1 = keiner zugewiesen
+int32 slot_id
+# alle Details des letzten Ereignisses als JSON
+string info_json
+---
+# aktueller Zustand: REQUESTING ACCEPTED CHARGING FINISHING ...
+string state
+# zugewiesener Slot, -1 = noch keiner (bei ACCEPTED: hierhin fahren)
+int32 slot_id
+# Details des Ereignisses als JSON (z. B. bei REJECTED der Grund und retry_after_s)
+string info_json

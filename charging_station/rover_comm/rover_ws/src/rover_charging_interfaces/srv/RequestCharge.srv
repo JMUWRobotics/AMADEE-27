@@ -1,0 +1,13 @@
+# Sendet die Lade-Anfrage an die Ladestation. Die Antwort kommt sofort und sagt nur, ob die Anfrage
+# abgeschickt wurde. Das Ergebnis der Station (ACCEPTED / REJECTED) kommt auf charging/state bzw. charging/event.
+# (Wer auf das Ergebnis warten will, nimmt die Action charging/session.)
+
+# JSON-Objekt mit den Soll-Werten, z. B. {"voltage_v": 29.4, "current_a": 5.0}; leer = keine Angaben
+string target_values_json
+---
+# true = Anfrage wurde abgeschickt
+bool success
+# bei success=false der Grund (kein gueltiges JSON, es laeuft schon eine Sitzung ...)
+string message
+# aktueller Zustand des Ladevorgangs (IDLE REQUESTING ACCEPTED CHARGING ...)
+string state
