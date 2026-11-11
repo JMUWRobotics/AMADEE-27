@@ -3,6 +3,10 @@
 .venv/
 venv/
 
+Ignore log files
+*.log
+log/
+
 # Ignore Python bytecode
 __pycache__/
 *.pyc

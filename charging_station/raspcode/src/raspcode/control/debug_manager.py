@@ -1,7 +1,7 @@
 import asyncio
 import logging
 from typing import Optional
-from .adapter_manager import AdapterManager, AdapterState
+from raspcode.control.adapter_manager import AdapterManager, AdapterState
 
 logger = logging.getLogger(__name__)
 

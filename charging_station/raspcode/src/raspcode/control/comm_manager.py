@@ -29,9 +29,9 @@ from raspcode.control.adapter_manager import AdapterManager, AdapterState, Reque
 from raspcode.drivers.comm_protocol import DEFAULT_PORT, HEARTBEAT_INTERVAL_S, HEARTBEAT_TIMEOUT_S
 from raspcode.drivers.comm_server import Backend, CommServer, Rejection, Reservation, ServerConfig
 from raspcode.control.energy_manager import EnergyManager, allocate_max_min, allocate_proportional
-from raspcode.control.system_state import State
+from raspcode.core.system_state import State
 
-log = logging.getLogger("comm.manager")
+log = logging.getLogger("__name__")
 
 _ACTIVE_STATES = (AdapterState.REQUESTING, AdapterState.SET_VALUES, AdapterState.CHARGING)
 _RUNNING_STATES = (AdapterState.SET_VALUES, AdapterState.CHARGING)

@@ -8,21 +8,17 @@ from typing import Optional
 
 import yaml
 
-from raspcode.control.adapter_manager import AdapterState  # was charging_station.raspcode.control.adapter_manager (second module copy)
+from raspcode.control.adapter_manager import AdapterState  
 from raspcode.control.comm_manager import CommConfig, CommManager
 from raspcode.control.debug_manager import DebugManager
 from raspcode.control.energy_manager import EnergyManager
 from raspcode.control.gpio_manager import GPIOManager
-from raspcode.control.system_state import State  # moved out of this file to break the circular import with gpio_manager
+from raspcode.core.system_state import State 
 
-logger = logging.getLogger("StateMachine")
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-CONFIG_PATH = BASE_DIR /"raspcode" / "config" / "system.yaml"
-
+logger = logging.getLogger("__name__")
 
 class StateMachine:
-    def __init__(self, config_file: Path = CONFIG_PATH) -> None:
+    def __init__(self, config_file: Path) -> None:
         self.config_file = config_file
         self.config = None
         self.energy_manager: Optional[EnergyManager] = None
@@ -209,29 +205,3 @@ class StateMachine:
                 self.state = State.DEBUG
                 return True
         return False
-
-
-async def main():
-    # Initialize the state machine (uses default config path unless specified)
-    sm = StateMachine()
-
-    # SIGTERM (systemd stop) must shut down cleanly too, not only Ctrl-C: cancel -> run() -> shutdown()
-    task = asyncio.current_task()
-    loop = asyncio.get_running_loop()
-    for sig in (signal.SIGTERM, signal.SIGINT):
-        try:
-            loop.add_signal_handler(sig, task.cancel)
-        except (NotImplementedError, RuntimeError):
-            pass  # e.g. not on the main thread / unsupported platform
-
-    # Execute the asynchronous loop
-    await sm.run()
-
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(message)s")
-    logging.getLogger("raspcode").setLevel(logging.DEBUG)
-    try:
-        asyncio.run(main())
-    except (KeyboardInterrupt, asyncio.CancelledError):
-        logging.info("Program interrupted by user. Shut down.")

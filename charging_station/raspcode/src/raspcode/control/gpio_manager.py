@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 from typing import Dict
 from enum import IntEnum
 import logging
-from raspcode.control.system_state import State  # was: from state_machine import State (circular import)
+from raspcode.core.system_state import State  # was: from state_machine import State (circular import)
 logger = logging.getLogger(__name__)
 light_state_dict: Dict[State, tuple] = {
     State.BOOT: (1, 1, 0),  # Green,Yellow continuous

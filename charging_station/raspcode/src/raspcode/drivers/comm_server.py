@@ -48,7 +48,7 @@ from raspcode.drivers.comm_protocol import (
     ProtocolError,
 )
 
-log = logging.getLogger("comm.server")
+log = logging.getLogger("__name__")
 
 SEND_TIMEOUT_S = 5.0
 
