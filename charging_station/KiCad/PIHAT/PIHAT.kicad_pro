@@ -62,10 +62,10 @@
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
           "min_clearance": 0.0,
-          "min_island_area": 10.0,
+          "min_island_area": 5.0,
           "min_thickness": 0.25,
-          "pad_connection": 2,
-          "remove_islands": 0,
+          "pad_connection": 1,
+          "remove_islands": 2,
           "thermal_relief_gap": 0.5,
           "thermal_relief_spoke_width": 0.5
         }
@@ -151,15 +151,15 @@
           ""
         ],
         [
-          "silk_overlap|224049405|139385000|b1566420-d191-4e8f-b954-01557507fe2f|ddd5e87a-560e-4dc6-afaf-642f1a7bf0ec",
+          "silk_overlap|224049405|137465000|5ec8840b-2f9f-4bb5-afcb-e0c4bbdb08c3|86eac028-9264-417b-887c-f5af4c4482c4",
+          ""
+        ],
+        [
+          "silk_overlap|224049405|139379819|b1566420-d191-4e8f-b954-01557507fe2f|ddd5e87a-560e-4dc6-afaf-642f1a7bf0ec",
           ""
         ],
         [
           "silk_overlap|224049405|140465000|99431947-33fc-4913-8fa3-d46a3ce855b6|b1566420-d191-4e8f-b954-01557507fe2f",
-          ""
-        ],
-        [
-          "silk_overlap|225192262|137465000|5ec8840b-2f9f-4bb5-afcb-e0c4bbdb08c3|86eac028-9264-417b-887c-f5af4c4482c4",
           ""
         ],
         [
@@ -424,6 +424,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -435,6 +436,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -446,6 +448,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -740,6 +743,7 @@
       "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
+      "same_local_global_power": "warning",
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
       "similar_power": "warning",
@@ -841,8 +845,8 @@
     "meta": {
       "version": 5
     },
-    "net_colors": null,
-    "netclass_assignments": null,
+    "net_colors": {},
+    "netclass_assignments": {},
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -1045,7 +1049,7 @@
         "uuid": "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
       }
     ],
-    "used_designators": "R1-22,#FLG1-3,J1-14,Q1-11,C1-5,#PWR1-68,SW1-7,U1-13,D1-8,D17,D22-27,DRA1,H1-2,JP1,TP1-3,RN5,RN10",
+    "used_designators": "#FLG1-3,#PWR1-58,C1-5,D1-5,DRA1,H1-2,J1-14,JP1,Q1-10,R1-13,SW1-7,TP1-3,U1-7",
     "variants": []
   },
   "sheets": [

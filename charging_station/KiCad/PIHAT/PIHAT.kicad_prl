@@ -54,8 +54,8 @@
       "board_outline_area",
       "ly_points"
     ],
-    "visible_layers": "ffffffff_ffffffff_ffffd575_d75555f7",
-    "zone_display_mode": 0
+    "visible_layers": "ffffffff_ffffffff_ffffd575_f55555f7",
+    "zone_display_mode": 1
   },
   "git": {
     "integration_disabled": false,
