@@ -19,6 +19,10 @@ J6,RFID2,JST_XH_S7B-XH-A_1x07_P2.50mm_Horizontal,66.5,-42.055,0.0,top
 J7,Raspberry Control Signals,JST_XH_S7B-XH-A_1x07_P2.50mm_Horizontal,115.55,-42.0,0.0,top
 J8,WD_F,"TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal",98.05,-46.1675,0.0,top
 J9,GPIO,PinSocket_2x20_P2.54mm_Vertical,29.0,-0.0,-90.0,top
+MH1,MountingHole_2.7mm_M2.5,MountingHole_2.7mm_M2.5,58.0,-0.0,0.0,bottom
+MH2,MountingHole_2.7mm_M2.5,MountingHole_2.7mm_M2.5,0.0,-0.0,0.0,bottom
+MH3,MountingHole_2.7mm_M2.5,MountingHole_2.7mm_M2.5,58.0,-49.0,0.0,bottom
+MH4,MountingHole_2.7mm_M2.5,MountingHole_2.7mm_M2.5,0.0,-49.0,0.0,bottom
 Q1,AO3400A,SOT-23,29.0,-21.0775,180.0,top
 Q10,AO3401A,SOT-23,82.2,-38.2,270.0,top
 Q11,AO3400A,SOT-23,82.2,-42.2,270.0,top
@@ -28,13 +32,13 @@ Q7,AO3401A,SOT-23,49.6,-21.0625,180.0,top
 Q8,AO3400A,SOT-23,82.2,-34.2,270.0,top
 Q9,AO3401A,SOT-23,55.0,-21.0,180.0,top
 R1,470,R_0603_1608Metric,27.175,-16.5,180.0,top
-R10,470,R_0603_1608Metric,55.75,-32.0,180.0,top
-R11,470,R_0603_1608Metric,58.75,-32.0,180.0,top
+R10,470,R_0603_1608Metric,58.8,-29.6,0.0,top
+R11,470,R_0603_1608Metric,58.8,-28.0,0.0,top
 R12,470,R_0603_1608Metric,111.025,-27.65,0.0,top
-R13,470,R_0603_1608Metric,66.0,-7.25,0.0,top
-R14,470,R_0603_1608Metric,66.0,-8.75,180.0,top
+R13,5.1k,R_0603_1608Metric,58.8,-32.0,0.0,top
+R14,470,R_0603_1608Metric,58.8,-34.0,0.0,top
 R15,5.1k,R_0603_1608Metric,85.5,-41.75,-90.0,top
-R16,470,R_0603_1608Metric,58.75,-29.6,0.0,top
+R16,470,R_0603_1608Metric,58.8,-35.6,180.0,top
 R17,470,R_0603_1608Metric,114.225,-27.65,0.0,top
 R18,5.1k,R_0603_1608Metric,66.0,-10.25,0.0,top
 R19,5.1k,R_0603_1608Metric,66.0,-11.785,0.0,top
@@ -47,7 +51,7 @@ R4,5.1k,R_0603_1608Metric,40.3,-18.8,-90.0,top
 R5,5.1k,R_0603_1608Metric,49.6,-18.1125,0.0,top
 R6,5.1k,R_0603_1608Metric,50.425,-24.0625,0.0,top
 R7,470,R_0603_1608Metric,107.825,-27.65,0.0,top
-R8,470,R_0603_1608Metric,58.75,-34.4,180.0,top
+R8,5.1k,R_0603_1608Metric,66.0,-8.0,0.0,top
 R9,5.1k,R_0603_1608Metric,41.125,-16.4,180.0,top
 TP1,SET0,TestPoint_Pad_D1.0mm,34.75,-23.0,180.0,bottom
 TP2,WD_EN,TestPoint_Pad_D1.0mm,34.75,-16.0,180.0,bottom

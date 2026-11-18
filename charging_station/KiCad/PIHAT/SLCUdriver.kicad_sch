@@ -6,11 +6,10 @@
 	(paper "A4")
 	(title_block
 		(title "Raspbery Pi HAT")
-		(date "2026-11-12")
+		(date "2026-11-18")
 		(rev "v3.1")
 		(company "JMU Robotics")
-		(comment 1 "Mayank")
-		(comment 2 "Nico")
+		(comment 1 "Nico")
 	)
 	(lib_symbols
 		(symbol "Device:R_Small"
