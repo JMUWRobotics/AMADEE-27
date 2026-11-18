@@ -3612,7 +3612,7 @@
 		(uuid "ffd24eff-f8ce-4613-8ec4-74cf155d7f7b")
 	)
 	(table
-		(column_count 5)
+		(column_count 6)
 		(border
 			(external yes)
 			(header yes)
@@ -3629,13 +3629,13 @@
 				(type solid)
 			)
 		)
-		(column_widths 20.32 11.43 15.24 11.43 11.43)
-		(row_heights 3.81 3.81 3.81 3.81)
+		(column_widths 20.32 11.43 15.24 11.43 11.43 26.67)
+		(row_heights 3.81 3.81 3.81 10.16)
 		(uuid "1829eb7b-bad9-4941-bf6a-3cf5dfe8882a")
 		(cells
 			(table_cell "LED Type"
 				(exclude_from_sim no)
-				(at 54.61 160.02 0)
+				(at 39.37 154.94 0)
 				(size 20.32 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3654,7 +3654,7 @@
 			)
 			(table_cell "~I_{F} [mA]"
 				(exclude_from_sim no)
-				(at 74.93 160.02 0)
+				(at 59.69 154.94 0)
 				(size 11.43 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3673,7 +3673,7 @@
 			)
 			(table_cell "V_{F} [V] (@I_{F})"
 				(exclude_from_sim no)
-				(at 86.36 160.02 0)
+				(at 71.12 154.94 0)
 				(size 15.24 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3692,7 +3692,7 @@
 			)
 			(table_cell "R [Ohm]"
 				(exclude_from_sim no)
-				(at 101.6 160.02 0)
+				(at 86.36 154.94 0)
 				(size 11.43 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3711,7 +3711,7 @@
 			)
 			(table_cell "P_{R} [mW]"
 				(exclude_from_sim no)
-				(at 113.03 160.02 0)
+				(at 97.79 154.94 0)
 				(size 11.43 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3728,9 +3728,28 @@
 				)
 				(uuid "ff6db16d-805e-4cc7-bebb-8ae8701bbd54")
 			)
+			(table_cell "Prefered I / V [mA / V]"
+				(exclude_from_sim no)
+				(at 109.22 154.94 0)
+				(size 26.67 3.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(thickness 0.254)
+						(bold yes)
+					)
+					(justify top)
+				)
+				(uuid "19de221f-e594-4971-a4f9-cdb60567d19c")
+			)
 			(table_cell "Red: NCD0805R1"
 				(exclude_from_sim no)
-				(at 54.61 163.83 0)
+				(at 39.37 158.75 0)
 				(size 20.32 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3747,7 +3766,7 @@
 			)
 			(table_cell "3"
 				(exclude_from_sim no)
-				(at 74.93 163.83 0)
+				(at 59.69 158.75 0)
 				(size 11.43 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3764,7 +3783,7 @@
 			)
 			(table_cell "1.8"
 				(exclude_from_sim no)
-				(at 86.36 163.83 0)
+				(at 71.12 158.75 0)
 				(size 15.24 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3781,7 +3800,7 @@
 			)
 			(table_cell "@{round(((3.3 - ${CELL(\"C1\")}) / ${CELL(\"B1\")})*1000, 0)}"
 				(exclude_from_sim no)
-				(at 101.6 163.83 0)
+				(at 86.36 158.75 0)
 				(size 11.43 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3798,7 +3817,7 @@
 			)
 			(table_cell "@{round( (12-${CELL(\"C1\")}) / ${CELL(\"D1\")}, 3 )}"
 				(exclude_from_sim no)
-				(at 113.03 163.83 0)
+				(at 97.79 158.75 0)
 				(size 11.43 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3813,9 +3832,26 @@
 				)
 				(uuid "af312a6e-94d3-4b3d-a235-5289764ef1b4")
 			)
+			(table_cell "1<1.6<2 / 1.8"
+				(exclude_from_sim no)
+				(at 109.22 158.75 0)
+				(size 26.67 3.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify top)
+				)
+				(uuid "da0c14ce-f035-417a-b441-59e71e91ad24")
+			)
 			(table_cell "Amber: KT-0805Y"
 				(exclude_from_sim no)
-				(at 54.61 167.64 0)
+				(at 39.37 162.56 0)
 				(size 20.32 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3832,7 +3868,7 @@
 			)
 			(table_cell "3"
 				(exclude_from_sim no)
-				(at 74.93 167.64 0)
+				(at 59.69 162.56 0)
 				(size 11.43 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3849,7 +3885,7 @@
 			)
 			(table_cell "1.8"
 				(exclude_from_sim no)
-				(at 86.36 167.64 0)
+				(at 71.12 162.56 0)
 				(size 15.24 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3866,7 +3902,7 @@
 			)
 			(table_cell "@{round(((3.3 - ${CELL(\"C2\")}) / ${CELL(\"B2\")})*1000, 0)}"
 				(exclude_from_sim no)
-				(at 101.6 167.64 0)
+				(at 86.36 162.56 0)
 				(size 11.43 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3883,7 +3919,7 @@
 			)
 			(table_cell "@{round( (12-${CELL(\"C2\")}) / ${CELL(\"D2\")}, 3 )}"
 				(exclude_from_sim no)
-				(at 113.03 167.64 0)
+				(at 97.79 162.56 0)
 				(size 11.43 3.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -3898,10 +3934,27 @@
 				)
 				(uuid "1ea33878-77dd-4894-90e5-4e3c2ea3e2c8")
 			)
+			(table_cell "5 / 1.9"
+				(exclude_from_sim no)
+				(at 109.22 162.56 0)
+				(size 26.67 3.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify top)
+				)
+				(uuid "671aadd0-0291-4cc4-8d7e-0c349ba6ab62")
+			)
 			(table_cell "Green: KT-0805G"
 				(exclude_from_sim no)
-				(at 54.61 171.45 0)
-				(size 20.32 3.81)
+				(at 39.37 166.37 0)
+				(size 20.32 10.16)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -3917,8 +3970,8 @@
 			)
 			(table_cell "1"
 				(exclude_from_sim no)
-				(at 74.93 171.45 0)
-				(size 11.43 3.81)
+				(at 59.69 166.37 0)
+				(size 11.43 10.16)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -3934,8 +3987,8 @@
 			)
 			(table_cell "2.2"
 				(exclude_from_sim no)
-				(at 86.36 171.45 0)
-				(size 15.24 3.81)
+				(at 71.12 166.37 0)
+				(size 15.24 10.16)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -3951,8 +4004,8 @@
 			)
 			(table_cell "@{round(((3.3 - ${CELL(\"C3\")}) / ${CELL(\"B3\")})*1000, 0)}"
 				(exclude_from_sim no)
-				(at 101.6 171.45 0)
-				(size 11.43 3.81)
+				(at 86.36 166.37 0)
+				(size 11.43 10.16)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -3968,8 +4021,8 @@
 			)
 			(table_cell "@{round( (12-${CELL(\"C3\")}) / ${CELL(\"D3\")}, 3 )}"
 				(exclude_from_sim no)
-				(at 113.03 171.45 0)
-				(size 11.43 3.81)
+				(at 97.79 166.37 0)
+				(size 11.43 10.16)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -3982,6 +4035,23 @@
 					(justify top)
 				)
 				(uuid "a1277892-57fc-4013-994c-096bd80c8a52")
+			)
+			(table_cell "0.10 / 2.00\n0.20 / 2.24\n0.33 / 2.26\n0.35 / 2.27"
+				(exclude_from_sim no)
+				(at 109.22 166.37 0)
+				(size 26.67 10.16)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify top)
+				)
+				(uuid "d007b54f-de31-4207-8023-abf956105dd9")
 			)
 		)
 	)
