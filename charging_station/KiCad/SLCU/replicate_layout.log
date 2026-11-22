@@ -1,339 +1,289 @@
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 473:Plugin executed on: 'win32'
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 474:Plugin executed with python version: '3.11.5 (main, Jan 23 2026, 07:39:48) [MSC v.1944 64 bit (AMD64)]'
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 475:KiCad build version: 10.0.5
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 476:Plugin version: 5.0.1
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 477:Frame repr: <wx._core.Frame object at 0x000001C753A83640>
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 501:Preparing replicator with Q28 as a reference
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 118:getting a list of all footprints on board
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 549:source anchor footprint is 'Q28'
-Located on: ['/Green Light Driver/']
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 473:Plugin executed on: 'win32'
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 474:Plugin executed with python version: '3.11.5 (main, Jan 23 2026, 07:39:48) [MSC v.1944 64 bit (AMD64)]'
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 475:KiCad build version: 10.0.5
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 476:Plugin version: 5.0.1
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 477:Frame repr: <wx._core.Frame object at 0x0000016E03E063B0>
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 501:Preparing replicator with K1 as a reference
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.replicate_layout 118:getting a list of all footprints on board
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 549:source anchor footprint is 'K1'
+Located on: ['/Red Light Driver/']
 With filenames: ['LED_controller.kicad_sch']
-With sheet_id:['/Green Light Driver/']
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 556:Corresponding footprints are 
-[('Q28', ['/Green Light Driver/']), ('Q24', ['/Yellow Light Driver/']), ('Q20', ['/Red Light Driver/'])]
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 568:Showing dialog
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 477:constructing a list of sheets suitable for replication on level:'/Green Light Driver/', file:'LED_controller.kicad_sch'
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 489:possible dst fps are: ['Q28', 'Q24', 'Q20']
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 507:dst fps are: ['Q28', 'Q24', 'Q20']
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 519:suitable sheets are:[['/Red Light Driver/'], ['/Yellow Light Driver/']]
-10-12 13:32:57 root 156:possible dst fp: ['Q28', 'Q24', 'Q20']
-10-12 13:32:57 root 160:src nets: ['/Green Light Driver/Select', 'Net-(Q27-D)', '/Green', '/Continous', 'Net-(Q26-D)', '/Blinking', '/Green Light Driver/Blinking', 'GND', '+12V', 'unconnected-(RN9A-R1.2-Pad8)', 'unconnected-(RN9A-R1.1-Pad1)']
-10-12 13:32:57 root 161:norm nets: ['', '', '', '+12V', 'Blinking', 'GND', 'Net-(Q26-D)', 'Net-(Q27-D)', 'Select', 'unconnected-(RN9A-R1.1-Pad1)', 'unconnected-(RN9A-R1.2-Pad8)']
-10-12 13:32:57 root 169:dst fp: Q28, sheet path: /Red Light Driver/, fp path: /Green Light Driver/
-10-12 13:32:57 root 169:dst fp: Q24, sheet path: /Red Light Driver/, fp path: /Yellow Light Driver/
-10-12 13:32:57 root 169:dst fp: Q20, sheet path: /Red Light Driver/, fp path: /Red Light Driver/
-10-12 13:32:57 root 169:dst fp: Q28, sheet path: /Yellow Light Driver/, fp path: /Green Light Driver/
-10-12 13:32:57 root 169:dst fp: Q24, sheet path: /Yellow Light Driver/, fp path: /Yellow Light Driver/
-10-12 13:32:57 root 169:dst fp: Q20, sheet path: /Yellow Light Driver/, fp path: /Red Light Driver/
-10-12 13:32:57 root 193:list of found dst fps: ['Q20', 'Q24']
-10-12 13:32:57 root 196:list of sheets for listbox: ['/Red Light Driver/ (Q20)', '/Yellow Light Driver/ (Q24)']
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1579:Level selected: ['/Green Light Driver/']
-10-12 13:32:57 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1395:Filtering list of tracks
-10-12 13:32:58 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 435:Using frame-relative dialog position
-10-12 13:32:58 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 580:Dialog position: wx.Point(1488, 100)
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 477:constructing a list of sheets suitable for replication on level:'/Green Light Driver/', file:'LED_controller.kicad_sch'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 489:possible dst fps are: ['Q28', 'Q24', 'Q20']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 507:dst fps are: ['Q28', 'Q24', 'Q20']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 519:suitable sheets are:[['/Red Light Driver/'], ['/Yellow Light Driver/']]
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 280:Replicating layout
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 289:Starting replication of sheets: [['/Red Light Driver/'], ['/Yellow Light Driver/']]
-on level: ['/Green Light Driver/']
-with tracks=True, zone=True, text=True, text=True, intersecting=False, remove=True, locked footprints=False, group_only=False
-10-12 13:33:03 root 372:updating GUI message: 'Preparing for replication'
-10-12 13:33:03 root 377:updating GUI with: 0
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 359:Getting the list of source footprints
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 369:Getting the list of all the remaining footprints
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 376:Getting source tracks
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1395:Filtering list of tracks
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 380:Getting source zones
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 384:Getting source text items
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 388:Getting source drawing items
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 321:Removing tracks and zones, before footprint placement
-10-12 13:33:03 root 372:updating GUI message: 'Removing zones and tracks'
-10-12 13:33:03 root 377:updating GUI with: 0
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1341:Remove bounding box top:164775000, bottom:174420000, Left:190025000, Right:203225000
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1341:Remove bounding box top:174175000, bottom:183125000, Left:215225000, Right:227520000
-10-12 13:33:03 root 372:updating GUI message: 'Replicating footprints'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 900:Replicating footprints
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 907:Replicating footprints on sheet ['/Red Light Driver/']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q28'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q20'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:17af9427-1fc4-4016-8f7f-607072c5409d
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:2340371b-f88d-4d97-b4f8-9b8d8eaf8c60
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:ef1d7151-c312-4a9b-9d1e-271af7297291
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:0f0f963c-6e0a-4f81-afc0-6ab62eb3d109
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:93f9b473-d9db-4941-9998-f7effcf9943b
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:d61426f4-0012-474b-a60d-94af37c78ad2
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q27'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '37628CD5-A879-4320-9979-E3EEC9345F25'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '37628CD5-A879-4320-9979-E3EEC9345F25'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q19'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:27802202-3906-40d3-ae9e-ffe5da4c8843
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:afb93450-6bc5-47fa-be60-7553b72606f2
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:78c2c441-70db-4020-882a-b567d5e689d6
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:3744c5bc-d1a6-4f5b-a1e9-534eefdde8f3
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:230497c9-a3fc-447d-91e0-ddb87d3fc704
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:b0ddcc29-62cb-484f-a987-2b5559a9e0bb
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'TP16'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '94418BE7-30F7-466B-9034-DFDEC27CFE38'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '94418BE7-30F7-466B-9034-DFDEC27CFE38'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'TP10'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:c671ce48-9a64-47e1-bf07-c34a31f8f75b
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:7a1e0d2c-287b-4117-8f4b-b767745a21be
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:f60d65c1-af01-43ed-bc10-51f2bd2cba65
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:58109395-1fe8-471c-a5f4-aaeb04dd45f2
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:3dcb9a43-e4ec-4b2f-8571-41c8d64c2559
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:2bd71ed6-0618-4059-ae20-84007832a745
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q29'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'E8CD4B7B-56CF-4090-AEA5-1465719C2E48'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'E8CD4B7B-56CF-4090-AEA5-1465719C2E48'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q21'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:661e7ff5-8ceb-4875-97fd-1d202acb60e7
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:cdb82e01-5ea1-4d55-99e6-b4be90122490
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:e10ce402-6cba-47e3-b18b-d23f1e9c0eba
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:de43518d-bb75-4ab3-8a6e-cadb4dd4d585
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:906b1e9d-2b40-498d-bf89-82c9fbb710e3
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:6cfdc4fd-13e0-4ea1-9f51-34d907ce567d
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q26'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'E0DCA302-712A-44E4-9CFC-4FC7248DBE25'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'E0DCA302-712A-44E4-9CFC-4FC7248DBE25'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q18'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:b175ad8e-8b6e-4c63-bc1c-8e96905762a6
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:7a0de9c7-4a21-403d-997b-b89dcea5c4a1
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:e62f788f-a61c-4d92-a57a-f5aa7c29f32e
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:0c8d0248-8b8b-4c89-a97f-943ed6cc5e6c
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:34324836-a10e-4d5b-a6bc-4e0ae73891f3
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:9bdc6959-5b48-44ad-b17f-2d309c054249
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'TP17'
-10-12 13:33:03 root 377:updating GUI with: 37
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'F26DAEE8-FF85-41FC-95F4-F56B3AB11AC0'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'F26DAEE8-FF85-41FC-95F4-F56B3AB11AC0'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'TP11'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:768c6118-f1f9-481a-99d5-c7222fcacc68
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:40091602-808d-4889-bc4d-101be7482078
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:b582efea-6cce-4ef2-9eee-19c6a4eb3b80
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:bcebed33-e7e4-445a-baf2-429f084a2bd0
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:afa407da-a014-40a1-8568-4fe426fdde17
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:7aeb13ed-271a-4fb4-aad4-531e888d19f7
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'RN9'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '9EF752FF-3E34-4ADF-B997-D22B49AB561B'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '9EF752FF-3E34-4ADF-B997-D22B49AB561B'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'RN7'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:331d9014-9f3b-4673-a778-e1601364536f
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:d2e676ee-8556-4573-8c9e-6047a23fec7e
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:99b19c85-2b38-4865-97d1-c7dd90ab3404
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:1dcea2ee-978c-4522-8d42-19c180587fe6
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:4caf7ea6-3106-49ea-b00d-4af085cdafa5
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:ea78761a-e55f-48d5-baee-69bb67cc7407
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'TP15'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '70D53EA9-59DE-493B-B2D7-36532C0D570D'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '70D53EA9-59DE-493B-B2D7-36532C0D570D'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'TP9'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:ebb2dbb2-e91b-4e95-88d5-ec6b48049613
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:984f8513-b0bd-4dd9-ab3e-fdd92f193d88
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:5d8715b5-bcb2-4851-b9af-813be2409fce
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:6800bb34-dc8e-4e18-b84b-a8fd9bdafbcb
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:65732d97-a318-4f64-a02e-055a0ef94c44
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:d029cb60-cffe-4eb5-b05c-437652112e22
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 907:Replicating footprints on sheet ['/Yellow Light Driver/']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q28'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q24'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:17af9427-1fc4-4016-8f7f-607072c5409d
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:01643f63-a796-43b5-8a40-62663afcdc5a
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:ef1d7151-c312-4a9b-9d1e-271af7297291
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:a7e342fd-1f9f-46c5-9a12-d032193516bb
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:93f9b473-d9db-4941-9998-f7effcf9943b
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:fc53e0ec-16ad-4460-848a-40d44dcae9b9
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q27'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '37628CD5-A879-4320-9979-E3EEC9345F25'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '37628CD5-A879-4320-9979-E3EEC9345F25'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q23'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:27802202-3906-40d3-ae9e-ffe5da4c8843
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:f8c81b9f-d5c0-45e4-9f13-c586387e9e79
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:78c2c441-70db-4020-882a-b567d5e689d6
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:640bbf70-4b8a-4aea-807e-606bef0dd75f
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:230497c9-a3fc-447d-91e0-ddb87d3fc704
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:7a8ba18d-7acd-4b5f-a865-e0dbdfa362e4
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'TP16'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '94418BE7-30F7-466B-9034-DFDEC27CFE38'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '94418BE7-30F7-466B-9034-DFDEC27CFE38'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'TP13'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:c671ce48-9a64-47e1-bf07-c34a31f8f75b
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:0ab31eed-b501-450d-931d-3b086b4e3eb2
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:f60d65c1-af01-43ed-bc10-51f2bd2cba65
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:bd3601e0-b369-4a3a-b122-62a7be4a58f5
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:3dcb9a43-e4ec-4b2f-8571-41c8d64c2559
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:10f967e7-5cc2-4f65-862b-a22188517333
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q29'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'E8CD4B7B-56CF-4090-AEA5-1465719C2E48'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'E8CD4B7B-56CF-4090-AEA5-1465719C2E48'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q25'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:661e7ff5-8ceb-4875-97fd-1d202acb60e7
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:ec155c2b-7a44-4b74-929b-3739c3e73a36
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:e10ce402-6cba-47e3-b18b-d23f1e9c0eba
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:7ea2bc66-a007-45f1-9af3-a2a4c59a4414
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:906b1e9d-2b40-498d-bf89-82c9fbb710e3
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:6315c3bc-02d6-48d9-aeb3-3a08ac42bddd
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q26'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'E0DCA302-712A-44E4-9CFC-4FC7248DBE25'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'E0DCA302-712A-44E4-9CFC-4FC7248DBE25'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q22'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:b175ad8e-8b6e-4c63-bc1c-8e96905762a6
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:908d45cb-181f-4769-b3e6-2987acb2eada
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:e62f788f-a61c-4d92-a57a-f5aa7c29f32e
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:485f1d67-47cd-4dc4-b91f-5e7076ba19b0
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:34324836-a10e-4d5b-a6bc-4e0ae73891f3
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:68aa55d6-ae4f-4fcb-bfcd-e0a74a625dc9
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'TP17'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'F26DAEE8-FF85-41FC-95F4-F56B3AB11AC0'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'F26DAEE8-FF85-41FC-95F4-F56B3AB11AC0'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'TP14'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:768c6118-f1f9-481a-99d5-c7222fcacc68
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:a2d09706-052b-4477-9415-eeb0541d93d6
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:b582efea-6cce-4ef2-9eee-19c6a4eb3b80
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:95856642-a15c-4d9a-9c36-731d4c3a97df
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:afa407da-a014-40a1-8568-4fe426fdde17
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:f3176964-5476-40e3-81a1-e6e2abbbf2a4
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'RN9'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '9EF752FF-3E34-4ADF-B997-D22B49AB561B'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '9EF752FF-3E34-4ADF-B997-D22B49AB561B'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'RN8'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:331d9014-9f3b-4673-a778-e1601364536f
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:08aaff13-9ba7-4626-be5a-dd7934f782ec
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:99b19c85-2b38-4865-97d1-c7dd90ab3404
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:6a82b134-ad0c-468e-bbc7-1068eac952ac
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:4caf7ea6-3106-49ea-b00d-4af085cdafa5
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:05f83372-2dd6-492a-976f-df32fd3a4fe4
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'TP15'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '70D53EA9-59DE-493B-B2D7-36532C0D570D'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '70D53EA9-59DE-493B-B2D7-36532C0D570D'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'TP12'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:ebb2dbb2-e91b-4e95-88d5-ec6b48049613
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:866ced1b-0979-4cec-a41a-5e4b26ec1879
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:5d8715b5-bcb2-4851-b9af-813be2409fce
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:1cdebcdf-7adb-4a61-8240-14b00fe12d4c
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:65732d97-a318-4f64-a02e-055a0ef94c44
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:1757a7cd-b511-4fa8-bec8-4f9bc6da34df
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 329:Removing tracks and zones, after footprint placement
-10-12 13:33:03 root 372:updating GUI message: 'Removing zones and tracks'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1341:Remove bounding box top:167205000, bottom:173325000, Left:190025000, Right:203920000
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1341:Remove bounding box top:176305000, bottom:182425000, Left:215225000, Right:229120000
-10-12 13:33:03 root 372:updating GUI message: 'Replicating tracks'
-10-12 13:33:03 root 377:updating GUI with: 0
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1051:Replicating tracks
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1057:Replicating tracks on sheet ['/Red Light Driver/']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.54
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.54
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.54
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green'] and dst net: ['', 'Red'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.62
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Red Light Driver/'] :[('/Green Light Driver/Blinking', '/Raspberry Signal & Logic Multiplexing/B_RED'), ('/Green Light Driver/Select', '/Raspberry Signal & Logic Multiplexing/S_RED'), ('unconnected-(RN9A-R1.2-Pad8)', 'unconnected-(RN7A-R1.2-Pad8)'), ('/Blinking', '/Blinking'), ('/Continous', '/Continous'), ('GND', 'GND'), ('+12V', '+12V'), ('/Green', '/Red'), ('Net-(Q26-D)', 'Net-(Q18-D)'), ('unconnected-(RN9A-R1.1-Pad1)', 'unconnected-(RN7A-R1.1-Pad1)'), ('Net-(Q27-D)', 'Net-(Q19-D)')]
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1057:Replicating tracks on sheet ['/Yellow Light Driver/']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.53
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.53
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green'] and dst net: ['', 'Yellow'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.59
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.53
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Yellow Light Driver/'] :[('Net-(Q26-D)', 'Net-(Q22-D)'), ('unconnected-(RN9A-R1.2-Pad8)', 'unconnected-(RN8A-R1.2-Pad8)'), ('unconnected-(RN9A-R1.1-Pad1)', 'unconnected-(RN8A-R1.1-Pad1)'), ('/Green Light Driver/Select', '/Raspberry Signal & Logic Multiplexing/S_YELLOW'), ('/Green Light Driver/Blinking', '/Raspberry Signal & Logic Multiplexing/B_YELLOW'), ('/Blinking', '/Blinking'), ('/Continous', '/Continous'), ('GND', 'GND'), ('/Green', '/Yellow'), ('+12V', '+12V'), ('Net-(Q27-D)', 'Net-(Q23-D)')]
-10-12 13:33:03 root 372:updating GUI message: 'Replicating zones'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1121:Replicating zones
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1128:Replicating zones on sheet ['/Red Light Driver/']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.54
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.54
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.54
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green'] and dst net: ['', 'Red'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.62
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Red Light Driver/'] :[('/Green Light Driver/Blinking', '/Raspberry Signal & Logic Multiplexing/B_RED'), ('/Green Light Driver/Select', '/Raspberry Signal & Logic Multiplexing/S_RED'), ('unconnected-(RN9A-R1.2-Pad8)', 'unconnected-(RN7A-R1.2-Pad8)'), ('/Blinking', '/Blinking'), ('/Continous', '/Continous'), ('GND', 'GND'), ('+12V', '+12V'), ('/Green', '/Red'), ('Net-(Q26-D)', 'Net-(Q18-D)'), ('unconnected-(RN9A-R1.1-Pad1)', 'unconnected-(RN7A-R1.1-Pad1)'), ('Net-(Q27-D)', 'Net-(Q19-D)')]
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1128:Replicating zones on sheet ['/Yellow Light Driver/']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.53
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.53
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green'] and dst net: ['', 'Yellow'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.59
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.53
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Yellow Light Driver/'] :[('Net-(Q26-D)', 'Net-(Q22-D)'), ('unconnected-(RN9A-R1.2-Pad8)', 'unconnected-(RN8A-R1.2-Pad8)'), ('unconnected-(RN9A-R1.1-Pad1)', 'unconnected-(RN8A-R1.1-Pad1)'), ('/Green Light Driver/Select', '/Raspberry Signal & Logic Multiplexing/S_YELLOW'), ('/Green Light Driver/Blinking', '/Raspberry Signal & Logic Multiplexing/B_YELLOW'), ('/Blinking', '/Blinking'), ('/Continous', '/Continous'), ('GND', 'GND'), ('/Green', '/Yellow'), ('+12V', '+12V'), ('Net-(Q27-D)', 'Net-(Q23-D)')]
-10-12 13:33:03 root 377:updating GUI with: 60
-10-12 13:33:03 root 372:updating GUI message: 'Replicating text'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1210:Replicating text
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1217:Replicating text on sheet ['/Red Light Driver/']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1217:Replicating text on sheet ['/Yellow Light Driver/']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 root 372:updating GUI message: 'Replicating drawings'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1261:Replicating drawings
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1267:Replicating drawings on sheet ['/Red Light Driver/']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.54
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.56
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.54
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.54
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green'] and dst net: ['', 'Red'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.62
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Red Light Driver/'] :[('/Green Light Driver/Blinking', '/Raspberry Signal & Logic Multiplexing/B_RED'), ('/Green Light Driver/Select', '/Raspberry Signal & Logic Multiplexing/S_RED'), ('unconnected-(RN9A-R1.2-Pad8)', 'unconnected-(RN7A-R1.2-Pad8)'), ('/Blinking', '/Blinking'), ('/Continous', '/Continous'), ('GND', 'GND'), ('+12V', '+12V'), ('/Green', '/Red'), ('Net-(Q26-D)', 'Net-(Q18-D)'), ('unconnected-(RN9A-R1.1-Pad1)', 'unconnected-(RN7A-R1.1-Pad1)'), ('Net-(Q27-D)', 'Net-(Q19-D)')]
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1287:replicating 0 drawins
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1267:Replicating drawings on sheet ['/Yellow Light Driver/']
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '42B5FE7A-2E82-492D-91CD-E7144B494BAE'
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Blinking'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.55
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.53
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.53
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green'] and dst net: ['', 'Yellow'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.59
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Green Light Driver', 'Select'] and dst net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_YELLOW'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.53
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Yellow Light Driver/'] :[('Net-(Q26-D)', 'Net-(Q22-D)'), ('unconnected-(RN9A-R1.2-Pad8)', 'unconnected-(RN8A-R1.2-Pad8)'), ('unconnected-(RN9A-R1.1-Pad1)', 'unconnected-(RN8A-R1.1-Pad1)'), ('/Green Light Driver/Select', '/Raspberry Signal & Logic Multiplexing/S_YELLOW'), ('/Green Light Driver/Blinking', '/Raspberry Signal & Logic Multiplexing/B_YELLOW'), ('/Blinking', '/Blinking'), ('/Continous', '/Continous'), ('GND', 'GND'), ('/Green', '/Yellow'), ('+12V', '+12V'), ('Net-(Q27-D)', 'Net-(Q23-D)')]
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1287:replicating 0 drawins
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 296:Replication complete
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 299:Letting the user know there are some issues with replicated design
-10-12 13:33:03 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 303:Looks like the design has an exotic connectivity that the plugin might not handle properly
+With sheet_id:['/Red Light Driver/']
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 556:Corresponding footprints are 
+[('K1', ['/Red Light Driver/']), ('K5', ['/Green Light Driver/']), ('K3', ['/Yellow Light Driver/'])]
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 568:Showing dialog
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.replicate_layout 477:constructing a list of sheets suitable for replication on level:'/Red Light Driver/', file:'LED_controller.kicad_sch'
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.replicate_layout 489:possible dst fps are: ['K1', 'K5', 'K3']
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.replicate_layout 507:dst fps are: ['K1', 'K5', 'K3']
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.replicate_layout 519:suitable sheets are:[['/Green Light Driver/'], ['/Yellow Light Driver/']]
+11-19 17:20:14 root 156:possible dst fp: ['K1', 'K5', 'K3']
+11-19 17:20:14 root 160:src nets: ['/Raspberry Signal & Logic Multiplexing/B_RED', 'GND', 'Net-(D31-A)', 'Net-(K1-Pad1)', '/Blinking', '/Continous', '+12V', 'Net-(D30-A)', 'unconnected-(K1-Pad4)', '/Red', '/Raspberry Signal & Logic Multiplexing/S_RED']
+11-19 17:20:14 root 161:norm nets: ['', '', '', '+12V', 'B_RED', 'GND', 'Net-(D30-A)', 'Net-(D31-A)', 'Net-(K1-Pad1)', 'S_RED', 'unconnected-(K1-Pad4)']
+11-19 17:20:14 root 169:dst fp: K1, sheet path: /Green Light Driver/, fp path: /Red Light Driver/
+11-19 17:20:14 root 169:dst fp: K5, sheet path: /Green Light Driver/, fp path: /Green Light Driver/
+11-19 17:20:14 root 169:dst fp: K3, sheet path: /Green Light Driver/, fp path: /Yellow Light Driver/
+11-19 17:20:14 root 169:dst fp: K1, sheet path: /Yellow Light Driver/, fp path: /Red Light Driver/
+11-19 17:20:14 root 169:dst fp: K5, sheet path: /Yellow Light Driver/, fp path: /Green Light Driver/
+11-19 17:20:14 root 169:dst fp: K3, sheet path: /Yellow Light Driver/, fp path: /Yellow Light Driver/
+11-19 17:20:14 root 193:list of found dst fps: ['K5', 'K3']
+11-19 17:20:14 root 196:list of sheets for listbox: ['/Green Light Driver/ (K5)', '/Yellow Light Driver/ (K3)']
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1579:Level selected: ['/Red Light Driver/']
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1395:Filtering list of tracks
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 435:Using frame-relative dialog position
+11-19 17:20:14 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 580:Dialog position: wx.Point(1489, 92)
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 477:constructing a list of sheets suitable for replication on level:'/Red Light Driver/', file:'LED_controller.kicad_sch'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 489:possible dst fps are: ['K1', 'K5', 'K3']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 507:dst fps are: ['K1', 'K5', 'K3']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 519:suitable sheets are:[['/Green Light Driver/'], ['/Yellow Light Driver/']]
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 280:Replicating layout
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 289:Starting replication of sheets: [['/Green Light Driver/'], ['/Yellow Light Driver/']]
+on level: ['/Red Light Driver/']
+with tracks=True, zone=True, text=True, text=True, intersecting=False, remove=False, locked footprints=False, group_only=False
+11-19 17:20:23 root 372:updating GUI message: 'Preparing for replication'
+11-19 17:20:23 root 377:updating GUI with: 0
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 359:Getting the list of source footprints
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 369:Getting the list of all the remaining footprints
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 376:Getting source tracks
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1395:Filtering list of tracks
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 380:Getting source zones
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 384:Getting source text items
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 388:Getting source drawing items
+11-19 17:20:23 root 372:updating GUI message: 'Replicating footprints'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 900:Replicating footprints
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 907:Replicating footprints on sheet ['/Green Light Driver/']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'TP7'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '3B262C76-167D-496B-B4D2-6E0EA0748197'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '3B262C76-167D-496B-B4D2-6E0EA0748197'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'TP11'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:13c45fe7-93b8-456b-90ef-fb62bdf675ad
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:8d62520c-95d5-4bd7-925e-f1dd93adf095
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:d5fc8b98-ed05-41c1-8db7-ce7f60a0cf43
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:11038822-396d-4544-97f0-5ee49ce24ec5
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:c4f5c917-4358-46ea-8196-752513b3def1
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:d3db9ba4-9334-4484-89f4-df0078847cf3
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q14'
+11-19 17:20:23 root 377:updating GUI with: 12
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '777EA0BD-9A2C-4576-8CA4-E170F9F1D9A6'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '777EA0BD-9A2C-4576-8CA4-E170F9F1D9A6'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q18'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:7493e6b1-3853-43c4-ae9a-a253df400c9c
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:7f4ea3c8-331e-4ed9-aee3-298906033b0f
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:87ec1a32-b0a9-471c-9ca7-8f3519386614
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:16f25485-dc49-4b7a-af41-6b6fa1d228a5
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:2d9bd7b0-3377-4d3a-ab25-135d7aeb9118
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:2ed2452f-f3d9-4286-b7bc-3ac87d07cbf6
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'K2'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'B602E809-96DC-4767-9C7F-C8EFC7173E9C'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'B602E809-96DC-4767-9C7F-C8EFC7173E9C'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'K6'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:5e89bdbf-b1bf-4e71-8e8c-6de8a128f0ef
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:c8273075-3d86-474e-adbc-68ae7006b418
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:4e3c7134-fb50-4359-aeb4-b633c1b2dc6c
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:bd9d2d35-01da-4b95-8dfe-635e52bf4798
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:8e9f0536-f3d2-4929-bbd4-b656c70bc723
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:972c5407-d90a-4f1a-81f9-3908267d93bf
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'K1'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'K5'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:4065f341-87a2-41a3-85d8-75c0ed7fa7e0
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:2353cb90-1d07-4201-93cd-738188d9806d
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:e71eb403-eb75-4ba2-a20c-ee5db49c4d70
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:c8d2cf61-423c-4284-9cc2-7902edec344e
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:0b706b55-a304-45bc-adca-2e07a43fdbee
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:ca5d6f1f-4821-41e5-8a72-1944e4808578
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'D30'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'EA4154F0-7E42-43C6-8E2C-04ABB751E003'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'EA4154F0-7E42-43C6-8E2C-04ABB751E003'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'D34'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:ad8a0238-78b4-4778-8945-99dc34062b6b
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:c5db0759-7e00-4dcd-8045-bfddbb1c8c73
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:c7661e07-159e-410a-b1e2-b7b40d265da0
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:ed6321be-ec14-4d07-a2e2-3575faa3a0b3
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:ac08c1c0-a41b-477c-a9c7-fd49a8b53adc
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:297f174f-e2c2-473d-ae73-c684d425610c
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'D31'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '34262D8E-9603-4D34-88B3-BACA7E1CE306'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '34262D8E-9603-4D34-88B3-BACA7E1CE306'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'D35'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:ad5e0e84-ef6a-40cf-8d06-9c9bb975547e
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:d66d6ade-7afd-49ee-9a3d-f334cd91b034
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:182bf60d-584b-42b1-958e-56261e4d0dc5
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:f757247c-d306-4364-ad2d-b13654ecb888
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:0ee95b6a-2c59-461b-95dc-7307fcf1ff92
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:11bddf34-2c08-4fcc-be1a-335826e67a10
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q13'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '8BF8735E-903B-4EF7-91BA-6E2600140B7B'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '8BF8735E-903B-4EF7-91BA-6E2600140B7B'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q17'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:50b08022-55ed-4191-b811-3c1437ea0e49
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:7cae016c-233c-4da6-87da-959d7dfe8af0
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:751b2dbe-f5dc-4aec-824f-cd79e9454317
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:b47aa3f7-67f9-4f6d-bbf9-943f2e078a0d
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:abd4b88a-a3df-4cf3-be17-5a0bad4fd590
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:386255de-5366-4a2d-accf-0caafcb0040f
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'TP6'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '17CEF138-BD19-45D3-9EC7-E8F17969AA57'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '17CEF138-BD19-45D3-9EC7-E8F17969AA57'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'TP10'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:5de2e928-54a4-47d9-bb8e-479683ddd5ec
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:8da959b2-cea2-47d4-b238-d35acf9e9b78
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:383f2a78-835f-438f-b4ea-51251101a3ea
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:20a5b8a4-699b-49b9-9e6a-082bad5862d6
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:92048217-34f0-4833-9122-d6793e781dba
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:780e0912-b3c6-4c18-9974-4454e9b79b1d
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 907:Replicating footprints on sheet ['/Yellow Light Driver/']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'TP7'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '3B262C76-167D-496B-B4D2-6E0EA0748197'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '3B262C76-167D-496B-B4D2-6E0EA0748197'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'TP9'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:13c45fe7-93b8-456b-90ef-fb62bdf675ad
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:ac7ae1cd-12a4-4dd0-96bd-a502bd689d40
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:d5fc8b98-ed05-41c1-8db7-ce7f60a0cf43
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:3d6dbf07-df64-4555-af47-148f63510d6d
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:c4f5c917-4358-46ea-8196-752513b3def1
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:15b13a0d-c416-4ff8-b904-cda37b158244
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q14'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '777EA0BD-9A2C-4576-8CA4-E170F9F1D9A6'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '777EA0BD-9A2C-4576-8CA4-E170F9F1D9A6'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q16'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:7493e6b1-3853-43c4-ae9a-a253df400c9c
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:fe822e9c-ca23-43e6-9717-8e568cddabb0
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:87ec1a32-b0a9-471c-9ca7-8f3519386614
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:fb3cefc9-d4b2-4de3-8110-21d9f6a3a6c7
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:2d9bd7b0-3377-4d3a-ab25-135d7aeb9118
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:60249161-c7af-4f2c-bfc6-52eb7cc735c5
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'K2'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'B602E809-96DC-4767-9C7F-C8EFC7173E9C'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'B602E809-96DC-4767-9C7F-C8EFC7173E9C'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'K4'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:5e89bdbf-b1bf-4e71-8e8c-6de8a128f0ef
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:3ceb8008-3740-43de-9b01-9753a55542d0
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:4e3c7134-fb50-4359-aeb4-b633c1b2dc6c
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:932c0161-6574-44de-b60b-1967cb743ba1
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:8e9f0536-f3d2-4929-bbd4-b656c70bc723
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:42921ad1-51fd-4321-b908-6e120baa0b22
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'K1'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'K3'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:4065f341-87a2-41a3-85d8-75c0ed7fa7e0
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:137a8561-431d-431c-aec5-347a784f4ab8
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:e71eb403-eb75-4ba2-a20c-ee5db49c4d70
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:03235a99-a459-4d3e-8c71-51e820065098
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:0b706b55-a304-45bc-adca-2e07a43fdbee
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:4e10aaa2-649d-4f9e-8671-323cb913ebbb
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'D30'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'EA4154F0-7E42-43C6-8E2C-04ABB751E003'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'EA4154F0-7E42-43C6-8E2C-04ABB751E003'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'D32'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:ad8a0238-78b4-4778-8945-99dc34062b6b
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:beb66d65-bbc8-4fb2-9408-1857b3645aa1
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:c7661e07-159e-410a-b1e2-b7b40d265da0
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:e20c132a-a468-4b6c-9df4-0f815c07eca4
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:ac08c1c0-a41b-477c-a9c7-fd49a8b53adc
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:277dec06-77e0-49f7-a53b-0b7b4a91b27c
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'D31'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '34262D8E-9603-4D34-88B3-BACA7E1CE306'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '34262D8E-9603-4D34-88B3-BACA7E1CE306'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'D33'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:ad5e0e84-ef6a-40cf-8d06-9c9bb975547e
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:d83d6f5b-20b6-4174-95aa-2c0cc5261647
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:182bf60d-584b-42b1-958e-56261e4d0dc5
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:3e195699-9c27-4fab-bb38-c37e5bd3ae62
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:0ee95b6a-2c59-461b-95dc-7307fcf1ff92
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:f87e0cd3-d2ef-4768-95d5-4dfe449bfd6a
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'Q13'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '8BF8735E-903B-4EF7-91BA-6E2600140B7B'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '8BF8735E-903B-4EF7-91BA-6E2600140B7B'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'Q15'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:50b08022-55ed-4191-b811-3c1437ea0e49
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:d7c8cfcb-da20-43e6-8b20-6662b18ec409
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:751b2dbe-f5dc-4aec-824f-cd79e9454317
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:17832d5c-9e56-4786-8e79-4e37bee21c3b
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:abd4b88a-a3df-4cf3-be17-5a0bad4fd590
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:e4de8a02-15a6-47fd-b048-e45de8fe8662
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 925:Replicating footprint: 'TP6'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: '17CEF138-BD19-45D3-9EC7-E8F17969AA57'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: '17CEF138-BD19-45D3-9EC7-E8F17969AA57'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 932:found match in dst footprint: 'TP8'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:5de2e928-54a4-47d9-bb8e-479683ddd5ec
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:b7e48349-5409-4d62-b3ec-c04a6ddfd1f3
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:383f2a78-835f-438f-b4ea-51251101a3ea
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:c8fb004d-1fce-4e91-93af-c27f9381730d
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1027:Src text UUid:92048217-34f0-4833-9122-d6793e781dba
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1028:Dst text UUid:4d4b7670-e0c0-48b7-bc6b-e624399faf60
+11-19 17:20:23 root 372:updating GUI message: 'Replicating tracks'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1051:Replicating tracks
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1057:Replicating tracks on sheet ['/Green Light Driver/']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'] and dst net: ['', 'Green Light Driver', 'Blinking'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.51
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'] and dst net: ['', 'Green Light Driver', 'Blinking'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.51
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Red'] and dst net: ['', 'Green'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.62
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'] and dst net: ['', 'Green Light Driver', 'Select'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.49
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'] and dst net: ['', 'Green Light Driver', 'Select'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.49
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Green Light Driver/'] :[('+12V', '+12V'), ('/Blinking', '/Blinking'), ('Net-(K1-Pad1)', 'Net-(K5-Pad1)'), ('Net-(D30-A)', 'Net-(D34-A)'), ('Net-(D31-A)', 'Net-(D35-A)'), ('/Red', '/Green'), ('unconnected-(K1-Pad4)', 'unconnected-(K5-Pad4)'), ('GND', 'GND'), ('/Raspberry Signal & Logic Multiplexing/S_RED', '/Green Light Driver/Select'), ('/Raspberry Signal & Logic Multiplexing/B_RED', '/Green Light Driver/Blinking'), ('/Continous', '/Continous')]
+11-19 17:20:23 root 377:updating GUI with: 2
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1057:Replicating tracks on sheet ['/Yellow Light Driver/']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Red'] and dst net: ['', 'Yellow'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.61
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Yellow Light Driver/'] :[('+12V', '+12V'), ('/Red', '/Yellow'), ('unconnected-(K1-Pad4)', 'unconnected-(K3-Pad4)'), ('Net-(D30-A)', 'Net-(D32-A)'), ('/Blinking', '/Blinking'), ('/Raspberry Signal & Logic Multiplexing/S_RED', '/Raspberry Signal & Logic Multiplexing/S_YELLOW'), ('Net-(D31-A)', 'Net-(D33-A)'), ('GND', 'GND'), ('Net-(K1-Pad1)', 'Net-(K3-Pad1)'), ('/Continous', '/Continous'), ('/Raspberry Signal & Logic Multiplexing/B_RED', '/Raspberry Signal & Logic Multiplexing/B_YELLOW')]
+11-19 17:20:23 root 372:updating GUI message: 'Replicating zones'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1121:Replicating zones
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1128:Replicating zones on sheet ['/Green Light Driver/']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'] and dst net: ['', 'Green Light Driver', 'Blinking'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.51
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'] and dst net: ['', 'Green Light Driver', 'Blinking'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.51
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Red'] and dst net: ['', 'Green'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.62
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'] and dst net: ['', 'Green Light Driver', 'Select'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.49
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'] and dst net: ['', 'Green Light Driver', 'Select'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.49
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Green Light Driver/'] :[('+12V', '+12V'), ('/Blinking', '/Blinking'), ('Net-(K1-Pad1)', 'Net-(K5-Pad1)'), ('Net-(D30-A)', 'Net-(D34-A)'), ('Net-(D31-A)', 'Net-(D35-A)'), ('/Red', '/Green'), ('unconnected-(K1-Pad4)', 'unconnected-(K5-Pad4)'), ('GND', 'GND'), ('/Raspberry Signal & Logic Multiplexing/S_RED', '/Green Light Driver/Select'), ('/Raspberry Signal & Logic Multiplexing/B_RED', '/Green Light Driver/Blinking'), ('/Continous', '/Continous')]
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1128:Replicating zones on sheet ['/Yellow Light Driver/']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Red'] and dst net: ['', 'Yellow'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.61
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Yellow Light Driver/'] :[('+12V', '+12V'), ('/Red', '/Yellow'), ('unconnected-(K1-Pad4)', 'unconnected-(K3-Pad4)'), ('Net-(D30-A)', 'Net-(D32-A)'), ('/Blinking', '/Blinking'), ('/Raspberry Signal & Logic Multiplexing/S_RED', '/Raspberry Signal & Logic Multiplexing/S_YELLOW'), ('Net-(D31-A)', 'Net-(D33-A)'), ('GND', 'GND'), ('Net-(K1-Pad1)', 'Net-(K3-Pad1)'), ('/Continous', '/Continous'), ('/Raspberry Signal & Logic Multiplexing/B_RED', '/Raspberry Signal & Logic Multiplexing/B_YELLOW')]
+11-19 17:20:23 root 372:updating GUI message: 'Replicating text'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1210:Replicating text
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1217:Replicating text on sheet ['/Green Light Driver/']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1217:Replicating text on sheet ['/Yellow Light Driver/']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 root 372:updating GUI message: 'Replicating drawings'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1261:Replicating drawings
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1267:Replicating drawings on sheet ['/Green Light Driver/']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'] and dst net: ['', 'Green Light Driver', 'Blinking'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.51
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'B_RED'] and dst net: ['', 'Green Light Driver', 'Blinking'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.51
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Red'] and dst net: ['', 'Green'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.62
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'] and dst net: ['', 'Green Light Driver', 'Select'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.49
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Raspberry Signal & Logic Multiplexing', 'S_RED'] and dst net: ['', 'Green Light Driver', 'Select'], with src_net_depth=3, dst_net_depth=3, src_fp_depth=1, dst_fp_depth=1, match level 0.49
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Green Light Driver/'] :[('+12V', '+12V'), ('/Blinking', '/Blinking'), ('Net-(K1-Pad1)', 'Net-(K5-Pad1)'), ('Net-(D30-A)', 'Net-(D34-A)'), ('Net-(D31-A)', 'Net-(D35-A)'), ('/Red', '/Green'), ('unconnected-(K1-Pad4)', 'unconnected-(K5-Pad4)'), ('GND', 'GND'), ('/Raspberry Signal & Logic Multiplexing/S_RED', '/Green Light Driver/Select'), ('/Raspberry Signal & Logic Multiplexing/B_RED', '/Green Light Driver/Blinking'), ('/Continous', '/Continous')]
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1287:replicating 0 drawins
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1267:Replicating drawings on sheet ['/Yellow Light Driver/']
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 872:Src fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 876:Dst fp.id: 'DD31EEC3-5A63-4DD0-A410-41B1CC12A73D'
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 813:Significant difference between src net: ['', 'Red'] and dst net: ['', 'Yellow'], with src_net_depth=2, dst_net_depth=2, src_fp_depth=1, dst_fp_depth=1, match level 0.61
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 829:Net pairs for sheet ['/Yellow Light Driver/'] :[('+12V', '+12V'), ('/Red', '/Yellow'), ('unconnected-(K1-Pad4)', 'unconnected-(K3-Pad4)'), ('Net-(D30-A)', 'Net-(D32-A)'), ('/Blinking', '/Blinking'), ('/Raspberry Signal & Logic Multiplexing/S_RED', '/Raspberry Signal & Logic Multiplexing/S_YELLOW'), ('Net-(D31-A)', 'Net-(D33-A)'), ('GND', 'GND'), ('Net-(K1-Pad1)', 'Net-(K3-Pad1)'), ('/Continous', '/Continous'), ('/Raspberry Signal & Logic Multiplexing/B_RED', '/Raspberry Signal & Logic Multiplexing/B_YELLOW')]
+11-19 17:20:23 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1287:replicating 0 drawins
+11-19 17:20:24 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 296:Replication complete
+11-19 17:20:24 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 299:Letting the user know there are some issues with replicated design
+11-19 17:20:24 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 303:Looks like the design has an exotic connectivity that the plugin might not handle properly
  Make sure that you check the connectivity around:
-Footprint Q24, pad 1
-Footprint Q20, pad 3
-Footprint RN7, pad 3
-Footprint Q22, pad 1
-Footprint Q21, pad 1
-Footprint TP11, pad 1
+Footprint K3, pad 3
+Footprint K5, pad 3
 Footprint TP10, pad 1
-Footprint Q25, pad 1
-Footprint RN8, pad 3
-Footprint Q24, pad 3
+Footprint TP11, pad 1
 Footprint Q18, pad 1
-Footprint TP13, pad 1
-Footprint RN7, pad 7
-Footprint RN8, pad 7
-Footprint TP14, pad 1
-Footprint Q20, pad 1
+Footprint Q17, pad 1
 
