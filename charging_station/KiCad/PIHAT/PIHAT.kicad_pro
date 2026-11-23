@@ -119,7 +119,7 @@
           ""
         ],
         [
-          "silk_over_copper|214787500|179425000|7415bcce-430e-4928-a7ce-a8a62da303ed|2075278e-71da-4f5c-ab9b-cc216af8449f",
+          "silk_over_copper|214287500|179425000|7415bcce-430e-4928-a7ce-a8a62da303ed|2075278e-71da-4f5c-ab9b-cc216af8449f",
           ""
         ],
         [
@@ -151,11 +151,11 @@
           ""
         ],
         [
-          "silk_overlap|224049405|139379819|b1566420-d191-4e8f-b954-01557507fe2f|ddd5e87a-560e-4dc6-afaf-642f1a7bf0ec",
+          "silk_overlap|224049405|139385000|b1566420-d191-4e8f-b954-01557507fe2f|ddd5e87a-560e-4dc6-afaf-642f1a7bf0ec",
           ""
         ],
         [
-          "silk_overlap|224430357|140465000|99431947-33fc-4913-8fa3-d46a3ce855b6|b1566420-d191-4e8f-b954-01557507fe2f",
+          "silk_overlap|224049405|140465000|99431947-33fc-4913-8fa3-d46a3ce855b6|b1566420-d191-4e8f-b954-01557507fe2f",
           ""
         ],
         [
@@ -191,11 +191,11 @@
           ""
         ],
         [
-          "silk_overlap|229845000|159075000|76a9bede-22ac-40e0-81c8-80610a6d9d7e|ca60811f-4078-4365-b8cd-478b80f44505",
+          "silk_overlap|229852282|160975000|76a9bede-22ac-40e0-81c8-80610a6d9d7e|ca60811f-4078-4365-b8cd-478b80f44505",
           ""
         ],
         [
-          "silk_overlap|229853332|165775000|c424c44f-8ea4-4bca-a30b-5a0c8ec9ba08|eaf245f9-64c9-4f4f-a7ed-cadfecd51af9",
+          "silk_overlap|229853332|163875000|c424c44f-8ea4-4bca-a30b-5a0c8ec9ba08|eaf245f9-64c9-4f4f-a7ed-cadfecd51af9",
           ""
         ],
         [
@@ -851,7 +851,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "./",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
@@ -1055,12 +1055,12 @@
       "PIHAT"
     ],
     [
-      "a8050a6d-d1db-471f-8c70-1cf2984f5603",
-      "SLCU translator"
-    ],
-    [
       "2381f4c6-faae-45e7-8957-2cf2c57d738b",
       "Watchdog"
+    ],
+    [
+      "a8050a6d-d1db-471f-8c70-1cf2984f5603",
+      "SLCU translator"
     ]
   ],
   "text_variables": {},

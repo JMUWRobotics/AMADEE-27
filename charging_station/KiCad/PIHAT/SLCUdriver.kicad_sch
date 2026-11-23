@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "Raspbery Pi HAT")
-		(date "2026-11-18")
+		(date "2026-11-23")
 		(rev "v3.1")
 		(company "JMU Robotics")
 		(comment 1 "Nico")
