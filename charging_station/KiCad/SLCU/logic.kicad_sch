@@ -6,7 +6,7 @@
 	(paper "A3")
 	(title_block
 		(title "SLCU (Stack Light Control Unit)")
-		(date "2026-11-18")
+		(date "2026-11-23")
 		(rev "4.1")
 		(company "JMU Würzburg")
 		(comment 1 "Nico Schubert")

@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "SLCU (Stack Light Control Unit)")
-		(date "2026-11-18")
+		(date "2026-11-23")
 		(rev "4.1")
 		(company "JMU Würzburg")
 		(comment 1 "Nico Schubert")
@@ -2524,9 +2524,9 @@
 		)
 		(uuid "076f86c6-90a0-4d14-9c43-13b044290fad")
 	)
-	(text "I_{max,Burst} = 7*(12V - 2V) / 3kΩ + 6*12V / 1kΩ = @{format( (7*(12 - 2) / 3000 + 6*12 / 1000) * 1000, 3)}mA\nI_{max,Cont} = 7*(12V - 2V) / 3kΩ + 6*12V / 11kΩ = @{format( (7*(12 - 2) / 3000 + 6*12 / 11000) * 1000, 3)}mA\n\nmax Burst PD = R_{DS(on)} * I_{max,Burst}^{2} = @{format( 0.08 * (7*(12 - 2) / 3000 + 6*12 / 1000)^2 * 1000, 3)}mW @ R_{DS(on)}=80mΩ\nmax Cont. PD = R_{DS(on)} * I_{max,Cont}^{2} = @{format( 0.08 * (7*(12 - 2) / 3000 + 6*12 / 11000)^2 * 1000, 3)}mW @ R_{DS(on)}=80mΩ\n"
+	(text "I_{max,Cont} = I_{LEDs} + I_{PDs} = 2*(2.15mA + 5mA + 0.3mA) + 0.3mA + 6 * 12V / 4.7kΩ = @{format( 2*(2.15 + 5 + 0.3) + 0.3 + 6*12/4.7, 3)}mA\nI_{max,Burst} = I_{max,Cont} + I_{GateCharge} = I_{max,Cont} + 6 * 12V / 4.7kΩ = @{format(2*(2.15 + 5 + 0.3) + 0.3 + 2*6*12/4.7, 3)}mA << 3A_{limit}\n\nmax Cont. PD = R_{DS(on)} * I_{max,Cont}^{2} = @{format( 0.08 * (2*(2.15 + 5 + 0.3) + 0.3 + 6*12/4.7)^2 / 1000, 3)}mW @ R_{DS(on)}=80mΩ\nmax Burst PD = R_{DS(on)} * I_{max,Burst}^{2} = @{format( 0.08 * (2*(2.15 + 5 + 0.3) + 0.3 + 2*6*12/4.7)^2 / 1000, 3)}mW @ R_{DS(on)}=80mΩ <<< 1W_{limit}\n"
 		(exclude_from_sim no)
-		(at 24.892 82.296 0)
+		(at 15.748 82.55 0)
 		(effects
 			(font
 				(size 1.27 1.27)
